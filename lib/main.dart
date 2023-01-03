@@ -11,25 +11,60 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Articulation',
 
-      home: Scaffold(
-        backgroundColor: Colors.lightBlueAccent,
-        appBar: AppBar(title: Text("مهارات النطق"),),
-        body: Column(
-          children: [
-            Row(
-              children: [
-                Container(
-                  margin: EdgeInsets.all(10),
+      home: const MyHomePage(title: 'Articulation Home Page'),
+        debugShowCheckedModeBanner: false,
+    );
+  }
+}
 
-                  child: Center(
-                      child: Text("أ", style: TextStyle(fontSize: 70, ))),
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(color: Colors.yellow,
-                    border: Border.all(
-                        color: Colors.yellow
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+
+  // This widget is the home page of your application. It is stateful, meaning
+  // that it has a State object (defined below) that contains fields that affect
+  // how it looks.
+
+  // This class is the configuration for the state. It holds the values (in this
+  // case the title) provided by the parent (in this case the App widget) and
+  // used by the build method of the State. Fields in a Widget subclass are
+  // always marked "final".
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+
+
+  @override
+  Widget build(BuildContext context) {
+    // This method is rerun every time setState is called, for instance as done
+    // by the _incrementCounter method above.
+    //
+    // The Flutter framework has been optimized to make rerunning build methods
+    // fast, so that you can just rebuild anything that needs updating rather
+    // than having to individually change instances of widgets.
+    return Scaffold(
+      backgroundColor: Colors.lightBlueAccent,
+      appBar: AppBar(title: Text("مهارات النطق"),),
+      body: Column(
+        children: [
+          Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
+
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
 
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
@@ -39,220 +74,552 @@ class MyApp extends StatelessWidget {
 
 
 
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  color: Colors.yellow,
-                  child: Center(
-                      child: Text("", style: TextStyle(fontSize: 70, ))),
-                  width: 100,
-                  height: 100,
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
 
 
 
 
 
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  color: Colors.yellow,
-                  child: Center(
-                      child: Text("", style: TextStyle(fontSize: 70, ))),
-                  width: 100,
-                  height: 100,
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
 
 
 
 
 
-                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("أ", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
 
-              ],
 
-            ),
-            Row(
-              children: [
-                Container(
-                  margin: EdgeInsets.all(10),
-                  color: Colors.yellow,
-                  child: Center(
-                      child: Text("", style: TextStyle(fontSize: 70, ))),
-                  width: 100,
-                  height: 100,
 
 
 
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
 
 
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  color: Colors.yellow,
-                  child: Center(
-                      child: Text("", style: TextStyle(fontSize: 70, ))),
-                  width: 100,
-                  height: 100,
 
 
 
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
 
 
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  color: Colors.yellow,
-                  child: Center(
-                      child: Text("", style: TextStyle(fontSize: 70, ))),
-                  width: 100,
-                  height: 100,
 
 
 
+              ),
 
+            ],
 
-                ),
+          ),
+          Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
 
-              ],
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
 
-            ),
-            Row(
-              children: [
-                Container(
-                  margin: EdgeInsets.all(10),
-                  color: Colors.yellow,
-                  child: Center(
-                      child: Text("", style: TextStyle(fontSize: 70, ))),
-                  width: 100,
-                  height: 100,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
 
 
 
 
 
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  color: Colors.yellow,
-                  child: Center(
-                      child: Text("", style: TextStyle(fontSize: 70, ))),
-                  width: 100,
-                  height: 100,
 
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
 
 
 
 
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  color: Colors.yellow,
-                  child: Center(
-                      child: Text("", style: TextStyle(fontSize: 70, ))),
-                  width: 100,
-                  height: 100,
 
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
 
 
 
 
-                ),
 
-              ],
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
 
-            ),
-            Row(
-              children: [
-                Container(
-                  margin: EdgeInsets.all(10),
-                  color: Colors.yellow,
-                  child: Center(
-                      child: Text("", style: TextStyle(fontSize: 70, ))),
-                  width: 100,
-                  height: 100,
 
 
 
 
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
 
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  color: Colors.yellow,
-                  child: Center(
-                      child: Text("", style: TextStyle(fontSize: 70, ))),
-                  width: 100,
-                  height: 100,
 
 
 
 
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
 
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  color: Colors.yellow,
-                  child: Center(
-                      child: Text("", style: TextStyle(fontSize: 70, ))),
-                  width: 100,
-                  height: 100,
 
 
 
 
+              ),
 
-                ),
+            ],
 
-              ],
+          ),
+          Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
 
-            ),
-            Row(
-              children: [
-                Container(
-                  margin: EdgeInsets.all(10),
-                  color: Colors.yellow,
-                  child: Center(
-                      child: Text("", style: TextStyle(fontSize: 70, ))),
-                  width: 100,
-                  height: 100,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
 
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
 
 
 
 
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  color: Colors.yellow,
-                  child: Center(
-                      child: Text("", style: TextStyle(fontSize: 70, ))),
-                  width: 100,
-                  height: 100,
 
 
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
 
 
 
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  color: Colors.yellow,
-                  child: Center(
-                      child: Text("", style: TextStyle(fontSize: 70, ))),
-                  width: 100,
-                  height: 100,
 
 
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
 
 
 
-                ),
 
-              ],
 
-            ),
-          ],
-        ),
-      ) ,
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+
+
+
+
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+
+
+
+
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+
+
+
+
+              ),
+
+            ],
+
+          ),
+          Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
+
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
+
+
+
+
+
+
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+
+
+
+
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+
+
+
+
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+
+
+
+
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+
+
+
+
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+
+
+
+
+              ),
+
+            ],
+
+          ),
+          Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
+
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
+
+
+
+
+
+
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+
+
+
+
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+
+
+
+
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+
+
+
+
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+
+
+
+
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow,
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+
+
+
+
+              ),
+
+            ],
+
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 10),
+
+                    child: Center(
+                        child: Icon(Icons.info_outlined, size: 50)),
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(color: Colors.yellow,
+                      border: Border.all(
+                          color: Colors.yellow
+
+                      ),
+
+                      borderRadius: BorderRadius.all(Radius.circular(360)),),
+
+
+
+
+
+
+                  ),
+                  Text("معلومات")
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 10),
+
+                    child: Center(
+                        child: Icon(Icons.grading_outlined, size: 50)),
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(color: Colors.yellow,
+                      border: Border.all(
+                          color: Colors.yellow
+
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(360)),),
+
+
+
+
+
+
+                  ),
+                  Text("درجات")
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 10),
+
+                    child: Center(
+                        child: Icon(Icons.queue_outlined, size: 50)),
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(color: Colors.yellow,
+                      border: Border.all(
+                          color: Colors.yellow
+
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(360)),),
+
+
+
+
+
+
+                  ),
+                  Text("أصوات متعدده")
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 10),
+
+                    child: Center(
+                        child: Icon(Icons.settings, size: 50)),
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(color: Colors.yellow,
+                      border: Border.all(
+                          color: Colors.yellow
+
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(360)),),
+
+
+
+
+
+
+                  ),
+                  Text("اعدادات")
+                ],
+              ),
+
+
+            ],
+
+          ),
+        ],
+      ),
     );
   }
 }
