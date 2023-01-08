@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flip_card/flip_card.dart';
+import 'package:articulation/screen/singleFlipCard.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -101,18 +104,29 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
-              Container(
-                margin: EdgeInsets.all(10),
-                color: Colors.yellow,
-                child: Center(
-                    child: Text("أ", style: TextStyle(fontSize: 70, ))),
-                width: 100,
-                height: 100,
+              GestureDetector(
+                child: Container(
+                  margin: EdgeInsets.all(10),
+                  color: Colors.yellow,
+                  child: Center(
+                      child: Text("أ", style: TextStyle(fontSize: 70, ))),
+                  width: 100,
+                  height: 100,
 
 
 
 
 
+
+
+                ),
+
+                onTap: (){
+                  Navigator.of(context).push(
+                    PageRouteBuilder(pageBuilder: (_, __, ___) => SingleFlipCard(id: 'flipCardHero'),
+                    )
+                  );
+                }
               ),
               Container(
                 margin: EdgeInsets.all(10),
