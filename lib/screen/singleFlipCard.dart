@@ -101,7 +101,11 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                             margin: EdgeInsets.all(10),
                             width: 150,
                             height: 100,
-                            color: Colors.yellow,
+                            decoration: BoxDecoration(
+                              color: Colors.yellow,
+                              borderRadius: BorderRadius.all(Radius.circular(20)
+                              ),
+                            ),
                             child: Column(
                               children: [
                                 Text("قصص", style: TextStyle(fontSize: 50)),
@@ -114,7 +118,11 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                             margin: EdgeInsets.all(10),
                             width: 150,
                             height: 100,
-                            color: Colors.yellow,
+                            decoration: BoxDecoration(
+                              color: Colors.yellow,
+                              borderRadius: BorderRadius.all(Radius.circular(20)
+                              ),
+                            ),
                             child: Column(
                               children: [
                                 Text("جمل", style: TextStyle(fontSize: 50)),
@@ -127,7 +135,11 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                             margin: EdgeInsets.all(10),
                             width: 150,
                             height: 100,
-                            color: Colors.yellow,
+                            decoration: BoxDecoration(
+                              color: Colors.yellow,
+                              borderRadius: BorderRadius.all(Radius.circular(20)
+                              ),
+                            ),
                             child: Column(
                               children: [
                                 Text("عبارات", style: TextStyle(fontSize: 50)),
@@ -141,7 +153,11 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                               margin: EdgeInsets.all(10),
                               width: 150,
                               height: 100,
-                              color: Colors.yellow,
+                              decoration: BoxDecoration(
+                                color: Colors.yellow,
+                                borderRadius: BorderRadius.all(Radius.circular(20)
+                                ),
+                              ),
                               child: Column(
                                 children: [
                                   Text("كلمات" , style: TextStyle(fontSize: 50),),
@@ -177,7 +193,11 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                             margin: EdgeInsets.all(10),
                             width: 150,
                             height: 100,
-                            color: Colors.yellow,
+                            decoration: BoxDecoration(
+                              color: Colors.yellow,
+                              borderRadius: BorderRadius.all(Radius.circular(20)
+                              ),
+                            ),
                             child: Column(
                               children: [
                                 Text("العاب ", style: TextStyle(fontSize: 50)),
@@ -191,7 +211,11 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                               margin: EdgeInsets.all(10),
                               width: 150,
                               height: 100,
-                              color: Colors.yellow,
+                              decoration: BoxDecoration(
+                                color: Colors.yellow,
+                                borderRadius: BorderRadius.all(Radius.circular(20)
+                                ),
+                              ),
                               child: Column(
                                 children: [
                                   Text("بطاقات", style: TextStyle(fontSize: 50)),
