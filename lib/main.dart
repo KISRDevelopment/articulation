@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:articulation/screen/singleFlipCard.dart';
@@ -53,66 +54,28 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
-      appBar: AppBar(title: Text("مهارات النطق"),),
+      //appBar: AppBar(title: Text("مهارات النطق"),),
       body: Column(
         children: [
-          Row(
-            children: [
-              Container(
-                margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
+          Padding(
+            padding: const EdgeInsets.only(top: 50),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
 
-                child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(color: Colors.yellow,
-                  border: Border.all(
-                      color: Colors.yellow
-
-                  ),
-                  borderRadius: BorderRadius.all(Radius.circular(20)),),
-
-
-
-
-
-
-              ),
-              Container(
-                margin: EdgeInsets.all(10),
-                color: Colors.yellow,
-                child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
-                width: 100,
-                height: 100,
-
-
-
-
-
-              ),
-              Container(
-                margin: EdgeInsets.all(10),
-                color: Colors.yellow,
-                child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
-                width: 100,
-                height: 100,
-
-
-
-
-
-              ),
-              GestureDetector(
-                child: Container(
-                  margin: EdgeInsets.all(10),
-                  color: Colors.yellow,
                   child: Center(
-                      child: Text("أ", style: TextStyle(fontSize: 70, ))),
+                      child: Text("", style: TextStyle(fontSize: 70, ))),
                   width: 100,
                   height: 100,
+                  decoration: BoxDecoration(color: Colors.yellow,
+                    border: Border.all(
+                        color: Colors.yellow
 
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),),
 
 
 
@@ -120,18 +83,123 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
                 ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  decoration: BoxDecoration(color: Colors.yellow,
+                    border: Border.all(
+                        color: Colors.yellow
 
-                onTap: (){
-                  Navigator.of(context).push(
-                    PageRouteBuilder(opaque: false,
-                      pageBuilder: (_, __, ___) => SingleFlipCard(id: 'flipCardHero'),
-                    )
-                  );
-                }
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),),
+                  child: Center(
+                      child: Text("", style: TextStyle(fontSize: 70, ))),
+                  width: 100,
+                  height: 100,
+
+
+
+
+
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  decoration: BoxDecoration(color: Colors.yellow,
+                    border: Border.all(
+                        color: Colors.yellow
+
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),),
+                  child: Center(
+                      child: Text("", style: TextStyle(fontSize: 70, ))),
+                  width: 100,
+                  height: 100,
+
+
+
+
+
+                ),
+                GestureDetector(
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    decoration: BoxDecoration(color: Colors.yellow,
+                      border: Border.all(
+                          color: Colors.yellow
+
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(20)),),
+                    child: Center(
+                        child: Text("أ", style: TextStyle(fontSize: 70, ))),
+                    width: 100,
+                    height: 100,
+
+
+
+
+
+
+
+                  ),
+
+                  onTap: (){
+                    Navigator.of(context).push(
+                      PageRouteBuilder(opaque: false,
+                        pageBuilder: (_, __, ___) => SingleFlipCard(id: 'flipCardHero'),
+                      )
+                    );
+                  }
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  decoration: BoxDecoration(color: Colors.lightBlueAccent,
+
+                    borderRadius: BorderRadius.all(Radius.circular(20)),),
+                  child: Center(
+                      child: Text("مهارات النطق", style: TextStyle(fontSize: 30, ))),
+                  width: 220,
+                  height: 100,
+
+
+
+
+
+                ),
+
+
+              ],
+
+            ),
+          ),
+          Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
+
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
+
+
+
+
+
+
               ),
               Container(
                 margin: EdgeInsets.all(10),
-                color: Colors.yellow,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
                     child: Text("", style: TextStyle(fontSize: 70, ))),
                 width: 100,
@@ -144,7 +212,66 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Container(
                 margin: EdgeInsets.all(10),
-                color: Colors.yellow,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+
+
+
+
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+
+
+
+
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
+                child: Center(
+                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+
+
+
+
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
                     child: Text("", style: TextStyle(fontSize: 70, ))),
                 width: 100,
@@ -196,7 +323,12 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Container(
                 margin: EdgeInsets.all(10),
-                color: Colors.yellow,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
                     child: Text("", style: TextStyle(fontSize: 70, ))),
                 width: 100,
@@ -209,7 +341,12 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Container(
                 margin: EdgeInsets.all(10),
-                color: Colors.yellow,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
                     child: Text("", style: TextStyle(fontSize: 70, ))),
                 width: 100,
@@ -222,7 +359,12 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Container(
                 margin: EdgeInsets.all(10),
-                color: Colors.yellow,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
                     child: Text("", style: TextStyle(fontSize: 70, ))),
                 width: 100,
@@ -235,7 +377,12 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Container(
                 margin: EdgeInsets.all(10),
-                color: Colors.yellow,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
                     child: Text("", style: TextStyle(fontSize: 70, ))),
                 width: 100,
@@ -287,7 +434,12 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Container(
                 margin: EdgeInsets.all(10),
-                color: Colors.yellow,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
                     child: Text("", style: TextStyle(fontSize: 70, ))),
                 width: 100,
@@ -300,7 +452,12 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Container(
                 margin: EdgeInsets.all(10),
-                color: Colors.yellow,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
                     child: Text("", style: TextStyle(fontSize: 70, ))),
                 width: 100,
@@ -313,7 +470,12 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Container(
                 margin: EdgeInsets.all(10),
-                color: Colors.yellow,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
                     child: Text("", style: TextStyle(fontSize: 70, ))),
                 width: 100,
@@ -326,7 +488,12 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Container(
                 margin: EdgeInsets.all(10),
-                color: Colors.yellow,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
                     child: Text("", style: TextStyle(fontSize: 70, ))),
                 width: 100,
@@ -378,85 +545,12 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Container(
                 margin: EdgeInsets.all(10),
-                color: Colors.yellow,
-                child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
-                width: 100,
-                height: 100,
-
-
-
-
-
-              ),
-              Container(
-                margin: EdgeInsets.all(10),
-                color: Colors.yellow,
-                child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
-                width: 100,
-                height: 100,
-
-
-
-
-
-              ),
-              Container(
-                margin: EdgeInsets.all(10),
-                color: Colors.yellow,
-                child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
-                width: 100,
-                height: 100,
-
-
-
-
-
-              ),
-              Container(
-                margin: EdgeInsets.all(10),
-                color: Colors.yellow,
-                child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
-                width: 100,
-                height: 100,
-
-
-
-
-
-              ),
-
-            ],
-
-          ),
-          Row(
-            children: [
-              Container(
-                margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
-
-                child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
-                width: 100,
-                height: 100,
                 decoration: BoxDecoration(color: Colors.yellow,
                   border: Border.all(
                       color: Colors.yellow
 
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
-
-
-
-
-
-
-              ),
-              Container(
-                margin: EdgeInsets.all(10),
-                color: Colors.yellow,
                 child: Center(
                     child: Text("", style: TextStyle(fontSize: 70, ))),
                 width: 100,
@@ -469,7 +563,12 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Container(
                 margin: EdgeInsets.all(10),
-                color: Colors.yellow,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
                     child: Text("", style: TextStyle(fontSize: 70, ))),
                 width: 100,
@@ -482,7 +581,12 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Container(
                 margin: EdgeInsets.all(10),
-                color: Colors.yellow,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
                     child: Text("", style: TextStyle(fontSize: 70, ))),
                 width: 100,
@@ -495,20 +599,12 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Container(
                 margin: EdgeInsets.all(10),
-                color: Colors.yellow,
-                child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
-                width: 100,
-                height: 100,
+                decoration: BoxDecoration(color: Colors.yellow,
+                  border: Border.all(
+                      color: Colors.yellow
 
-
-
-
-
-              ),
-              Container(
-                margin: EdgeInsets.all(10),
-                color: Colors.yellow,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
                     child: Text("", style: TextStyle(fontSize: 70, ))),
                 width: 100,
