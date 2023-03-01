@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'singleFlipCard.dart';
+import 'flashcardWord.dart';
 
 class flashCard extends StatefulWidget {
   const flashCard({Key? key}) : super(key: key);
@@ -139,7 +140,19 @@ class _flashCardState extends State<flashCard> {
                   borderRadius: BorderRadius.all(Radius.circular(50)
                   ),
                 ),
-                child: Center(child: Text("ابدأ", style: TextStyle(color: Colors.black, fontSize: 35))),
+                child: GestureDetector(child: Center(
+                    child: Text("ابدأ", style: TextStyle(
+                        color: Colors.black, fontSize: 35)
+                    )
+                ),
+                  onTap:(){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(
+                          pageBuilder: (_, __, ___) => flashCardWord(),
+                        )
+                    );
+                  }
+                ),
               ),
               crossFadeState: flag ? CrossFadeState.showSecond : CrossFadeState.showFirst,
               duration: Duration(milliseconds: 500),
