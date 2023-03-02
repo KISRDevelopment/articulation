@@ -63,25 +63,34 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Container(
-                  margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
+                GestureDetector(
+                  child: Container(
+                    margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
 
-                  child: Center(
-                      child: Text("", style: TextStyle(fontSize: 70, ))),
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(color: Colors.yellow,
-                    border: Border.all(
-                        color: Colors.yellow
+                    child: Center(
+                        child: Text("ث", style: TextStyle(fontSize: 70, ))),
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(color: Colors.yellow,
+                      border: Border.all(
+                          color: Colors.yellow
 
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(20)),),
-
-
-
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(20)),),
 
 
 
+
+
+
+                  ),
+                    onTap: (){
+                      Navigator.of(context).push(
+                          PageRouteBuilder(opaque: false,
+                            pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ث'),
+                          )
+                      );
+                    }
                 ),
                 Container(
                   margin: EdgeInsets.all(10),
