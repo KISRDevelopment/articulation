@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'singleFlipCard.dart';
 import 'flashcardWord.dart';
+import 'options.dart';
 
 class flashCard extends StatefulWidget {
-  const flashCard({Key? key}) : super(key: key);
+  final letter;
+  const flashCard(@required this.letter);
 
   @override
   _flashCardState createState() => _flashCardState();
 }
 
 class _flashCardState extends State<flashCard> {
+  late List dict;
   bool flag = false;
+  bool medial = false;
+  bool end = false;
+  late String letters;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +58,7 @@ class _flashCardState extends State<flashCard> {
                     Center(
                         child: Container(
                           margin: EdgeInsets.all(10),
-                          child: Text("أ", style: TextStyle(fontSize: 70),),
+                          child: Text(widget.letter, style: TextStyle(fontSize: 70),),
 
                         )),
                     Container(
@@ -76,7 +82,19 @@ class _flashCardState extends State<flashCard> {
                             ),
                             onTap: (){
                               setState(() {
+
                                 flag = !flag;
+
+                                if(medial == true){
+                                  medial = !medial;
+                                }else if(end == true){
+                                  end = !end;
+                                }
+                                letters = widget.letter;
+                                dict = showPosition('begin');
+
+
+
                               });
                             },
                           ),
@@ -89,15 +107,33 @@ class _flashCardState extends State<flashCard> {
                       margin: EdgeInsets.all(10),
                       child: Column(
                         children: [
-                          Container(
-                            height: 100,
-                            width: 250,
-                            child: Center(child: Text("وسط الكلمة", style: TextStyle(fontSize: 50, color: Colors.grey))),
-                            decoration: BoxDecoration(
-                              color: Colors.grey[100],
-                              borderRadius: BorderRadius.all(Radius.circular(20)
-                              ),
-                            ),),
+                          GestureDetector(
+                            child: Container(
+                              height: 100,
+                              width: 250,
+                              child: Center(child: Text("وسط الكلمة", style: TextStyle(fontSize: 50, color: medial ? Colors.white : Colors.grey))),
+                              decoration: BoxDecoration(
+                                color: medial ? Colors.grey : Colors.grey[100],
+                                borderRadius: BorderRadius.all(Radius.circular(20)
+                                ),
+                              ),),
+                            onTap: (){
+                              setState(() {
+                                medial = !medial;
+
+                                if(flag == true){
+                                  flag = !flag;
+                                }else if(end == true){
+                                  end = !end;
+                                }
+                                letters = widget.letter;
+                                dict = showPosition('medial');
+
+
+
+                              });
+                            },
+                          ),
                         ],
                       ),
                     ),
@@ -107,15 +143,34 @@ class _flashCardState extends State<flashCard> {
                       margin: EdgeInsets.all(10),
                       child: Column(
                         children: [
-                          Container(
-                            height: 100,
-                            width: 250,
-                            child: Center(child: Text("آخر الكلمة", style: TextStyle(fontSize: 50, color: Colors.grey))),
-                            decoration: BoxDecoration(
-                              color: Colors.grey[100],
-                              borderRadius: BorderRadius.all(Radius.circular(20)
-                              ),
-                            ),),
+                          GestureDetector(
+                            child: Container(
+                              height: 100,
+                              width: 250,
+                              child: Center(child: Text("آخر الكلمة", style: TextStyle(fontSize: 50, color: end ? Colors.white : Colors.grey))),
+                              decoration: BoxDecoration(
+                                color: end ? Colors.grey : Colors.grey[100],
+                                borderRadius: BorderRadius.all(Radius.circular(20)
+                                ),
+                              ),),
+                            onTap: (){
+                              setState(() {
+                                end = !end;
+
+                                if(medial == true){
+                                  medial = !medial;
+                                }else if(flag == true){
+                                  flag = !flag;
+                                }
+                                letters = widget.letter;
+
+                                dict = showPosition('end');
+
+
+
+                              });
+                            },
+                          ),
                         ],
                       ),
                     ),
@@ -146,15 +201,16 @@ class _flashCardState extends State<flashCard> {
                     )
                 ),
                   onTap:(){
+                    //dict = showPosition('begin');
                     Navigator.of(context).push(
                         PageRouteBuilder(
-                          pageBuilder: (_, __, ___) => flashCardWord(),
+                          pageBuilder: (_, __, ___) => flashCardWord(dict),
                         )
                     );
                   }
                 ),
               ),
-              crossFadeState: flag ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+              crossFadeState: (flag||medial||end) ? CrossFadeState.showSecond : CrossFadeState.showFirst,
               duration: Duration(milliseconds: 500),
             ),
             AnimatedCrossFade(
@@ -174,7 +230,7 @@ class _flashCardState extends State<flashCard> {
                   ),
                   child: Icon(Icons.view_list, size: 50.0),
                 ),
-              crossFadeState: flag ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+              crossFadeState: (flag||medial||end) ? CrossFadeState.showSecond : CrossFadeState.showFirst,
               duration: Duration(milliseconds: 500),
             ),
             Container(
@@ -193,5 +249,47 @@ class _flashCardState extends State<flashCard> {
       ),
       );
     //);
+  }
+  showPosition(pos){
+    switch(pos){
+      case 'begin':
+        dict = showLetterBegin(letters);
+        return dict;
+      case 'medial':
+        dict = showLetterMed(letters);
+        return dict;
+      case 'end':
+        dict = showLetterEnd(letters);
+        return dict;
+      default:
+        break;
+    }
+  }
+  showLetterBegin(pos){
+    switch(pos){
+      case 'أ':
+        dict = PicturesOptions.picListBeginAlf;
+        return dict;
+      default:
+        break;
+    }
+  }
+  showLetterMed(pos){
+    switch(pos){
+      case 'أ':
+        dict = PicturesOptions.picListMedAlf;
+        return dict;
+      default:
+        break;
+    }
+  }
+  showLetterEnd(pos){
+    switch(pos){
+      case 'أ':
+        dict = PicturesOptions.picListEndAlf;
+        return dict;
+      default:
+        break;
+    }
   }
 }
