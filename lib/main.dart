@@ -144,7 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: (){
                     Navigator.of(context).push(
                       PageRouteBuilder(opaque: false,
-                        pageBuilder: (_, __, ___) => SingleFlipCard(id: 'flipCardHero'),
+                        pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'أ'),
                       )
                     );
                   }
