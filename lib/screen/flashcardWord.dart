@@ -6,7 +6,10 @@ import 'options.dart';
 
 
 class flashCardWord extends StatefulWidget {
-  const flashCardWord({Key? key}) : super(key: key);
+
+
+  final dict;
+  const flashCardWord(@required this.dict);
 
   @override
   _flashCardState createState() => _flashCardState();
@@ -50,7 +53,7 @@ class _flashCardState extends State<flashCardWord> {
                   ),
                 ),
                 child: CarouselSlider(
-                  items: PicturesOptions.picListBeginAlf.map((pictureOptions) =>
+                  items: widget.dict.map<Widget>((pictureOptions) =>
                   CarouselCard(picturesOptions: pictureOptions)).toList(),
                   options: CarouselOptions(
                     height: MediaQuery.of(context).size.height,
