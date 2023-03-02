@@ -4,8 +4,8 @@ import 'package:flip_card/flip_card.dart';
 import 'flashCard.dart';
 
 class SingleFlipCard extends StatefulWidget {
-  final id;
-  SingleFlipCard({@required this.id});
+  final letter;
+  SingleFlipCard({@required this.letter});
 
   //const SingleFlipCard({Key? key}) : super(key: key);
 
@@ -91,7 +91,7 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                     ],
                   ),
                   Container(
-                    child: Center(child: Text('أ', style: TextStyle(fontSize: 150, ),)),
+                    child: Center(child: Text(widget.letter, style: TextStyle(fontSize: 150, ),)),
                   ),
                   Container(
                     child: AnimatedCrossFade(
@@ -227,7 +227,7 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                               onTap: (){
                                 Navigator.of(context).push(
                                     PageRouteBuilder(
-                                      pageBuilder: (_, __, ___) => flashCard(),
+                                      pageBuilder: (_, __, ___) => flashCard(widget.letter),
                                     )
                                 );
                               }
