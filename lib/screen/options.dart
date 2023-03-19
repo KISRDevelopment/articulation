@@ -70,7 +70,7 @@ class PicturesOptions{
   ];
 
   static List<PicturesOptions> picListEndTaa = [
-    PicturesOptions(word: "زيت؛", image: "images/oil.jpg"),
+    PicturesOptions(word: "زيت", image: "images/oil.jpg"),
   ];
 
   static List<PicturesOptions> picListEndTh = [
