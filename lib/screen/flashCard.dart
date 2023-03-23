@@ -269,7 +269,7 @@ class _flashCardState extends State<flashCard> {
     switch(pos){
       case 'أ':
         dict = PicturesOptions.picListBeginAlf;
-        return dict
+        return dict;
       case 'ب':
         dict = PicturesOptions.picListBeginBaa;
         return dict;

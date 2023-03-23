@@ -101,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
                 ),
-                estureDetector(
+                GestureDetector(
                     child: Container(
                       margin: EdgeInsets.all(10),
                       decoration: BoxDecoration(color: Colors.yellow,
