@@ -219,11 +219,12 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Row(
             children: [
-              Container(
+              GestureDetector(
+              child: Container(
                 margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
 
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ر", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
                 decoration: BoxDecoration(color: Colors.amber.shade50,
@@ -233,8 +234,62 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
 
+              ),
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter:'ر') ,
+                        )
+                    );
+                  }
+              ),
+              GestureDetector(
+              child: Container(
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(color: Colors.amber.shade50,
+                  border: Border.all(
+                      color: Colors.amber.shade50
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
+                child: Center(
+                    child: Text("ذ", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+    ),
+
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ذ'),
+                        )
+                    );
+                  }
 
 
+
+              ),
+              GestureDetector(
+              child: Container(
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(color: Colors.amber.shade50,
+                  border: Border.all(
+                      color: Colors.amber.shade50
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
+                child: Center(
+                    child: Text("د", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+    ),
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ذ'),
+                        )
+                    );
+                  }
 
 
 
@@ -257,42 +312,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
-              Container(
-                margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(color: Colors.amber.shade50,
-                  border: Border.all(
-                      color: Colors.amber.shade50
 
-                  ),
-                  borderRadius: BorderRadius.all(Radius.circular(20)),),
-                child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
-                width: 100,
-                height: 100,
-
-
-
-
-
-              ),
-              Container(
-                margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(color: Colors.amber.shade50,
-                  border: Border.all(
-                      color: Colors.amber.shade50
-
-                  ),
-                  borderRadius: BorderRadius.all(Radius.circular(20)),),
-                child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
-                width: 100,
-                height: 100,
-
-
-
-
-
-              ),
               Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
