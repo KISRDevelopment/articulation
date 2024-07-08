@@ -83,23 +83,32 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
                 ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  decoration: BoxDecoration(color: Colors.yellow,
-                    border: Border.all(
-                        color: Colors.yellow
+                GestureDetector(
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    decoration: BoxDecoration(color: Colors.yellow,
+                      border: Border.all(
+                          color: Colors.yellow
 
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(20)),),
-                  child: Center(
-                      child: Text("", style: TextStyle(fontSize: 70, ))),
-                  width: 100,
-                  height: 100,
-
-
-
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(20)),),
+                    child: Center(
+                        child: Text("ت", style: TextStyle(fontSize: 70, ))),
+                    width: 100,
+                    height: 100,
 
 
+
+
+
+                  ),
+                    onTap: (){
+                      Navigator.of(context).push(
+                          PageRouteBuilder(opaque: false,
+                            pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ت'),
+                          )
+                      );
+                    }
                 ),
                 GestureDetector(
                     child: Container(
