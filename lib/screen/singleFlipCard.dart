@@ -102,7 +102,7 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                             width: 150,
                             height: 100,
                             decoration: BoxDecoration(
-                              color: Colors.yellow,
+                              color: Colors.amber.shade50,
                               borderRadius: BorderRadius.all(Radius.circular(20)
                               ),
                             ),
@@ -119,7 +119,7 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                             width: 150,
                             height: 100,
                             decoration: BoxDecoration(
-                              color: Colors.yellow,
+                              color: Colors.amber.shade50,
                               borderRadius: BorderRadius.all(Radius.circular(20)
                               ),
                             ),
@@ -136,7 +136,7 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                             width: 150,
                             height: 100,
                             decoration: BoxDecoration(
-                              color: Colors.yellow,
+                              color: Colors.amber.shade50,
                               borderRadius: BorderRadius.all(Radius.circular(20)
                               ),
                             ),
@@ -154,7 +154,7 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                               width: 150,
                               height: 100,
                               decoration: BoxDecoration(
-                                color: Colors.yellow,
+                                color: Colors.amber.shade50,
                                 borderRadius: BorderRadius.all(Radius.circular(20)
                                 ),
                               ),
@@ -194,7 +194,7 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                             width: 150,
                             height: 100,
                             decoration: BoxDecoration(
-                              color: Colors.yellow,
+                              color: Colors.amber.shade50,
                               borderRadius: BorderRadius.all(Radius.circular(20)
                               ),
                             ),
@@ -212,7 +212,7 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                               width: 150,
                               height: 100,
                               decoration: BoxDecoration(
-                                color: Colors.yellow,
+                                color: Colors.amber.shade50,
                                 borderRadius: BorderRadius.all(Radius.circular(20)
                                 ),
                               ),
