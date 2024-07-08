@@ -273,6 +273,12 @@ class _flashCardState extends State<flashCard> {
       case 'ث':
         dict = PicturesOptions.picListBeginTh;
         return dict;
+      case 'ت':
+        dict = PicturesOptions.picListBeginTaa;
+        return dict;
+      case 'ب':
+        dict = PicturesOptions.picListBeginBaa;
+        return dict;
       default:
         break;
     }
@@ -284,6 +290,12 @@ class _flashCardState extends State<flashCard> {
         return dict;
       case 'ث':
         dict = PicturesOptions.picListMedTh;
+        return dict;
+      case 'ت':
+        dict = PicturesOptions.picListMedTaa;
+        return dict;
+      case 'ب':
+        dict = PicturesOptions.picListMedBaa;
         return dict;
       default:
         break;
@@ -297,8 +309,18 @@ class _flashCardState extends State<flashCard> {
       case 'ث':
         dict = PicturesOptions.picListEndTh;
         return dict;
+      case 'ت':
+        dict = PicturesOptions.picListEndTaa;
+        return dict;
+      case 'ب':
+        dict = PicturesOptions.picListEndBaa;
+        return dict;
       default:
         break;
     }
   }
+
+
+
+
 }
