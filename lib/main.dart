@@ -75,16 +75,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     decoration: BoxDecoration(color: Colors.yellow,
                       border: Border.all(
                           color: Colors.yellow
-
-                  child: Center(
-                      child: Text("", style: TextStyle(fontSize: 70, ))),
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(color: Colors.amber[50],
-                    border: Border.all(
-                        color: Colors.amber.shade50
-
                       ),
+
                       borderRadius: BorderRadius.all(Radius.circular(20)),),
 
 
@@ -107,6 +99,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   decoration: BoxDecoration(color: Colors.amber[50],
                     border: Border.all(
                         color: Colors.amber.shade50
+    ),
+    ),
+                ),
                 GestureDetector(
                   child: Container(
                     margin: EdgeInsets.all(10),
@@ -140,6 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   decoration: BoxDecoration(color: Colors.amber[50],
                     border: Border.all(
                         color: Colors.amber.shade50
+    ),),),
                 GestureDetector(
                     child: Container(
                       margin: EdgeInsets.all(10),
