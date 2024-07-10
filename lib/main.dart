@@ -358,7 +358,7 @@ GestureDetector(
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("ح", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ج", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -368,7 +368,7 @@ GestureDetector(
     onTap: (){
     Navigator.of(context).push(
     PageRouteBuilder(opaque: false,
-    pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ح'),
+    pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ج'),
     )
     );
     }
