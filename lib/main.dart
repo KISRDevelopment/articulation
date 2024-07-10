@@ -358,7 +358,7 @@ GestureDetector(
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ح", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
