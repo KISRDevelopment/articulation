@@ -286,7 +286,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ذ'),
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'د'),
                         )
                     );
                   }
@@ -294,7 +294,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
-              Container(
+              GestureDetector(
+              child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -303,17 +304,52 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("خ", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
-
+    ),
+    onTap: (){
+    Navigator.of(context).push(
+    PageRouteBuilder(opaque: false,
+    pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'خ'),
+    )
+    );
+    }
 
 
 
               ),
+GestureDetector(
+              child: Container(
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(color: Colors.amber.shade50,
+                  border: Border.all(
+                      color: Colors.amber.shade50
 
-              Container(
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
+                child: Center(
+                    child: Text("ح", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+              ),
+
+    onTap: (){
+    Navigator.of(context).push(
+    PageRouteBuilder(opaque: false,
+    pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ح'),
+    )
+    );
+    }
+
+
+
+    ),
+
+              GestureDetector(
+              child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -325,41 +361,35 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text("", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
-
-
-
 
 
               ),
-              Container(
-                margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(color: Colors.amber.shade50,
-                  border: Border.all(
-                      color: Colors.amber.shade50
 
-                  ),
-                  borderRadius: BorderRadius.all(Radius.circular(20)),),
-                child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
-                width: 100,
-                height: 100,
+    onTap: (){
+    Navigator.of(context).push(
+    PageRouteBuilder(opaque: false,
+    pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ح'),
+    )
+    );
+    }
 
 
 
-
-
+   // ),
+//
               ),
 
             ],
 
           ),
           Row(
+
             children: [
-              Container(
+              GestureDetector(child: Container(
                 margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
 
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ط", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
                 decoration: BoxDecoration(color: Colors.amber.shade50,
@@ -375,6 +405,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ط'),
+                        )
+                    );
+                  }
+              ),
+              
               Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
