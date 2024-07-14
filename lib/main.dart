@@ -657,7 +657,13 @@ GestureDetector(
 
 
               ),
-
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'غ'),
+                        )
+                    );
+                  }
               ),
 
               GestureDetector(child: Container(
