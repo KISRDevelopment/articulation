@@ -522,8 +522,7 @@ GestureDetector(
                     );
                   }
               ),
-
-              Container(
+              GestureDetector(child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -532,7 +531,7 @@ GestureDetector(
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ز", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -541,6 +540,15 @@ GestureDetector(
 
 
               ),
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ز'),
+                        )
+                    );
+                  }
+              ),
+
 
             ],
 
