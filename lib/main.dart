@@ -555,11 +555,11 @@ GestureDetector(
           ),
           Row(
             children: [
-              Container(
+              GestureDetector(child: Container(
                 margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
 
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ك", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
                 decoration: BoxDecoration(color: Colors.amber.shade50,
@@ -575,7 +575,16 @@ GestureDetector(
 
 
               ),
-              Container(
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ك'),
+                        )
+                    );
+                  }
+              ),
+
+              GestureDetector(child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -584,7 +593,7 @@ GestureDetector(
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ق", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -593,7 +602,17 @@ GestureDetector(
 
 
               ),
-              Container(
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ق'),
+                        )
+                    );
+                  }
+              ),
+
+
+              GestureDetector(child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -602,7 +621,7 @@ GestureDetector(
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ف", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -611,7 +630,16 @@ GestureDetector(
 
 
               ),
-              Container(
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ف'),
+                        )
+                    );
+                  }
+              ),
+
+              GestureDetector(child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -620,7 +648,7 @@ GestureDetector(
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("غ", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -629,7 +657,38 @@ GestureDetector(
 
 
               ),
-              Container(
+
+              ),
+
+              GestureDetector(child: Container(
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(color: Colors.amber.shade50,
+                  border: Border.all(
+                      color: Colors.amber.shade50
+
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
+                child: Center(
+                    child: Text("ع", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+
+
+
+
+              ),
+              onTap: (){
+              Navigator.of(context).push(
+              PageRouteBuilder(opaque: false,
+              pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ع'),
+              )
+              );
+              }
+              ),
+
+              GestureDetector(child:Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -638,7 +697,7 @@ GestureDetector(
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ظ", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -647,24 +706,15 @@ GestureDetector(
 
 
               ),
-              Container(
-                margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(color: Colors.amber.shade50,
-                  border: Border.all(
-                      color: Colors.amber.shade50
-
-                  ),
-                  borderRadius: BorderRadius.all(Radius.circular(20)),),
-                child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
-                width: 100,
-                height: 100,
-
-
-
-
-
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ظ'),
+                        )
+                    );
+                  }
               ),
+
 
             ],
 
