@@ -49,7 +49,7 @@ class PicturesOptions{
   ];
 
   static List<PicturesOptions> picListMedBaa = [
-    PicturesOptions(word: "خبز", image: "images/bread.jpg"),
+    PicturesOptions(word: "خبز", image: "images/bread1.jpg"),
   ];
 
   static List<PicturesOptions> picListMedTaa = [
@@ -66,7 +66,7 @@ class PicturesOptions{
   ];
 
   static List<PicturesOptions> picListEndBaa = [
-    PicturesOptions(word: "كلب", image: "images/dog.jpg"),
+    PicturesOptions(word: "كلب", image: "images/bear.jpg"),
   ];
 
   static List<PicturesOptions> picListEndTaa = [
