@@ -28,7 +28,7 @@ class PicturesOptions{
 
 
   static List<PicturesOptions> picListBeginAlf = [
-    PicturesOptions(word: "أسد", image: "images/lion2.jpg" ),
+    PicturesOptions(word: "أسد", image: "images/rabbit.jpg" ),
   ];
 
   static List<PicturesOptions> picListBeginBaa = [
