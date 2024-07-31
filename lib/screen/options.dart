@@ -40,7 +40,7 @@ class PicturesOptions{
   ];
 
   static List<PicturesOptions> picListBeginTh = [
-    PicturesOptions(word: "ثعلب", image: "images/fox.jpg"),
+    PicturesOptions(word: "ثلاجة", image: "images/fridge.jpg"),
   ];
 
 
@@ -57,7 +57,7 @@ class PicturesOptions{
   ];
 
   static List<PicturesOptions> picListMedTh = [
-    PicturesOptions(word: "كمثري", image: "images/pear.jpg"),
+    PicturesOptions(word: "مثلث", image: "images/traingle3.jpg"),
   ];
 
 
@@ -74,7 +74,7 @@ class PicturesOptions{
   ];
 
   static List<PicturesOptions> picListEndTh = [
-    PicturesOptions(word: "مثلث", image: "images/traingle.jpg"),
+    PicturesOptions(word: "أثاث", image: "images/furniture.jpg"),
   ];
 
 
