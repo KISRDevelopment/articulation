@@ -32,7 +32,7 @@ class PicturesOptions{
   ];
 
   static List<PicturesOptions> picListBeginBaa = [
-    PicturesOptions(word: "بطة", image: "images/duck2.jpg"),
+    PicturesOptions(word: "بطة", image: "images/duck1.jpg"),
   ];
 
   static List<PicturesOptions> picListBeginTaa = [
