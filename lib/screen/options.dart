@@ -53,7 +53,7 @@ class PicturesOptions{
   ];
 
   static List<PicturesOptions> picListMedTaa = [
-    PicturesOptions(word: "دفتر", image: "images/notebook.jpg"),
+    PicturesOptions(word: "مفتاح", image: "images/key.jpg"),
   ];
 
   static List<PicturesOptions> picListMedTh = [
@@ -70,7 +70,7 @@ class PicturesOptions{
   ];
 
   static List<PicturesOptions> picListEndTaa = [
-    PicturesOptions(word: "زيت", image: "images/oil.jpg"),
+    PicturesOptions(word: "بيت", image: "images/house.jpg"),
   ];
 
   static List<PicturesOptions> picListEndTh = [
