@@ -70,6 +70,13 @@ class PicturesOptions{
   static List<PicturesOptions> picListBeginSha = [
     PicturesOptions(word: "شمس", image: "images/sun.jpg"),
   ];
+  static List<PicturesOptions> picListBeginSsa = [
+    PicturesOptions(word: "صحن", image: "images/plate.jpg"),
+  ];
+  static List<PicturesOptions> picListBeginTtha = [
+    PicturesOptions(word: "ضفدع", image: "images/frog.jpg"),
+  ];
+
 
   static List<PicturesOptions> picListMedAlf = [
     PicturesOptions(word: "فأر", image: "images/mouse2.jpg"),
@@ -114,6 +121,12 @@ class PicturesOptions{
   static List<PicturesOptions> picListMedSha = [
     PicturesOptions(word: "فراشة", image: "images/butterfly.jpg"),
   ];
+  static List<PicturesOptions> picListMedSsa = [
+    PicturesOptions(word: "بصل", image: "images/onion.jpg"),
+  ];
+  static List<PicturesOptions> picListMedTtha = [
+    PicturesOptions(word: "خضار", image: "images/vegetables.jpg"),
+  ];
 
   static List<PicturesOptions> picListEndAlf = [
     PicturesOptions(word: "عصا", image: "images/stick.jpg"),
@@ -156,6 +169,12 @@ class PicturesOptions{
   ];
   static List<PicturesOptions> picListEndSha = [
     PicturesOptions(word: "عش", image: "images/nest.jpg"),
+  ];
+  static List<PicturesOptions> picListEndSsa = [
+    PicturesOptions(word: "مقص", image: "images/scissors.jpg"),
+  ];
+  static List<PicturesOptions> picListEndTtha = [
+    PicturesOptions(word: "بيض", image: "images/egg.jpg"),
   ];
 
 
