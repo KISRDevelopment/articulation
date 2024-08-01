@@ -345,6 +345,10 @@ class _flashCardState extends State<flashCard> {
       case 'ه':
         dict = PicturesOptions.picListBeginHuh;
         return dict;
+      case 'و':
+        dict = PicturesOptions.picListBeginWa;
+        return dict;
+
 
 
 
@@ -435,6 +439,9 @@ class _flashCardState extends State<flashCard> {
       case 'ه':
         dict = PicturesOptions.picListMedHuh;
         return dict;
+      case 'و':
+        dict = PicturesOptions.picListMedWa;
+        return dict;
 
       default:
         break;
@@ -519,6 +526,9 @@ class _flashCardState extends State<flashCard> {
         return dict;
       case 'ه':
         dict = PicturesOptions.picListEndHuh;
+        return dict;
+      case 'و':
+        dict = PicturesOptions.picListEndWa;
         return dict;
 
 
