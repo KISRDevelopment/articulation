@@ -106,6 +106,9 @@ class PicturesOptions{
   static List<PicturesOptions> picListBeginNa = [
     PicturesOptions(word: "نحلة", image: "images/bee.jpg"),
   ];
+  static List<PicturesOptions> picListBeginHuh = [
+    PicturesOptions(word: "هدية", image: "images/gift.jpg"),
+  ];
 
   static List<PicturesOptions> picListMedAlf = [
     PicturesOptions(word: "فأر", image: "images/mouse2.jpg"),
@@ -187,6 +190,9 @@ class PicturesOptions{
   static List<PicturesOptions> picListMedNa = [
     PicturesOptions(word: "أرنب", image: "images/rabbit.jpg"),
   ];
+  static List<PicturesOptions> picListMedHuh = [
+    PicturesOptions(word: "مهفه", image: "images/fan.jpg"),
+  ];
   static List<PicturesOptions> picListEndAlf = [
     PicturesOptions(word: "عصا", image: "images/stick.jpg"),
   ];
@@ -264,6 +270,9 @@ class PicturesOptions{
   ];
   static List<PicturesOptions> picListEndNa = [
     PicturesOptions(word: "رمان", image: "images/pomegranate.jpg"),
+  ];
+  static List<PicturesOptions> picListEndHuh = [
+    PicturesOptions(word: "طاوله", image: "images/table.jpg"),
   ];
 
 
