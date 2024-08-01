@@ -315,6 +315,9 @@ class _flashCardState extends State<flashCard> {
       case 'ط':
         dict = PicturesOptions.picListBeginTta;
         return dict;
+      case 'ظ':
+        dict = PicturesOptions.picListBeginZha;
+        return dict;
 
 
       default:
@@ -371,6 +374,9 @@ class _flashCardState extends State<flashCard> {
       case 'ط':
         dict = PicturesOptions.picListMedTta;
         return dict;
+      case 'ظ':
+        dict = PicturesOptions.picListMedZha;
+        return dict;
 
 
       default:
@@ -426,6 +432,9 @@ class _flashCardState extends State<flashCard> {
         return dict;
       case 'ط':
         dict = PicturesOptions.picListEndTta;
+        return dict;
+      case 'ظ':
+        dict = PicturesOptions.picListEndZha;
         return dict;
 
 
