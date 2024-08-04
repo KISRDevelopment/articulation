@@ -117,7 +117,7 @@ class PicturesOptions{
   ];
 
   static List<PicturesOptions> picListMedAlf = [
-    PicturesOptions(word: "فأر", image: "images/mouse2.jpg"),
+    PicturesOptions(word: "مفاجأة", image: "images/surprise.jpg"),
   ];
 
   static List<PicturesOptions> picListMedBaa = [
@@ -206,7 +206,7 @@ class PicturesOptions{
     PicturesOptions(word: "سيارة", image: "images/car.jpg"),
   ];
   static List<PicturesOptions> picListEndAlf = [
-    PicturesOptions(word: "عصا", image: "images/stick.jpg"),
+    PicturesOptions(word: "بطيئ", image: "images/slow.jpg"),
   ];
 
   static List<PicturesOptions> picListEndBaa = [
