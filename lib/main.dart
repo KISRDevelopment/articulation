@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:articulation/screen/singleFlipCard.dart';
+import 'package:articulation/screen/info.dart';
 
 
 void main() {
@@ -72,9 +73,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("ث", style: TextStyle(fontSize: 70, ))),
                     width: 100,
                     height: 100,
-                    decoration: BoxDecoration(color: Colors.yellow,
+                    decoration: BoxDecoration(color: Colors.amber.shade50,
                       border: Border.all(
-                          color: Colors.yellow
+                          color: Colors.amber.shade50,
                       ),
 
                       borderRadius: BorderRadius.all(Radius.circular(20)),),
@@ -94,20 +95,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     }
                 ),
 
-                Container(
-                  margin: EdgeInsets.all(10),
-                  decoration: BoxDecoration(color: Colors.amber[50],
-                    border: Border.all(
-                        color: Colors.amber.shade50
-    ),
-    ),
-                ),
                 GestureDetector(
                   child: Container(
                     margin: EdgeInsets.all(10),
-                    decoration: BoxDecoration(color: Colors.yellow,
+                    decoration: BoxDecoration(color: Colors.amber.shade50,
                       border: Border.all(
-                          color: Colors.yellow
+                          color: Colors.amber.shade50
 
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(20)),),
@@ -130,18 +123,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     }
                 ),
 
-                Container(
-                  margin: EdgeInsets.all(10),
-                  decoration: BoxDecoration(color: Colors.amber[50],
-                    border: Border.all(
-                        color: Colors.amber.shade50
-    ),),),
                 GestureDetector(
                     child: Container(
                       margin: EdgeInsets.all(10),
-                      decoration: BoxDecoration(color: Colors.yellow,
+                      decoration: BoxDecoration(color: Colors.amber.shade50,
                         border: Border.all(
-                            color: Colors.yellow
+                            color: Colors.amber.shade50
 
                         ),
                         borderRadius: BorderRadius.all(Radius.circular(20)),),
@@ -687,22 +674,35 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Column(
                 children: [
-                  Container(
-                    margin: EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 10),
+                  GestureDetector(
+                    child: Container(
+                      margin: EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 10),
 
-                    child: Center(
-                        child: Icon(Icons.info_outlined, size: 50)),
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(color: Colors.amber.shade50,
-                      border: Border.all(
-                          color: Colors.amber.shade50
+                      child: Center(
+                          child: Icon(Icons.info_outlined, size: 50)),
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(color: Colors.amber.shade50,
+                        border: Border.all(
+                            color: Colors.amber.shade50
 
-                      ),
+                        ),
 
-                      borderRadius: BorderRadius.all(Radius.circular(360)),),
+                        borderRadius: BorderRadius.all(Radius.circular(360)),),
 
 
+
+
+
+
+                    ),
+                      onTap: (){
+                        Navigator.of(context).push(
+                            PageRouteBuilder(opaque: false,
+                              pageBuilder: (_, __, ___) => InfoCard(letter: 'معلومات'),
+                            )
+                        );
+                      }
 
 
 
@@ -734,31 +734,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
                   ),
                   Text("درجات")
-                ],
-              ),
-              Column(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 10),
-
-                    child: Center(
-                        child: Icon(Icons.queue_outlined, size: 50)),
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(color: Colors.amber.shade50,
-                      border: Border.all(
-                          color: Colors.amber.shade50
-
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(360)),),
-
-
-
-
-
-
-                  ),
-                  Text("أصوات متعدده")
                 ],
               ),
               Column(
