@@ -219,11 +219,12 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Row(
             children: [
-              Container(
+              GestureDetector(
+              child: Container(
                 margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
 
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ر", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
                 decoration: BoxDecoration(color: Colors.amber.shade50,
@@ -233,13 +234,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
 
-
-
-
-
-
               ),
-              Container(
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter:'ر') ,
+                        )
+                    );
+                  }
+              ),
+              GestureDetector(
+              child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -248,16 +253,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ذ", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
+    ),
 
-
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ذ'),
+                        )
+                    );
+                  }
 
 
 
               ),
-              Container(
+              GestureDetector(
+              child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -266,16 +279,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("د", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
-
-
+    ),
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'د'),
+                        )
+                    );
+                  }
 
 
 
               ),
-              Container(
+              GestureDetector(
+              child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -284,16 +304,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("خ", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
-
+    ),
+    onTap: (){
+    Navigator.of(context).push(
+    PageRouteBuilder(opaque: false,
+    pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'خ'),
+    )
+    );
+    }
 
 
 
               ),
-              Container(
+GestureDetector(
+              child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -302,16 +330,26 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ح", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
-
-
-
-
               ),
-              Container(
+
+    onTap: (){
+    Navigator.of(context).push(
+    PageRouteBuilder(opaque: false,
+    pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ح'),
+    )
+    );
+    }
+
+
+
+    ),
+
+              GestureDetector(
+              child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -320,26 +358,38 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ج", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
 
+              ),
+
+    onTap: (){
+    Navigator.of(context).push(
+    PageRouteBuilder(opaque: false,
+    pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ج'),
+    )
+    );
+    }
 
 
 
+   // ),
+//
               ),
 
             ],
 
           ),
           Row(
+
             children: [
-              Container(
+              GestureDetector(child: Container(
                 margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
 
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ط", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
                 decoration: BoxDecoration(color: Colors.amber.shade50,
@@ -355,7 +405,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
-              Container(
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ط'),
+                        )
+                    );
+                  }
+              ),
+              GestureDetector(child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -364,7 +422,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ض", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -373,7 +431,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
-              Container(
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ض'),
+                        )
+                    );
+                  }
+              ),
+
+              GestureDetector( child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -382,7 +449,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ص", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -391,7 +458,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
-              Container(
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ص'),
+                        )
+                    );
+                  }
+
+              ),
+
+              GestureDetector( child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -400,7 +477,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ش", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -409,7 +486,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
-              Container(
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ش'),
+                        )
+                    );
+                  }
+              ),
+
+
+              GestureDetector(child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -418,7 +505,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("س", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -427,7 +514,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
-              Container(
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'س'),
+                        )
+                    );
+                  }
+              ),
+              GestureDetector(child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -436,7 +531,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ز", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -445,17 +540,26 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ز'),
+                        )
+                    );
+                  }
+              ),
+
 
             ],
 
           ),
           Row(
             children: [
-              Container(
+              GestureDetector(child: Container(
                 margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
 
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ك", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
                 decoration: BoxDecoration(color: Colors.amber.shade50,
@@ -471,7 +575,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
-              Container(
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ك'),
+                        )
+                    );
+                  }
+              ),
+
+              GestureDetector(child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -480,7 +593,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ق", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -489,7 +602,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
-              Container(
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ق'),
+                        )
+                    );
+                  }
+              ),
+
+
+              GestureDetector(child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -498,7 +621,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ف", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -507,7 +630,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
-              Container(
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ف'),
+                        )
+                    );
+                  }
+              ),
+
+              GestureDetector(child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -516,7 +648,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("غ", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -525,7 +657,44 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
-              Container(
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'غ'),
+                        )
+                    );
+                  }
+              ),
+
+              GestureDetector(child: Container(
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(color: Colors.amber.shade50,
+                  border: Border.all(
+                      color: Colors.amber.shade50
+
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
+                child: Center(
+                    child: Text("ع", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+
+
+
+
+
+              ),
+              onTap: (){
+              Navigator.of(context).push(
+              PageRouteBuilder(opaque: false,
+              pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ع'),
+              )
+              );
+              }
+              ),
+
+              GestureDetector(child:Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -534,7 +703,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ظ", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -543,35 +712,26 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
-              Container(
-                margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(color: Colors.amber.shade50,
-                  border: Border.all(
-                      color: Colors.amber.shade50
-
-                  ),
-                  borderRadius: BorderRadius.all(Radius.circular(20)),),
-                child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
-                width: 100,
-                height: 100,
-
-
-
-
-
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ظ'),
+                        )
+                    );
+                  }
               ),
+
 
             ],
 
           ),
           Row(
             children: [
-              Container(
+              GestureDetector(child: Container(
                 margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
 
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ي", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
                 decoration: BoxDecoration(color: Colors.amber.shade50,
@@ -587,7 +747,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
-              Container(
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ي'),
+                        )
+                    );
+                  }
+              ),
+
+              GestureDetector(child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -596,7 +765,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("و", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -605,7 +774,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
-              Container(
+
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'و'),
+                        )
+                    );
+                  }
+              ),
+
+              GestureDetector(child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -614,7 +793,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("هـ", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -623,7 +802,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
-              Container(
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'هـ'),
+                        )
+                    );
+                  }
+              ),
+
+              GestureDetector(child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -632,7 +820,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ن", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -641,7 +829,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
-              Container(
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ن'),
+                        )
+                    );
+                  }
+              ),
+
+
+              GestureDetector(child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -650,7 +848,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("م", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -659,7 +857,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
-              Container(
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'م'),
+                        )
+                    );
+                  }
+              ),
+
+              GestureDetector(child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.amber.shade50,
                   border: Border.all(
@@ -668,7 +875,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20)),),
                 child: Center(
-                    child: Text("", style: TextStyle(fontSize: 70, ))),
+                    child: Text("ل", style: TextStyle(fontSize: 70, ))),
                 width: 100,
                 height: 100,
 
@@ -677,6 +884,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
               ),
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ل'),
+                        )
+                    );
+                  }
+              ),
+
 
             ],
 
