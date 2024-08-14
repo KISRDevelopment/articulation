@@ -41,8 +41,7 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      AnimatedCrossFade(
-                        firstChild: Container(
+                       Container(
                           margin: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
                           width: 50,
                           height: 50,
@@ -54,28 +53,7 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                           //child: Icon(Icons.lightbulb_outline, size: 50),
 
                         ),
-                        secondChild: GestureDetector(
-                          child: Container(
-                            margin: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
-                            width: 50,
-                            height: 50,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.all(Radius.circular(360)
-                              ),
-                            ),
-                            child: Icon(Icons.arrow_back_ios, size: 50),
 
-                          ),
-                          onTap: (){
-                            setState(() {
-                              flag = !flag;
-                            });
-                          },
-                        ),
-                        crossFadeState: flag ? CrossFadeState.showSecond : CrossFadeState.showFirst,
-                        duration: Duration(milliseconds: 500),
-                      ),
                       Container(
                         margin: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
                         width: 50,
@@ -94,8 +72,7 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                     child: Center(child: Text(widget.letter, style: TextStyle(fontSize: 150, ),)),
                   ),
                   Container(
-                    child: AnimatedCrossFade(
-                      firstChild: Row(
+                    child: Row(
                         children: [
                           Container(
                             margin: EdgeInsets.all(10),
@@ -166,64 +143,7 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                                 ],
                               ),
                             ),
-                            onTap: (){
-                              setState(() {
-                                flag = !flag;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
-                      secondChild: Row(
-                        children: [
-                          Container(
-                            margin: EdgeInsets.all(10),
-                            width: 150,
-                            height: 100,
-                            color: Colors.white,
-                            child: Column(
-                              children: [
-                                Text("", style: TextStyle(fontSize: 50)),
-                                //Icon(Icons.lightbulb_outline, size: 50)
 
-                              ],
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.all(10),
-                            width: 150,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: Colors.amber.shade50,
-                              borderRadius: BorderRadius.all(Radius.circular(20)
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Text("العاب ", style: TextStyle(fontSize: 50)),
-                                //Icon(Icons.lightbulb_outline, size: 50)
-
-                              ],
-                            ),
-                          ),
-                          GestureDetector(
-                            child: Container(
-                              margin: EdgeInsets.all(10),
-                              width: 150,
-                              height: 100,
-                              decoration: BoxDecoration(
-                                color: Colors.amber.shade50,
-                                borderRadius: BorderRadius.all(Radius.circular(20)
-                                ),
-                              ),
-                              child: Column(
-                                children: [
-                                  Text("بطاقات", style: TextStyle(fontSize: 50)),
-                                  //Icon(Icons.lightbulb_outline, size: 50)
-
-                                ],
-                              ),
-                            ),
                               onTap: (){
                                 Navigator.of(context).push(
                                     PageRouteBuilder(
@@ -231,25 +151,12 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                                     )
                                 );
                               }
-                          ),
-                          Container(
-                            margin: EdgeInsets.all(10),
-                            width: 150,
-                            height: 100,
-                            color: Colors.white,
-                            child: Column(
-                              children: [
-                                Text("" , style: TextStyle(fontSize: 50),),
-                                // Icon(Icons.lightbulb_outline, size: 50)
 
-                              ],
-                            ),
                           ),
                         ],
                       ),
-                      crossFadeState: flag ? CrossFadeState.showSecond : CrossFadeState.showFirst,
-                      duration: Duration(milliseconds: 500),
-                    ),
+
+
                   ),
                 ],
 
