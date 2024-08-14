@@ -279,6 +279,84 @@ class _flashCardState extends State<flashCard> {
       case 'ب':
         dict = PicturesOptions.picListBeginBaa;
         return dict;
+      case 'ج':
+        dict = PicturesOptions.picListBeginJa;
+        return dict;
+      case 'ح':
+        dict = PicturesOptions.picListBeginHa;
+        return dict;
+      case 'خ':
+        dict = PicturesOptions.picListBeginKha;
+        return dict;
+      case 'د':
+        dict = PicturesOptions.picListBeginDa;
+        return dict;
+      case 'ذ':
+        dict = PicturesOptions.picListBeginTha;
+        return dict;
+      case 'ر':
+        dict = PicturesOptions.picListBeginRa;
+        return dict;
+      case 'ز':
+        dict = PicturesOptions.picListBeginZa;
+        return dict;
+      case 'س':
+        dict = PicturesOptions.picListBeginSa;
+        return dict;
+      case 'ش':
+        dict = PicturesOptions.picListBeginSha;
+        return dict;
+      case 'ص':
+        dict = PicturesOptions.picListBeginSsa;
+        return dict;
+      case 'ض':
+        dict = PicturesOptions.picListBeginTtha;
+        return dict;
+      case 'ط':
+        dict = PicturesOptions.picListBeginTta;
+        return dict;
+      case 'ظ':
+        dict = PicturesOptions.picListBeginZha;
+        return dict;
+      case 'ع':
+        dict = PicturesOptions.picListBeginAa;
+        return dict;
+      case 'غ':
+        dict = PicturesOptions.picListBeginGha;
+        return dict;
+      case 'ف':
+        dict = PicturesOptions.picListBeginFa;
+        return dict;
+      case 'ق':
+        dict = PicturesOptions.picListBeginQa;
+        return dict;
+      case 'ك':
+        dict = PicturesOptions.picListBeginKa;
+        return dict;
+      case 'ل':
+        dict = PicturesOptions.picListBeginLa;
+        return dict;
+      case 'م':
+        dict = PicturesOptions.picListBeginMa;
+        return dict;
+      case 'ن':
+        dict = PicturesOptions.picListBeginNa;
+        return dict;
+      case 'هـ':
+        dict = PicturesOptions.picListBeginHuh;
+        return dict;
+      case 'و':
+        dict = PicturesOptions.picListBeginWa;
+        return dict;
+      case 'ي':
+        dict = PicturesOptions.picListBeginYa;
+        return dict;
+
+
+
+
+
+
       default:
         break;
     }
@@ -296,6 +374,79 @@ class _flashCardState extends State<flashCard> {
         return dict;
       case 'ب':
         dict = PicturesOptions.picListMedBaa;
+        return dict;
+      case 'ج':
+        dict = PicturesOptions.picListMedJa;
+        return dict;
+      case 'ح':
+        dict = PicturesOptions.picListMedHa;
+        return dict;
+      case 'خ':
+        dict = PicturesOptions.picListMedKha;
+        return dict;
+      case 'د':
+        dict = PicturesOptions.picListMedDa;
+        return dict;
+      case 'ذ':
+        dict = PicturesOptions.picListMedTha;
+        return dict;
+      case 'ر':
+        dict = PicturesOptions.picListMedRa;
+        return dict;
+      case 'ز':
+        dict = PicturesOptions.picListMedZa;
+        return dict;
+      case 'س':
+        dict = PicturesOptions.picListMedSa;
+        return dict;
+      case 'ش':
+        dict = PicturesOptions.picListMedSha;
+        return dict;
+      case 'ص':
+        dict = PicturesOptions.picListMedSsa;
+        return dict;
+      case 'ض':
+        dict = PicturesOptions.picListMedTtha;
+        return dict;
+      case 'ط':
+        dict = PicturesOptions.picListMedTta;
+        return dict;
+      case 'ظ':
+        dict = PicturesOptions.picListMedZha;
+        return dict;
+
+      case 'ع':
+        dict = PicturesOptions.picListMedAa;
+        return dict;
+      case 'غ':
+        dict = PicturesOptions.picListMedGha;
+        return dict;
+      case 'ف':
+        dict = PicturesOptions.picListMedFa;
+        return dict;
+      case 'ق':
+        dict = PicturesOptions.picListMedQa;
+        return dict;
+      case 'ك':
+        dict = PicturesOptions.picListMedKa;
+        return dict;
+      case 'ل':
+        dict = PicturesOptions.picListMedLa;
+        return dict;
+      case 'م':
+        dict = PicturesOptions.picListMedMa;
+        return dict;
+      case 'ن':
+        dict = PicturesOptions.picListMedNa;
+        return dict;
+      case 'هـ':
+        dict = PicturesOptions.picListMedHuh;
+        return dict;
+      case 'و':
+        dict = PicturesOptions.picListMedWa;
+        return dict;
+      case 'ي':
+        dict = PicturesOptions.picListMedYa;
         return dict;
       default:
         break;
@@ -315,6 +466,81 @@ class _flashCardState extends State<flashCard> {
       case 'ب':
         dict = PicturesOptions.picListEndBaa;
         return dict;
+      case 'ج':
+        dict = PicturesOptions.picListEndJa;
+        return dict;
+      case 'ح':
+        dict = PicturesOptions.picListEndHa;
+        return dict;
+      case 'خ':
+        dict = PicturesOptions.picListEndKha;
+        return dict;
+      case 'د':
+        dict = PicturesOptions.picListEndDa;
+        return dict;
+      case 'ذ':
+        dict = PicturesOptions.picListEndTha;
+        return dict;
+      case 'ر':
+        dict = PicturesOptions.picListEndRa;
+        return dict;
+      case 'ز':
+        dict = PicturesOptions.picListEndZa;
+        return dict;
+      case 'س':
+        dict = PicturesOptions.picListEndSa;
+        return dict;
+      case 'ش':
+        dict = PicturesOptions.picListEndSha;
+        return dict;
+      case 'ص':
+        dict = PicturesOptions.picListEndSsa;
+        return dict;
+      case 'ض':
+        dict = PicturesOptions.picListEndTtha;
+        return dict;
+      case 'ط':
+        dict = PicturesOptions.picListEndTta;
+        return dict;
+      case 'ظ':
+        dict = PicturesOptions.picListEndZha;
+        return dict;
+      case 'ع':
+        dict = PicturesOptions.picListEndAa;
+        return dict;
+      case 'غ':
+        dict = PicturesOptions.picListEndGha;
+        return dict;
+      case 'ف':
+        dict = PicturesOptions.picListEndFa;
+        return dict;
+      case 'ق':
+        dict = PicturesOptions.picListEndQa;
+        return dict;
+      case 'ك':
+        dict = PicturesOptions.picListEndKa;
+        return dict;
+      case 'ل':
+        dict = PicturesOptions.picListEndLa;
+        return dict;
+      case 'م':
+        dict = PicturesOptions.picListEndMa;
+        return dict;
+      case 'ن':
+        dict = PicturesOptions.picListEndNa;
+        return dict;
+      case 'هـ':
+        dict = PicturesOptions.picListEndHuh;
+        return dict;
+      case 'و':
+        dict = PicturesOptions.picListEndWa;
+        return dict;
+      case 'ي':
+        dict = PicturesOptions.picListEndYa;
+        return dict;
+
+
+
       default:
         break;
     }
