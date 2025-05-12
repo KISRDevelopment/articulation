@@ -61,13 +61,49 @@ class _sentenceState extends State<sentence> {
                   borderRadius: BorderRadius.all(Radius.circular(20)
                   ),
                 ),
-            child: Center(
+                
+            child: Stack(
+          children: [
+            Positioned(
+                right: 0.0,
+                bottom: 300.0,
+                left: 0.0,
+                child: Center(
               child: Text(
                 sentence_content,
                 style: TextStyle(fontSize: 50),
                 textDirection: TextDirection.rtl,
               ),
+            ),),
+            Positioned(
+                right: 0.0,
+                bottom: 80.0,
+                left: 0.0,
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Enter Comment",
+                  ),
+                ),
             ),
+            Positioned(
+              right: 0.0,
+              bottom: 20.0,
+              left: 0.0,
+              child: ElevatedButton(
+                onPressed: (){
+                  // Button Functionality
+                },
+                child: Text('Submit'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white
+                )
+              ),
+            ),
+
+          ],
+        ),
               ),
             ),
 
@@ -89,6 +125,7 @@ class _sentenceState extends State<sentence> {
     //);
   }
 }
+
 
 
 
