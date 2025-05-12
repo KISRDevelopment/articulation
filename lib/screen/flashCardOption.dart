@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:after_layout/after_layout.dart';
 import 'package:flip_card/flip_card.dart';
-import 'flashCard.dart';
+import 'flashCardWord.dart';
+import 'flashCardSentence.dart';
 
-class SingleFlipCard extends StatefulWidget {
+class flashCardOption extends StatefulWidget {
   final letter;
-  SingleFlipCard({@required this.letter});
+  flashCardOption({@required this.letter});
 
   //const SingleFlipCard({Key? key}) : super(key: key);
 
   @override
-  _SingleFlipCardState createState() => _SingleFlipCardState();
+  _flashCardOptionState createState() => _flashCardOptionState();
 }
 
-class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<SingleFlipCard> {
+class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin<flashCardOption> {
   bool flag = false;
   final GlobalKey<FlipCardState> cardKey = GlobalKey<FlipCardState>();
 
@@ -91,22 +92,31 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                               ],
                             ),
                           ),
-                          Container(
-                            margin: EdgeInsets.all(10),
-                            width: 150,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: Colors.amber.shade50,
-                              borderRadius: BorderRadius.all(Radius.circular(20)
+                          GestureDetector(
+                            child: Container(
+                              margin: EdgeInsets.all(10),
+                              width: 150,
+                              height: 100,
+                              decoration: BoxDecoration(
+                                color: Colors.amber.shade50,
+                                borderRadius: BorderRadius.all(Radius.circular(20)
+                                ),
+                              ),
+                              child: Column(
+                                children: [
+                                  Text("جمل", style: TextStyle(fontSize: 50)),
+                                  //Icon(Icons.lightbulb_outline, size: 50)
+                            
+                                ],
                               ),
                             ),
-                            child: Column(
-                              children: [
-                                Text("جمل", style: TextStyle(fontSize: 50)),
-                                //Icon(Icons.lightbulb_outline, size: 50)
-
-                              ],
-                            ),
+                            onTap: (){
+                                Navigator.of(context).push(
+                                    PageRouteBuilder(
+                                      pageBuilder: (_, __, ___) => flashCardSentence(widget.letter),
+                                    )
+                                );
+                              },
                           ),
                           Container(
                             margin: EdgeInsets.all(10),
@@ -147,7 +157,7 @@ class _SingleFlipCardState extends State<SingleFlipCard> with AfterLayoutMixin<S
                               onTap: (){
                                 Navigator.of(context).push(
                                     PageRouteBuilder(
-                                      pageBuilder: (_, __, ___) => flashCard(widget.letter),
+                                      pageBuilder: (_, __, ___) => flashCardWord(widget.letter),
                                     )
                                 );
                               }
