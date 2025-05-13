@@ -42,19 +42,25 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                       Container(
-                          margin: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(360)
+                       GestureDetector(
+                         child: Container(
+                            margin: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(Radius.circular(360)
+                              ),
                             ),
+                            child: Icon(Icons.arrow_back_ios, size: 50),
+                         
                           ),
-                          //child: Icon(Icons.lightbulb_outline, size: 50),
-
-                        ),
-
+                          onTap: (){
+                                  Navigator.of(context).pop(
+                                  );
+                                },
+                       ),
+                  
                       Container(
                         margin: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
                         width: 50,
@@ -65,7 +71,7 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                           ),
                         ),
                         child: Icon(Icons.lightbulb_outline, size: 50),
-
+                  
                       ),
                     ],
                   ),
@@ -74,6 +80,7 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                   ),
                   Container(
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
                             margin: EdgeInsets.all(10),
@@ -118,23 +125,7 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                                 );
                               },
                           ),
-                          Container(
-                            margin: EdgeInsets.all(10),
-                            width: 150,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: Colors.amber.shade50,
-                              borderRadius: BorderRadius.all(Radius.circular(20)
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Text("عبارات", style: TextStyle(fontSize: 50)),
-                                //Icon(Icons.lightbulb_outline, size: 50)
 
-                              ],
-                            ),
-                          ),
                           GestureDetector(
                             child: Container(
                               margin: EdgeInsets.all(10),
