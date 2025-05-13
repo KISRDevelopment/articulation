@@ -97,18 +97,18 @@ class CarouselCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(5.0),
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(5.0)),
         child: Stack(
           children: [
             Container(
-
-              padding: EdgeInsets.fromLTRB(0, 150, 0, 100),
-                child: Image.asset(picturesOptions.image, fit: BoxFit.cover)),
+              width: 400,
+              height: 450,
+              padding: EdgeInsets.fromLTRB(0, 100, 0, 0),
+                child: Image.asset(picturesOptions.image, fit: BoxFit.contain)),
             Positioned(
-              right: 0.0,
-                bottom: 0.0,
+                right: 0.0,
+                bottom: 150.0,
                 left: 0.0,
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 10.0),
@@ -118,7 +118,34 @@ class CarouselCard extends StatelessWidget {
                     fontSize: 50.0,
                     fontWeight: FontWeight.bold),),
                   ),
-                ))
+                )),
+            Positioned(
+                right: 0.0,
+                bottom: 80.0,
+                left: 0.0,
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Enter Comment",
+                  ),
+                ),
+            ),
+            Positioned(
+              right: 0.0,
+              bottom: 20.0,
+              left: 0.0,
+              child: ElevatedButton(
+                onPressed: (){
+                  // Button Functionality
+                },
+                child: Text('ادخال'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white
+                )
+              ),
+            ),
+
           ],
         ),
       ),
