@@ -62,48 +62,7 @@ class _sentenceState extends State<sentence> {
                   ),
                 ),
                 
-            child: Stack(
-          children: [
-            Positioned(
-                right: 0.0,
-                bottom: 300.0,
-                left: 0.0,
-                child: Center(
-              child: Text(
-                sentence_content,
-                style: TextStyle(fontSize: 50),
-                textDirection: TextDirection.rtl,
-              ),
-            ),),
-            Positioned(
-                right: 0.0,
-                bottom: 80.0,
-                left: 0.0,
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: "Enter Comment",
-                  ),
-                ),
-            ),
-            Positioned(
-              right: 0.0,
-              bottom: 20.0,
-              left: 0.0,
-              child: ElevatedButton(
-                onPressed: (){
-                  // Button Functionality
-                },
-                child: Text('Submit'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white
-                )
-              ),
-            ),
-
-          ],
-        ),
+            child: CarouselCard(sentence: sentence_content),
               ),
             ),
 
@@ -123,6 +82,75 @@ class _sentenceState extends State<sentence> {
       ),
     );
     //);
+  }
+}
+
+class CarouselCard extends StatelessWidget {
+  final sentence;
+
+  const CarouselCard({required this.sentence});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: ClipRRect(
+        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+        child: Stack(
+          children: [
+            Positioned(
+                right: 0.0,
+                bottom: 350.0,
+                left: 0.0,
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 10.0),
+                  child: Center(
+                    child: Text(sentence,
+                    style: TextStyle(color: Colors.black,
+                    fontSize: 50.0,
+                    fontWeight: FontWeight.bold),),
+                  ),
+                )),
+            Positioned(
+                right: 0.0,
+                bottom: 80.0,
+                left: 0.0,
+                child: Align(
+                  child: Container(
+                    width: 500,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: "Enter Comment",
+                      ),
+                    ),
+                  ),
+                ),
+            ),
+            Positioned(
+              right: 0.0,
+              bottom: 20.0,
+              left: 0.0,
+              child: Align(
+                child: Container(
+                  width: 500,
+                  child: ElevatedButton(
+                    onPressed: (){
+                      // Button Functionality
+                    },
+                    child: Text('ادخال'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      foregroundColor: Colors.white
+                    )
+                  ),
+                ),
+              ),
+            ),
+        
+          ],
+        ),
+      ),
+    );
   }
 }
 
