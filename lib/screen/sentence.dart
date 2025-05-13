@@ -97,26 +97,24 @@ class CarouselCard extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(5.0)),
         child: Stack(
           children: [
-            Positioned(
-                right: 0.0,
-                bottom: 350.0,
-                left: 0.0,
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 10.0),
+            Center(
+              child: Container(
+                width: 400,
+                height: 450,
                   child: Center(
                     child: Text(sentence,
-                    style: TextStyle(color: Colors.black,
-                    fontSize: 50.0,
-                    fontWeight: FontWeight.bold),),
-                  ),
-                )),
+                        style: TextStyle(color: Colors.black,
+                        fontSize: 50.0,
+                        fontWeight: FontWeight.bold),),
+                  )),
+            ),
             Positioned(
                 right: 0.0,
                 bottom: 80.0,
                 left: 0.0,
                 child: Align(
                   child: Container(
-                    width: 500,
+                    width: 400,
                     child: TextField(
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
@@ -132,12 +130,12 @@ class CarouselCard extends StatelessWidget {
               left: 0.0,
               child: Align(
                 child: Container(
-                  width: 500,
+                  width: 400,
                   child: ElevatedButton(
                     onPressed: (){
                       // Button Functionality
                     },
-                    child: Text('ادخال'),
+                    child: Text('ادخال',  style: TextStyle(fontSize: 20),),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,
                       foregroundColor: Colors.white
