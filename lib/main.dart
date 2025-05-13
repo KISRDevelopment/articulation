@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
-import 'package:articulation/screen/singleFlipCard.dart';
+import 'package:articulation/screen/flashCardOption.dart';
 import 'package:articulation/screen/info.dart';
 
 
@@ -89,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onTap: (){
                       Navigator.of(context).push(
                           PageRouteBuilder(opaque: false,
-                            pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ث'),
+                            pageBuilder: (_, __, ___) => flashCardOption(letter: 'ث'),
                           )
                       );
                     }
@@ -117,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onTap: (){
                       Navigator.of(context).push(
                           PageRouteBuilder(opaque: false,
-                            pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ت'),
+                            pageBuilder: (_, __, ___) => flashCardOption(letter: 'ت'),
                           )
                       );
                     }
@@ -148,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onTap: (){
                       Navigator.of(context).push(
                           PageRouteBuilder(opaque: false,
-                            pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ب'),
+                            pageBuilder: (_, __, ___) => flashCardOption(letter: 'ب'),
                           )
                       );
                     }
@@ -178,7 +178,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onTap: (){
                       Navigator.of(context).push(
                           PageRouteBuilder(opaque: false,
-                            pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'أ'),
+                            pageBuilder: (_, __, ___) => flashCardOption(letter: 'أ'),
                           )
                       );
                     }
@@ -225,7 +225,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter:'ر') ,
+                          pageBuilder: (_, __, ___) => flashCardOption(letter:'ر') ,
                         )
                     );
                   }
@@ -248,7 +248,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ذ'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'ذ'),
                         )
                     );
                   }
@@ -273,7 +273,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'د'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'د'),
                         )
                     );
                   }
@@ -299,7 +299,7 @@ class _MyHomePageState extends State<MyHomePage> {
     onTap: (){
     Navigator.of(context).push(
     PageRouteBuilder(opaque: false,
-    pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'خ'),
+    pageBuilder: (_, __, ___) => flashCardOption(letter: 'خ'),
     )
     );
     }
@@ -326,7 +326,7 @@ GestureDetector(
     onTap: (){
     Navigator.of(context).push(
     PageRouteBuilder(opaque: false,
-    pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ح'),
+    pageBuilder: (_, __, ___) => flashCardOption(letter: 'ح'),
     )
     );
     }
@@ -355,7 +355,7 @@ GestureDetector(
     onTap: (){
     Navigator.of(context).push(
     PageRouteBuilder(opaque: false,
-    pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ج'),
+    pageBuilder: (_, __, ___) => flashCardOption(letter: 'ج'),
     )
     );
     }
@@ -395,7 +395,7 @@ GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ط'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'ط'),
                         )
                     );
                   }
@@ -421,7 +421,7 @@ GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ض'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'ض'),
                         )
                     );
                   }
@@ -448,7 +448,7 @@ GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ص'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'ص'),
                         )
                     );
                   }
@@ -476,7 +476,7 @@ GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ش'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'ش'),
                         )
                     );
                   }
@@ -504,7 +504,7 @@ GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'س'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'س'),
                         )
                     );
                   }
@@ -530,7 +530,7 @@ GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ز'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'ز'),
                         )
                     );
                   }
@@ -565,7 +565,7 @@ GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ك'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'ك'),
                         )
                     );
                   }
@@ -592,7 +592,7 @@ GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ق'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'ق'),
                         )
                     );
                   }
@@ -620,7 +620,7 @@ GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ف'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'ف'),
                         )
                     );
                   }
@@ -647,7 +647,7 @@ GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'غ'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'غ'),
                         )
                     );
                   }
@@ -675,7 +675,7 @@ GestureDetector(
               onTap: (){
               Navigator.of(context).push(
               PageRouteBuilder(opaque: false,
-              pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ع'),
+              pageBuilder: (_, __, ___) => flashCardOption(letter: 'ع'),
               )
               );
               }
@@ -702,7 +702,7 @@ GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ظ'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'ظ'),
                         )
                     );
                   }
@@ -737,7 +737,7 @@ GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ي'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'ي'),
                         )
                     );
                   }
@@ -765,7 +765,7 @@ GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'و'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'و'),
                         )
                     );
                   }
@@ -792,7 +792,7 @@ GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'هـ'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'هـ'),
                         )
                     );
                   }
@@ -819,7 +819,7 @@ GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ن'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'ن'),
                         )
                     );
                   }
@@ -847,7 +847,7 @@ GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'م'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'م'),
                         )
                     );
                   }
@@ -874,7 +874,7 @@ GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(
                         PageRouteBuilder(opaque: false,
-                          pageBuilder: (_, __, ___) => SingleFlipCard(letter: 'ل'),
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: 'ل'),
                         )
                     );
                   }
