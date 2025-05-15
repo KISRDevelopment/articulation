@@ -1,0 +1,2 @@
+C:/Users/bmdashti/StudioProjects/epiroutine/android/app/.cxx/Debug/n5y2ld85/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/bmdashti/StudioProjects/epiroutine/android/app/.cxx/Debug/n5y2ld85/armeabi-v7a/CMakeFiles/rebuild_cache.dir
