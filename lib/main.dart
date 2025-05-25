@@ -1,4 +1,5 @@
 import 'package:articulation/database/patient_db_helper.dart';
+import 'package:articulation/screen/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //import 'package:flip_card/flip_card.dart';
@@ -22,112 +23,6 @@ class MyApp extends StatelessWidget {
       title: 'Articulation',
       home: const LoginPage(title: 'Articulation Home Page'),
       debugShowCheckedModeBanner: false,
-    );
-  }
-}
-
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  final _formKey = GlobalKey<FormState>();
-  TextEditingController _userIDController = TextEditingController();
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Scaffold(
-        backgroundColor: Colors.purple[200],
-        //appBar: AppBar(title: Text("مهارات النطق"),),
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 50),
-              child: Container(
-                margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: Colors.purple[200],
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                ),
-                child: Center(
-                    child: Text("مهارات النطق",
-                        style: TextStyle(
-                          fontSize: 30,
-                        ))),
-                height: 100,
-              ),
-            ),
-
-            Form(
-              key: _formKey,
-              child: Scrollbar(
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: Card(
-                    child: SingleChildScrollView(
-                      padding: const EdgeInsets.all(16),
-                      child: ConstrainedBox(
-                        constraints: const BoxConstraints(maxWidth: 400),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            ...[
-                              TextFormField(
-                                controller: _userIDController,
-                                decoration: const InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  filled: true,
-                                  labelText: 'الرقم المدني',
-                                ),
-                                maxLines: 2,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'يرجى إدخال الرقم المدني';
-                                  }
-                                  return null;
-                                },
-                              ),
-                              ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  padding: EdgeInsets.all(10),
-                                  backgroundColor: Colors.deepPurple,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                ),
-                                onPressed: _loginByCivilID,
-                                child: Text('دخول',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                    )),
-                              ),
-                            ].expand(
-                                  (widget) => [
-                                widget,
-                                const SizedBox(
-                                  height: 24,
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

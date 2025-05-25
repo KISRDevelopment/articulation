@@ -18,8 +18,6 @@ class PatientDBHelper{
         last_name TEXT,
         file_number TEXT
         age INTEGER
-        score TEXT
-        login_date TEXT
         )''');
         },
         version: 1 );
