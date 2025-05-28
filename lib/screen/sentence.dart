@@ -1,16 +1,19 @@
 import 'package:articulation/screen/options.dart';
+import 'package:articulation/screen/options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart' hide CarouselController;
+import '../database/patient_db_helper.dart';
 import 'flashCardOption.dart';
 import 'options.dart';
 
 
 class sentence extends StatefulWidget {
   final letter_sentence;
+  final cid;
 
 
   //final dict;
-  const sentence(@required this.letter_sentence);
+  const sentence(@required this.letter_sentence, this.cid);
 
   @override
   _sentenceState createState() => _sentenceState();
@@ -18,12 +21,14 @@ class sentence extends StatefulWidget {
 
 class _sentenceState extends State<sentence> {
   late String sentence_content;
+  late String civilID;
   bool flag = false;
 
   @override
   void initState(){
     super.initState();
     sentence_content = widget.letter_sentence;
+    civilID = widget.cid;
     //sentenceList = sentenceDict[myLetter] ?? [];
   }
   @override
@@ -62,7 +67,7 @@ class _sentenceState extends State<sentence> {
                   ),
                 ),
                 
-            child: CarouselCard(sentence: sentence_content),
+            child: SentenceCarouselCard(sentence: sentence_content, cid: civilID,)
               ),
             ),
 
@@ -89,6 +94,7 @@ class CarouselCard extends StatelessWidget {
   final sentence;
 
   const CarouselCard({required this.sentence});
+
 
   @override
   Widget build(BuildContext context) {
@@ -132,9 +138,7 @@ class CarouselCard extends StatelessWidget {
                 child: Container(
                   width: 400,
                   child: ElevatedButton(
-                    onPressed: (){
-                      // Button Functionality
-                    },
+                    onPressed: (){},
                     child: Text('ادخال',  style: TextStyle(fontSize: 20),),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,
@@ -151,6 +155,122 @@ class CarouselCard extends StatelessWidget {
     );
   }
 }
+
+
+
+
+class SentenceCarouselCard extends StatefulWidget {
+  final sentence;
+  final cid;
+  const SentenceCarouselCard({required this.sentence, this.cid});
+
+  @override
+  State<SentenceCarouselCard> createState() => _SentenceCarouselCardState();
+}
+
+class _SentenceCarouselCardState extends State<SentenceCarouselCard> {
+  TextEditingController _commentController = TextEditingController();
+  late final civilID;
+  late String sentence_content;
+
+  @override
+  void initState(){
+    super.initState();
+    civilID = widget.cid;
+    sentence_content = widget.sentence;
+  }
+
+  Future<void> _insertComment() async {
+    {
+      final comment = _commentController.text;
+      print(comment);
+
+      try{
+        final patient = await PatientDBHelper.getPatientsByCID(int.parse(civilID));
+
+        if (patient != null) {
+          print('patient exist');
+
+          final newComment = { //create new patient
+            'civil_id': civilID,
+            'sentence': sentence_content,
+            'comment': _commentController.text,
+          };
+
+          print(newComment);
+
+          await PatientDBHelper.addSentences(newComment);
+
+          print('pass add comment');
+
+        }} catch (e) {}
+
+
+    }
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: ClipRRect(
+        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+        child: Stack(
+          children: [
+            Center(
+              child: Container(
+                  width: 400,
+                  height: 450,
+                  child: Center(
+                    child: Text(sentence_content,
+                      style: TextStyle(color: Colors.black,
+                          fontSize: 50.0,
+                          fontWeight: FontWeight.bold),),
+                  )),
+            ),
+            Positioned(
+              right: 0.0,
+              bottom: 80.0,
+              left: 0.0,
+              child: Align(
+                child: Container(
+                  width: 400,
+                  child: TextField(
+                    controller: _commentController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "Enter Comment",
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              right: 0.0,
+              bottom: 20.0,
+              left: 0.0,
+              child: Align(
+                child: Container(
+                  width: 400,
+                  child: ElevatedButton(
+                      onPressed: _insertComment,
+                      child: Text('ادخال',  style: TextStyle(fontSize: 20),),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          foregroundColor: Colors.white
+                      )
+                  ),
+                ),
+              ),
+            ),
+
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 
 
 

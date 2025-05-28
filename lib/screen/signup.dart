@@ -1,7 +1,6 @@
 import 'package:articulation/database/patient_db_helper.dart';
 import 'package:articulation/screen/login.dart';
 import 'package:flutter/material.dart';
-
 import '../main.dart';
 
 class SignupPage extends StatefulWidget {
@@ -31,6 +30,7 @@ class _SignupPageState extends State<SignupPage> {
   }
 
   Future<void> _loadPatients() async {
+    //final patients = await PatientDatabaseHelper().getAllPatients();
     final patients = await PatientDBHelper.getPatients();
     setState(() {
       _patients = patients;
@@ -43,33 +43,35 @@ class _SignupPageState extends State<SignupPage> {
 
       DateTime _loginDate = DateTime.now();
       final cid = _civilIDController.text;
-      //print(cid);
+      print(cid);
 
       try{
 
+        //final patients = await PatientDatabaseHelper().getPatient(cid);
         final patients = await PatientDBHelper.getPatientsByCID(int.parse(cid));
 
       if (patients == null) {
-        //print('if-statement is true');
+        print('if-statement is true');
 
         final newPatient = { //create new patient
           'civil_id': _civilIDController.text,
           'first_name': _fistNameController.text,
           'last_name': _lastNameController.text,
           'file_number': _fileNumController.text,
-          //'login_date': _loginDate.toIso8601String(),
-          //'score': '',
+          'score': '',
+          'login_date': _loginDate.toIso8601String(),
         };
 
-        //print(newPatient);
+        print(newPatient);
 
+        //await PatientDatabaseHelper().insertPatient(newPatient);
         await PatientDBHelper.addPatients(newPatient);
 
-        //print('pass add patient');
+        print('pass add patient');
 
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => MyHomePage(title: 'welcome $cid')),
+          MaterialPageRoute(builder: (context) => MyHomePage(title: 'welcome $cid', cid: cid,)),
         );
       }} catch (e) {}
 
