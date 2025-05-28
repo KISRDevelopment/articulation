@@ -1,8 +1,8 @@
 import 'package:articulation/main.dart';
 import 'package:articulation/screen/signup.dart';
 import 'package:flutter/material.dart';
-
 import '../database/patient_db_helper.dart';
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key, required this.title}) : super(key: key);
@@ -27,6 +27,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> _loadPatients() async {
+    //final patients = await PatientDatabaseHelper().getAllPatients();
     final patients = await PatientDBHelper.getPatients();
     setState(() {
       _patients = patients;
@@ -35,11 +36,13 @@ class _LoginPageState extends State<LoginPage> {
 
   Future<void> _login() async {
     if (_formKey.currentState!.validate()) {
+      DateTime _loginDate = DateTime.now();
       final cid = _civilIDController.text;
       print(cid);
 
       try{
 
+        //final patient = await PatientDatabaseHelper().getPatient(cid);
         final patient = await PatientDBHelper.getPatientsByCID(int.parse(cid));
         print(patient);
 
@@ -48,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
 
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => MyHomePage(title: 'welcome $cid')),
+            MaterialPageRoute(builder: (context) => MyHomePage(title: 'welcome $cid', cid: cid,)),
           );
         }} catch (e) {}
 
