@@ -8,10 +8,22 @@ import 'package:articulation/screen/info.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await PatientDBHelper.initPatientDB(); //initialize patient db
-  //await PatientDatabaseHelper().database;
-
-  runApp(const MyApp());
+  try {
+    await PatientDBHelper.initPatientDB(); // DB setup
+    runApp(const MyApp()); // Show full app
+  } catch (e, s) {
+    runApp(MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Text(
+            "Error in release mode:\n$e",
+            style: TextStyle(fontSize: 18),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
+    ));
+  }
 }
 
 class MyApp extends StatelessWidget {
