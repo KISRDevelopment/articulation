@@ -58,8 +58,8 @@ class _SignupPageState extends State<SignupPage> {
           'first_name': _fistNameController.text,
           'last_name': _lastNameController.text,
           'file_number': _fileNumController.text,
-          'score': '',
-          'login_date': _loginDate.toIso8601String(),
+          //'score': '',
+          //'login_date': _loginDate.toIso8601String(),
         };
 
         print(newPatient);
@@ -82,15 +82,16 @@ class _SignupPageState extends State<SignupPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Scaffold(
-        backgroundColor: Colors.purple[200],
-        appBar: AppBar(title: Text("مهارات النطق"),),
-        body: Form(
+    return Scaffold(
+      backgroundColor: Colors.purple[200],
+      appBar: AppBar(title: Text("مهارات النطق"),),
+      body: SafeArea(
+        child: Form(
           key: _formKey,
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(16),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                   TextFormField(
                     controller: _civilIDController,
@@ -99,7 +100,7 @@ class _SignupPageState extends State<SignupPage> {
                       filled: true,
                       labelText: 'الرقم المدني',
                     ),
-                    maxLines: 2,
+                    //maxLines: 2,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'يرجى إدخال الرقم المدني';
@@ -107,7 +108,7 @@ class _SignupPageState extends State<SignupPage> {
                       return null;
                     },
                   ),
-
+            
                   TextFormField(
                     controller: _fistNameController,
                     decoration: const InputDecoration(
@@ -115,7 +116,7 @@ class _SignupPageState extends State<SignupPage> {
                       filled: true,
                       labelText: 'الاسم الأول',
                     ),
-                    maxLines: 2,
+                    //maxLines: 2,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'يرجى إدخال الاسم الأول';
@@ -123,7 +124,7 @@ class _SignupPageState extends State<SignupPage> {
                       return null;
                     },
                   ),
-
+            
                   TextFormField(
                     controller: _lastNameController,
                     decoration: const InputDecoration(
@@ -131,7 +132,7 @@ class _SignupPageState extends State<SignupPage> {
                       filled: true,
                       labelText: 'الاسم الأخير',
                     ),
-                    maxLines: 2,
+                    //maxLines: 2,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'يرجى إدخال الاسم الأخير';
@@ -139,7 +140,7 @@ class _SignupPageState extends State<SignupPage> {
                       return null;
                     },
                   ),
-
+            
                   TextFormField(
                     controller: _fileNumController,
                     decoration: const InputDecoration(
@@ -147,7 +148,7 @@ class _SignupPageState extends State<SignupPage> {
                       filled: true,
                       labelText: 'رقم الملف',
                     ),
-                    maxLines: 2,
+                    //maxLines: 2,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'يرجى إدخال رقم الملف';
@@ -155,7 +156,7 @@ class _SignupPageState extends State<SignupPage> {
                       return null;
                     },
                   ),
-
+            
                   TextFormField(
                     controller: _ageController,
                     decoration: const InputDecoration(
@@ -163,7 +164,7 @@ class _SignupPageState extends State<SignupPage> {
                       filled: true,
                       labelText: 'العمر',
                     ),
-                    maxLines: 2,
+                    //maxLines: 2,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'يرجى إدخال العمر';
@@ -171,7 +172,7 @@ class _SignupPageState extends State<SignupPage> {
                       return null;
                     },
                   ),
-
+            
             TextButton(
               onPressed: _signup,
               child: Text('تسجيل',
@@ -180,7 +181,7 @@ class _SignupPageState extends State<SignupPage> {
                     fontSize: 20,
                   )),
             ),
-
+            
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
