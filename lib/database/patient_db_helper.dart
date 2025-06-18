@@ -10,6 +10,7 @@ class PatientDBHelper{
     final dbPath = await getDatabasesPath();
 
     _patientdb = await openDatabase(join(dbPath, 'patient.db'),
+        version: 2,
         onCreate: (db, version) async {
           await db.execute('''
       CREATE TABLE patient(
@@ -17,11 +18,11 @@ class PatientDBHelper{
         first_name TEXT, 
         last_name TEXT,
         file_number TEXT,
-        age INTEGER,
+        age INTEGER
         )''');
         },
         onUpgrade: _onUpgrade,
-        version: 2 );
+        );
   }
 
   static Future _onUpgrade(Database db, int oldVersion, int newVersion) async {
