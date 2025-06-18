@@ -61,53 +61,52 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Scaffold(
-        backgroundColor: Colors.purple[200],
-        appBar: AppBar(title: Text("مهارات النطق"),),
-        body: Form(
+    return Scaffold(
+      backgroundColor: Colors.purple[200],
+      appBar: AppBar(title: Text("مهارات النطق"),),
+      body: SafeArea(
+        child: Form(
           key: _formKey,
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(16),
-            child: Expanded(
-              child: Column(
-                children: [
-                  TextFormField(
-                    controller: _civilIDController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      filled: true,
-                      labelText: 'الرقم المدني',
-                    ),
-                    maxLines: 2,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'يرجى إدخال الرقم المدني';
-                      }
-                      return null;
-                    },
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                TextFormField(
+                  controller: _civilIDController,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    filled: true,
+                    labelText: 'الرقم المدني',
                   ),
-                  SizedBox(height: 20,),
-                  TextButton(
-                    onPressed: _login,
-                    child: Text('دخول',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                        )),
-                  ),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                    TextButton(onPressed: (){Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SignupPage(title: '')),
-                    );}, child: Text('تسجيل', style: TextStyle(color: Colors.white),)),
-                    Text('مريض جديد؟'),
-                  ],)
-                ],
-              ),
+                  maxLines: 2,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'يرجى إدخال الرقم المدني';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 20,),
+                TextButton(
+                  onPressed: _login,
+                  child: Text('دخول',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      )),
+                ),
+                
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                  TextButton(onPressed: (){Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignupPage(title: '')),
+                  );}, child: Text('تسجيل', style: TextStyle(color: Colors.white),)),
+                  Text('مريض جديد؟'),
+                ],)
+              ],
             ),
           ),
         ),
