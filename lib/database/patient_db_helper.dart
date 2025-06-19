@@ -133,4 +133,31 @@ class PatientDBHelper{
   static Future<void> deleteSentences(int cid) async {
     await _patientdb.delete('sentences', where: 'civil_id = ?', whereArgs: [cid]);
   }
+
+
+
+  //CRUD for words
+  static Future<List<Map<String, dynamic>>> getWords() async {
+    return await _patientdb.query('words');
+  }
+
+  static Future<Map<String, dynamic>?> getWordsByCID(int cid) async {
+    final List<Map<String,dynamic>> results = await _patientdb.query('words',
+        where: 'civil_id = ?',
+        whereArgs: [cid]);
+    if(results.isNotEmpty){return results.first;}
+    return null;
+  }
+
+  static Future<int> addWords(Map<String,dynamic> word) async {
+    return await _patientdb.insert('words', word);
+  }
+
+  static Future<void> updateWords(int cid, Map<String,dynamic> word) async{
+    await _patientdb.update('words', word, where: 'civil_id = ?', whereArgs: [cid]);
+  }
+
+  static Future<void> deleteWords(int cid) async {
+    await _patientdb.delete('words', where: 'civil_id = ?', whereArgs: [cid]);
+  }
 }

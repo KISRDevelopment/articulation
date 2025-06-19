@@ -67,6 +67,10 @@ class _SignupPageState extends State<SignupPage> {
         //await PatientDatabaseHelper().insertPatient(newPatient);
         await PatientDBHelper.addPatients(newPatient);
 
+        final testPatient = await PatientDBHelper.getPatientsByCID(_civilIDController.text as int);
+        print('new patient is is:');
+        print(testPatient);
+
         print('pass add patient');
 
         Navigator.push(
@@ -86,15 +90,17 @@ class _SignupPageState extends State<SignupPage> {
       backgroundColor: Colors.purple[200],
       appBar: AppBar(title: Text("مهارات النطق"),),
       body: SafeArea(
-        child: Form(
-          key: _formKey,
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(16),
+        child: Directionality(
+          textDirection: TextDirection.rtl,
+          child: Form(
+            key: _formKey,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              //crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                   TextFormField(
                     controller: _civilIDController,
+                    //textAlign: TextAlign.right,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       filled: true,
@@ -108,7 +114,7 @@ class _SignupPageState extends State<SignupPage> {
                       return null;
                     },
                   ),
-            
+
                   TextFormField(
                     controller: _fistNameController,
                     decoration: const InputDecoration(
@@ -124,7 +130,7 @@ class _SignupPageState extends State<SignupPage> {
                       return null;
                     },
                   ),
-            
+
                   TextFormField(
                     controller: _lastNameController,
                     decoration: const InputDecoration(
@@ -140,7 +146,7 @@ class _SignupPageState extends State<SignupPage> {
                       return null;
                     },
                   ),
-            
+
                   TextFormField(
                     controller: _fileNumController,
                     decoration: const InputDecoration(
@@ -156,7 +162,7 @@ class _SignupPageState extends State<SignupPage> {
                       return null;
                     },
                   ),
-            
+
                   TextFormField(
                     controller: _ageController,
                     decoration: const InputDecoration(
@@ -172,7 +178,7 @@ class _SignupPageState extends State<SignupPage> {
                       return null;
                     },
                   ),
-            
+
             TextButton(
               onPressed: _signup,
               child: Text('تسجيل',
@@ -181,7 +187,7 @@ class _SignupPageState extends State<SignupPage> {
                     fontSize: 20,
                   )),
             ),
-            
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
