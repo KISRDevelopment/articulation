@@ -201,7 +201,7 @@ class _SentenceCarouselCardState extends State<SentenceCarouselCard> {
 
           await PatientDBHelper.addSentences(newComment);
 
-          final testComment = await PatientDBHelper.getWordsByCID(int.parse(civilID));
+          final testComment = await PatientDBHelper.getSentencesByCID(int.parse(civilID));
           print('test comment is:');
           print(testComment);
 
