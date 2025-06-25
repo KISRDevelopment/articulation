@@ -67,9 +67,9 @@ class _SignupPageState extends State<SignupPage> {
         //await PatientDatabaseHelper().insertPatient(newPatient);
         await PatientDBHelper.addPatients(newPatient);
 
-        final testPatient = await PatientDBHelper.getPatientsByCID(_civilIDController.text as int);
-        print('new patient is is:');
-        print(testPatient);
+        //final testPatient = await PatientDBHelper.getPatientsByCID(_civilIDController.text as int);
+        //print('new patient is:');
+        //print(testPatient);
 
         print('pass add patient');
 
@@ -92,10 +92,12 @@ class _SignupPageState extends State<SignupPage> {
       body: SafeArea(
         child: Directionality(
           textDirection: TextDirection.rtl,
-          child: Form(
+          child:   Center( child: 
+          Container( width: 500, child:
+          Form(
             key: _formKey,
             child: Column(
-              //crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                   TextFormField(
@@ -202,6 +204,7 @@ class _SignupPageState extends State<SignupPage> {
           ),
         ),
       ),
+      ), ),
     );
   }
 }

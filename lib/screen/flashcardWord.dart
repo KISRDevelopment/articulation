@@ -4,8 +4,9 @@ import 'word.dart';
 import 'options.dart';
 
 class flashCardWord extends StatefulWidget {
+  //final cid;
   final letter;
-  const flashCardWord(@required this.letter);
+  const flashCardWord(@required this.letter,);
 
   @override
   _flashCardWordState createState() => _flashCardWordState();
@@ -17,6 +18,9 @@ class _flashCardWordState extends State<flashCardWord> {
   bool medial = false;
   bool end = false;
   late String letters;
+  late String civilID;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -204,7 +208,7 @@ class _flashCardWordState extends State<flashCardWord> {
                     //dict = showPosition('begin');
                     Navigator.of(context).push(
                         PageRouteBuilder(
-                          pageBuilder: (_, __, ___) => word(dict),
+                          pageBuilder: (_, __, ___) => word(dict,civilID),
                         )
                     );
                   }

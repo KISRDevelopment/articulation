@@ -67,7 +67,10 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
         child: Directionality(
           textDirection: TextDirection.rtl,
-          child: Form(
+          child: 
+          Center( child: 
+          Container( width: 500, child:
+          Form(
             key: _formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -110,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
         ),
-      ),
+      ), ), ),
     );
   }
 }
