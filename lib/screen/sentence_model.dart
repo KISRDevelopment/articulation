@@ -12,132 +12,97 @@ final Map<String, List<Sentence>> sentencesByLetter = {
 
   'أ': [
     Sentence(order: 'الجملة الأولى', content: 'الأرنب ياكل جزر'),
-    Sentence(order: 'الجملة الثانية', content: 'الأسد ملك الغابة'),
-    Sentence(order: 'الجملة الثالثة', content: 'شريت ألوان جديده'),
   ],
   'ب': [
-    Sentence(order: 'الجملة الأولى', content: 'تسبح البطة في البحيرة'),
-    Sentence(order: 'الجملة الثانية', content: 'تاكل البطة خبز'),
-    Sentence(order: 'الجملة الثالثة', content: 'اكل الدب الخبز كله'),
+    Sentence(order: 'الجملة الأولى', content: 'خافت البطه من الدب و تركت الخبز'),
   ],
   'ت': [
-    Sentence(order: 'الجملة الأولى', content: 'أفتح باب البيت بالمفتاح'),
-    Sentence(order: 'الجملة الثانية', content: 'فهد ياكل تفاح'),
+    Sentence(order: 'الجملة الأولى', content: 'افتح العلبة لتأكل التوت'),
   ],
   'ث': [
-    Sentence(order: 'الجملة الأولى', content: 'مثلث لونه أزرق'),
-    Sentence(order: 'الجملة الثانية', content: 'نحط الماي داخل الثلاجة'),
+    Sentence(order: 'الجملة الأولى', content: 'لدى ثلاث ألعاب على شكل مثلث'),
+
   ],
   'ج': [
-    Sentence(order: 'الجملة الأولى', content: 'يعيش الجمل في الصحرا'),
+    Sentence(order: 'الجملة الأولى', content: 'صنعت رجل من الثلج'),
     Sentence(order: 'الجملة الثانية', content: 'لعبت جميله تحت الشجرة'),
   ],
   'ح': [
-    Sentence(order: 'الجملة الأولى', content: 'الحصان حيوان سريع'),
-    Sentence(order: 'الجملة الثانية', content: 'حمد يسبح في البحر'),
-    Sentence(order: 'الجملة الثالثة', content: 'يفتح حمد السيارة بالمفتاح'),
+    Sentence(order: 'الجملة الأولى', content: 'حمد يركب السيارة و يفتح النافذة'),
   ],
   'خ': [
-    Sentence(order: 'الجملة الأولى', content: 'الخروف ياكل العشب والخبز'),
-    Sentence(order: 'الجملة الثانية', content: 'خالد يجمع الخرز'),
-    Sentence(order: 'الجملة الثالثة', content: 'صليت خمس صلوات في اليوم'),
-    Sentence(order: 'الجملة الرابعة', content: 'خالد ياكل البطيخ في الصيف'),
+    Sentence(order: 'الجملة الأولى', content: 'خالد يجمع البطيخ مع والده'),
   ],
   'د': [
-    Sentence(order: 'الجملة الأولى', content: 'فازت دلال بهدية'),
-    Sentence(order: 'الجملة الثانية', content: 'ايد الدب كبيرة'),
-    Sentence(order: 'الجملة الثالثة', content: 'يلعب محمد بالدمى'),
+    Sentence(order: 'الجملة الأولى', content: 'قدمت دلال هديه فيها شيء مفيد '),
   ],
   'ذ': [
-    Sentence(order: 'الجملة الأولى', content: 'الذرة لذيذة وايد'),
-    Sentence(order: 'الجملة الثانية', content: 'التلميذ يأكل الذرة'),
+    Sentence(order: 'الجملة الأولى', content: 'أخذ خالد ذرة لذيذه '),
   ],
   'ر': [
-    Sentence(order: 'الجملة الأولى', content: 'شربت عصير رمان و جزر'),
-    Sentence(order: 'الجملة الثانية', content: 'رسمت سياره لونها أحمر'),
+    Sentence(order: 'الجملة الأولى', content: 'ريم شربت عصير جزر'),
   ],
   'ز': [
-    Sentence(order: 'الجملة الأولى', content: 'زرعت جمانة جزر في الحديقة'),
-    Sentence(order: 'الجملة الثانية', content: 'ياكل محمد جزر'),
-    Sentence(order: 'الجملة الثالثة', content: 'الزرافة لها رقبه طويلة'),
+    Sentence(order: 'الجملة الأولى', content: 'أكلت مريم رز مع جزر ، وجلست بالقرب من الزهرة'),
   ],
   'س': [
-    Sentence(order: 'الجملة الأولى', content: 'سمجة لونها برتقالي'),
-    Sentence(order: 'الجملة الثانية', content: 'يصلي الولد بالمسيد'),
+    Sentence(order: 'الجملة الأولى', content: 'ساره ذهبت الى المسجد بعد الدرس '),
   ],
   'ش': [
-    Sentence(order: 'الجملة الأولى', content: 'الفراشة ألوانها جميلة'),
-    Sentence(order: 'الجملة الثانية', content: 'يعيش العصفور في العش'),
+    Sentence(order: 'الجملة الأولى', content: 'شهد رسمت شجرة فيها عش'),
   ],
   'ص': [
-    Sentence(order: 'الجملة الأولى', content: 'أكل الحلوى في صحن'),
-    Sentence(order: 'الجملة الثانية', content: 'يقص محمد الورق بالمقص'),
+    Sentence(order: 'الجملة الأولى', content: 'صالح يقص الورق بالمقص ويستخدم المصباح'),
+    
   ],
   'ض': [
-    Sentence(order: 'الجملة الأولى', content: 'الضفدع لونه أخضر'),
-    Sentence(order: 'الجملة الثانية', content: 'أنا أكل الخضار والبيض'),
-    Sentence(order: 'الجملة الثالثة', content: 'الخضار مفيده للجسم'),
+    Sentence(order: 'الجملة الأولى', content: 'ضاري يأكل الخضار و البيض'),
+
   ],
   'ط': [
-    Sentence(order: 'الجملة الأولى', content: 'الطيارة تطير في السما'),
-    Sentence(order: 'الجملة الثانية', content: 'تسبح البطة في البحيرة'),
-    Sentence(order: 'الجملة الثالثة', content: 'تلعب القطوة بالخيط'),
+    Sentence(order: 'الجملة الأولى', content: 'رأي طارق طائرا يطير فوق البط'),
+
   ],
   'ظ': [
-    Sentence(order: 'الجملة الأولى', content: 'ظل الشجرة جميل'),
-    Sentence(order: 'الجملة الثانية', content: 'محمد يلبس نظارة'),
-    Sentence(order: 'الجملة الثالثة', content: 'محمد يحفظ القرأن'),
+    Sentence(order: 'الجملة الأولى', content: 'جلس أحمد الظهر ليحفظ الدرس بنظارته'),
+
   ],
   'ع': [
-    Sentence(order: 'الجملة الأولى', content: 'النحلة تعطينا عسل'),
-    Sentence(order: 'الجملة الثانية', content: 'لون المربع ازرق'),
+    Sentence(order: 'الجملة الأولى', content: 'يلعب علي داخل المربع الازرق'),
   ],
   'غ': [
-    Sentence(order: 'الجملة الأولى', content: 'غزال فازت في السباق'),
+    Sentence(order: 'الجملة الأولى', content: 'غزال صغير فاز بالسباق'),
     Sentence(order: 'الجملة الثانية', content: 'استخدم محمد صمغ في المدرسة'),
-    Sentence(order: 'الجملة الثالثة', content: 'شرا محمد صمغ جديد'),
   ],
   'ف': [
-    Sentence(order: 'الجملة الأولى', content: 'أذون الفيل كبيره'),
-    Sentence(order: 'الجملة الثانية', content: 'خروف العيد شكلة جميل'),
-    Sentence(order: 'الجملة الثالثة', content: 'فهد يفتح الباب بالمفتاح'),
+    Sentence(order: 'الجملة الأولى', content: 'رأي فهد فيل و خروف في الحديقة'),
+
   ],
   'ق': [
     Sentence(order: 'الجملة الأولى', content: 'شريت قلم ازرق'),
     Sentence(order: 'الجملة الثانية', content: 'شربت عصير البرتقال'),
-    Sentence(order: 'الجملة الثالثة', content: 'لبست دلاق في الشتاء'),
   ],
   'ك': [
-    Sentence(order: 'الجملة الأولى', content: 'شرا أحمد كره يديده'),
-    Sentence(order: 'الجملة الثانية', content: 'درست كوثر في مكتبة المدرسه'),
+    Sentence(order: 'الجملة الأولى', content: 'قرأت كوثر فقصة عن ملك في المكتبة'),
   ],
   'ل': [
-    Sentence(order: 'الجملة الأولى', content: 'شربت ليلى عصير ليمون'),
-    Sentence(order: 'الجملة الثانية', content: 'شرت أمي تلفون جديد'),
+    Sentence(order: 'الجملة الأولى', content: 'أكلت ليلى خبزا مع عسل و شربت عصير ليمون'),
+  
   ],
   'م': [
-    Sentence(order: 'الجملة الأولى', content: 'محمد ياكل موز و رمان'),
-    Sentence(order: 'الجملة الثانية', content: 'أنا اكتب بقلم الرصاص'),
-    Sentence(order: 'الجملة الثالثة', content: 'محمد يكتب بقلم الرصاص'),
+    Sentence(order: 'الجملة الأولى', content: 'محمد يكتب بقلم الرصاص'),
   ],
   'ن': [
     Sentence(order: 'الجملة الأولى', content: 'النحلة تصنع العسل'),
-    Sentence(order: 'الجملة الثانية', content: 'نام ناصر مبجر'),
+    Sentence(order: 'الجملة الثانية', content: 'نام سلطان مبكرا'),
   ],
   'هـ': [
-    Sentence(order: 'الجملة الأولى', content: 'فازت مريم بهديه كبيره'),
-    Sentence(order: 'الجملة الثانية', content: 'ليلى مهندسه شاطره'),
+    Sentence(order: 'الجملة الأولى', content: 'فازت هنادي بهديه كبيره'),
   ],
   'و': [
-    Sentence(order: 'الجملة الأولى', content: 'وردة حمره لونها حلو'),
-    Sentence(order: 'الجملة الثانية', content: 'أحب أكل فراولة مع الككاو'),
-    Sentence(order: 'الجملة الثالثة', content: 'زينه تحب تاكل فراولة'),
-    Sentence(order: 'الجملة الرابعة', content: 'فراولة لونها أحمر'),
+    Sentence(order: 'الجملة الأولى', content: 'ولد يأكل فراولة مع الكاكاو'),
   ],
   'ي': [
-    Sentence(order: 'الجملة الأولى', content: 'يسبح يوسف في البحر'),
-    Sentence(order: 'الجملة الثانية', content: 'يوسف يزرع خيار'),
-    Sentence(order: 'الجملة الثالثة', content: 'شرا يدي كرتون خيار'),
-    Sentence(order: 'الجملة الرابعة', content: 'رسمت ياسمين كرسي صغير'),
+    Sentence(order: 'الجملة الأولى', content: 'يزرع صديقي خيار'),
   ],
 };
