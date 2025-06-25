@@ -140,7 +140,7 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                               onTap: (){
                                 Navigator.of(context).push(
                                     PageRouteBuilder(
-                                      pageBuilder: (_, __, ___) => flashCardWord(widget.letter),
+                                      pageBuilder: (_, __, ___) => flashCardWord(widget.letter,civilID),
                                     )
                                 );
                               }

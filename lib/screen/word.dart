@@ -8,9 +8,9 @@ import 'options.dart';
 
 class word extends StatefulWidget {
 
-
+  final cid;
   final dict;
-  const word(@required this.dict);
+  const word(@required this.dict, this.cid);
 
   @override
   _wordState createState() => _wordState();
@@ -18,6 +18,13 @@ class word extends StatefulWidget {
 
 class _wordState extends State<word> {
   bool flag = false;
+  late String civilID;
+
+  void initState(){
+    super.initState();
+    civilID = widget.cid;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +62,7 @@ class _wordState extends State<word> {
                 ),
                 child: CarouselSlider(
                   items: widget.dict.map<Widget>((pictureOptions) =>
-                  CarouselCard(picturesOptions: pictureOptions)).toList(),
+                  CarouselCard(picturesOptions: pictureOptions,cid: civilID,)).toList(),
                   options: CarouselOptions(
                     height: MediaQuery.of(context).size.height,
                     viewportFraction: 1.0,
@@ -90,83 +97,16 @@ class _wordState extends State<word> {
   }
 }
 
-class CarouselCard extends StatelessWidget {
-  final PicturesOptions picturesOptions;
-
-  const CarouselCard({required this.picturesOptions});
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(5.0)),
-        child: Stack(
-          children: [
-            Container(
-              width: 400,
-              height: 450,
-              padding: EdgeInsets.fromLTRB(0, 100, 0, 0),
-                child: Image.asset(picturesOptions.image, fit: BoxFit.contain)),
-            Positioned(
-                right: 0.0,
-                bottom: 150.0,
-                left: 0.0,
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 10.0),
-                  child: Center(
-                    child: Text(picturesOptions.word,
-                    style: TextStyle(color: Colors.black,
-                    fontSize: 50.0,
-                    fontWeight: FontWeight.bold),),
-                  ),
-                )),
-            Positioned(
-                right: 0.0,
-                bottom: 80.0,
-                left: 0.0,
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: "أدخل تعليق",
-                  ),
-                ),
-            ),
-            Positioned(
-              right: 0.0,
-              bottom: 20.0,
-              left: 0.0,
-              child: ElevatedButton(
-                onPressed: (){
-                  // Button Functionality
-                },
-                child: Text('ادخال'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white
-                )
-              ),
-            ),
-
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-
-
-class WordCarouselCard extends StatefulWidget {
+class CarouselCard extends StatefulWidget {
   final PicturesOptions picturesOptions;
   final cid;
-  const WordCarouselCard({required this.picturesOptions, this.cid});
+  const CarouselCard({required this.picturesOptions, this.cid});
 
   @override
-  State<WordCarouselCard> createState() => _WordCarouselCardState();
+  State<CarouselCard> createState() => _CarouselCardState();
 }
 
-class _WordCarouselCardState extends State<WordCarouselCard> {
+class _CarouselCardState extends State<CarouselCard> {
   TextEditingController _commentController = TextEditingController();
   late final civilID;
   late PicturesOptions pictureOption_content;
