@@ -83,7 +83,7 @@ final Map<String, List<Sentence>> sentencesByLetter = {
     Sentence(order: 'الجملة الثانية', content: 'شربت عصير البرتقال'),
   ],
   'ك': [
-    Sentence(order: 'الجملة الأولى', content: 'قرأت كوثر فقصة عن ملك في المكتبة'),
+    Sentence(order: 'الجملة الأولى', content: 'قرأت كوثر قصة عن ملك في المكتبة'),
   ],
   'ل': [
     Sentence(order: 'الجملة الأولى', content: 'أكلت ليلى خبزا مع عسل و شربت عصير ليمون'),
