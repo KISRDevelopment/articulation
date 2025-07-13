@@ -28,7 +28,7 @@ class _InfoCardState extends State<InfoCard> with AfterLayoutMixin<InfoCard> {
   void initState() {
     super.initState();
 
-    fromAsset('file/International_Phonetic_Alphabet_IPA.pdf', 'International_Phonetic_Alphabet_IPA.pdf').then((f) {
+    fromAsset('file/Articulation_test_form_reviwed.pdf', 'Articulation_test_form_reviwed.pdf').then((f) {
       setState(() {
         pathPDF = f.path;
       });
