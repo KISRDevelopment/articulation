@@ -351,6 +351,9 @@ class _flashCardWordState extends State<flashCardWord> {
       case 'ي':
         dict = PicturesOptions.picListBeginYa;
         return dict;
+      case '*ج':
+        dict = PicturesOptions.picListBeginJay;
+        return dict;
 
 
 
@@ -448,6 +451,10 @@ class _flashCardWordState extends State<flashCardWord> {
       case 'ي':
         dict = PicturesOptions.picListMedYa;
         return dict;
+      case '*ج':
+        dict = PicturesOptions.picListMedJay;
+        return dict;
+
       default:
         break;
     }
@@ -537,6 +544,9 @@ class _flashCardWordState extends State<flashCardWord> {
         return dict;
       case 'ي':
         dict = PicturesOptions.picListEndYa;
+        return dict;
+      case '*ج':
+        dict = PicturesOptions.picListEndJay;
         return dict;
 
 
