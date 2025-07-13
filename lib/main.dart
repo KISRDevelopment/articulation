@@ -714,8 +714,37 @@ GestureDetector(
           ),
           Row(
             children: [
-              GestureDetector(child: Container(
+            GestureDetector(child: Container(
                 margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
+
+                child: Center(
+                    child: Text("*ج", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(color: Colors.amber.shade50,
+                  border: Border.all(
+                      color: Colors.amber.shade50
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
+
+
+
+
+
+
+              ),
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: '*ج'),
+                        )
+                    );
+                  }
+              ),
+
+              GestureDetector(child: Container(
+                margin: EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 10),
 
                 child: Center(
                     child: Text("ي", style: TextStyle(fontSize: 70, ))),
@@ -884,6 +913,42 @@ GestureDetector(
             ],
 
           ),
+
+         /*Row(
+            children: [
+            GestureDetector(child: Container(
+                margin: EdgeInsets.only(left: 150, top: 10, right: 10, bottom: 10),
+
+                child: Center(
+                    child: Text("*ج", style: TextStyle(fontSize: 70, ))),
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(color: Colors.amber.shade50,
+                  border: Border.all(
+                      color: Colors.amber.shade50
+
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),),
+
+
+
+
+
+
+              ),
+                  onTap: (){
+                    Navigator.of(context).push(
+                        PageRouteBuilder(opaque: false,
+                          pageBuilder: (_, __, ___) => flashCardOption(letter: '*ج'),
+                        )
+                    );
+                  }
+              ),
+
+              
+            ],
+
+          ),*/
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
