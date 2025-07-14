@@ -91,6 +91,24 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                       mainAxisAlignment: MainAxisAlignment.center,
                         children: [
 
+                          Container(
+                            margin: EdgeInsets.all(10),
+                            width: 150,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              color: Colors.amber.shade50,
+                              borderRadius: BorderRadius.all(Radius.circular(20)
+                              ),
+                            ),
+                            child: Column(
+                              children: [
+                                Text("قصص", style: TextStyle(fontSize: 50)),
+                                //Icon(Icons.lightbulb_outline, size: 50)
+
+                              ],
+                            ),
+                          ),
+
                           GestureDetector(
                             child: Container(
                               margin: EdgeInsets.all(10),
@@ -147,23 +165,7 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
 
                           ),
 
-                          Container(
-                            margin: EdgeInsets.all(10),
-                            width: 150,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: Colors.amber.shade50,
-                              borderRadius: BorderRadius.all(Radius.circular(20)
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Text("قصص", style: TextStyle(fontSize: 50)),
-                                //Icon(Icons.lightbulb_outline, size: 50)
-
-                              ],
-                            ),
-                          ),
+                          
                         ],
                       ),
 

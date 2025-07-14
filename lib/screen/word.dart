@@ -62,7 +62,7 @@ class _WordState extends State<Word> {
                 ),
                 child: CarouselSlider(
                   items: widget.dict.map<Widget>((pictureOptions) =>
-                      CarouselCard(picturesOptions: pictureOptions)).toList(),
+                      CarouselCard(picturesOptions: pictureOptions, cid: civilID,)).toList(),
                   options: CarouselOptions(
                     height: MediaQuery.of(context).size.height,
                     viewportFraction: 1.0,

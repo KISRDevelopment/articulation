@@ -1,11 +1,12 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=C:\src\flutter
-FLUTTER_APPLICATION_PATH=C:\Users\bmdashti\StudioProjects\articulation
+FLUTTER_ROOT=/Users/Shared/flutter
+FLUTTER_APPLICATION_PATH=/Users/shafeah/Desktop/articulation
 COCOAPODS_PARALLEL_CODE_SIGN=true
+FLUTTER_TARGET=/Users/shafeah/Desktop/articulation/lib/main.dart
 FLUTTER_BUILD_DIR=build
 FLUTTER_BUILD_NAME=1.0.0
 FLUTTER_BUILD_NUMBER=1
 DART_OBFUSCATION=false
 TRACK_WIDGET_CREATION=true
 TREE_SHAKE_ICONS=false
-PACKAGE_CONFIG=.dart_tool/package_config.json
+PACKAGE_CONFIG=/Users/shafeah/Desktop/articulation/.dart_tool/package_config.json
