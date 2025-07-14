@@ -6,20 +6,20 @@ import 'flashCardOption.dart';
 import 'options.dart';
 
 
-class word extends StatefulWidget {
-
+class Word extends StatefulWidget {
   final cid;
   final dict;
-  const word(@required this.dict, this.cid);
+  const Word(this.dict, this.cid);
 
   @override
-  _wordState createState() => _wordState();
+  _WordState createState() => _WordState();
 }
 
-class _wordState extends State<word> {
+class _WordState extends State<Word> {
   bool flag = false;
   late String civilID;
 
+  @override
   void initState(){
     super.initState();
     civilID = widget.cid;
@@ -62,7 +62,7 @@ class _wordState extends State<word> {
                 ),
                 child: CarouselSlider(
                   items: widget.dict.map<Widget>((pictureOptions) =>
-                  CarouselCard(picturesOptions: pictureOptions,cid: civilID,)).toList(),
+                      CarouselCard(picturesOptions: pictureOptions)).toList(),
                   options: CarouselOptions(
                     height: MediaQuery.of(context).size.height,
                     viewportFraction: 1.0,
@@ -97,6 +97,7 @@ class _wordState extends State<word> {
   }
 }
 
+
 class CarouselCard extends StatefulWidget {
   final PicturesOptions picturesOptions;
   final cid;
@@ -108,14 +109,14 @@ class CarouselCard extends StatefulWidget {
 
 class _CarouselCardState extends State<CarouselCard> {
   TextEditingController _commentController = TextEditingController();
-  late final civilID;
   late PicturesOptions pictureOption_content;
+  late String civilID;
 
   @override
   void initState(){
     super.initState();
-    civilID = widget.cid;
     pictureOption_content = widget.picturesOptions;
+    civilID = widget.cid;
   }
 
   Future<void> _insertComment() async {
@@ -137,7 +138,7 @@ class _CarouselCardState extends State<CarouselCard> {
 
           print(newComment);
 
-          await PatientDBHelper.addSentences(newComment);
+          await PatientDBHelper.addWords(newComment);
 
           final testComment = await PatientDBHelper.getWordsByCID(int.parse(civilID));
           print('test comment is:');
@@ -150,7 +151,6 @@ class _CarouselCardState extends State<CarouselCard> {
 
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -208,4 +208,3 @@ class _CarouselCardState extends State<CarouselCard> {
     );
   }
 }
-

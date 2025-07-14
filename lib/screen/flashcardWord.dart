@@ -4,12 +4,14 @@ import 'word.dart';
 import 'options.dart';
 
 class flashCardWord extends StatefulWidget {
-  //final cid;
+  final cid;
   final letter;
-  const flashCardWord(@required this.letter,);
+  const flashCardWord(this.letter, this.cid);
+
+
 
   @override
-  _flashCardWordState createState() => _flashCardWordState();
+  State<flashCardWord> createState() => _flashCardWordState();
 }
 
 class _flashCardWordState extends State<flashCardWord> {
@@ -20,6 +22,11 @@ class _flashCardWordState extends State<flashCardWord> {
   late String letters;
   late String civilID;
 
+  @override
+  void initState(){
+    super.initState();
+    civilID = widget.cid;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -208,7 +215,7 @@ class _flashCardWordState extends State<flashCardWord> {
                     //dict = showPosition('begin');
                     Navigator.of(context).push(
                         PageRouteBuilder(
-                          pageBuilder: (_, __, ___) => word(dict,civilID),
+                          pageBuilder: (_, __, ___) => Word(dict, civilID),
                         )
                     );
                   }
