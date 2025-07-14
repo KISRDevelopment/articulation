@@ -6,7 +6,8 @@ import 'flashCardSentence.dart';
 
 class flashCardOption extends StatefulWidget {
   final letter;
-  flashCardOption({@required this.letter});
+  final cid;
+  flashCardOption({@required this.letter, this.cid});
 
   //const SingleFlipCard({Key? key}) : super(key: key);
 
@@ -16,7 +17,14 @@ class flashCardOption extends StatefulWidget {
 
 class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin<flashCardOption> {
   bool flag = false;
+  late String civilID;
   final GlobalKey<FlipCardState> cardKey = GlobalKey<FlipCardState>();
+
+  @override
+  void initState(){
+    super.initState();
+    civilID = widget.cid;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,6 +90,7 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+
                           Container(
                             margin: EdgeInsets.all(10),
                             width: 150,
@@ -99,6 +108,7 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                               ],
                             ),
                           ),
+
                           GestureDetector(
                             child: Container(
                               margin: EdgeInsets.all(10),
@@ -120,7 +130,7 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                             onTap: (){
                                 Navigator.of(context).push(
                                     PageRouteBuilder(
-                                      pageBuilder: (_, __, ___) => flashCardSentence(widget.letter),
+                                      pageBuilder: (_, __, ___) => flashCardSentence(widget.letter, civilID)
                                     )
                                 );
                               },
@@ -148,12 +158,14 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                               onTap: (){
                                 Navigator.of(context).push(
                                     PageRouteBuilder(
-                                      pageBuilder: (_, __, ___) => flashCardWord(widget.letter),
+                                      pageBuilder: (_, __, ___) => flashCardWord(widget.letter, civilID),
                                     )
                                 );
                               }
 
                           ),
+
+                          
                         ],
                       ),
 

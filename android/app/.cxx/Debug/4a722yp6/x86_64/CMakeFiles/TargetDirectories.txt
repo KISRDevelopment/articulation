@@ -1,0 +1,2 @@
+C:/Users/bmdashti/StudioProjects/epiroutine/android/app/.cxx/Debug/4a722yp6/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/bmdashti/StudioProjects/epiroutine/android/app/.cxx/Debug/4a722yp6/x86_64/CMakeFiles/rebuild_cache.dir

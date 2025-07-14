@@ -1,22 +1,30 @@
 import 'package:articulation/screen/options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart' hide CarouselController;
+import '../database/patient_db_helper.dart';
 import 'flashCardOption.dart';
 import 'options.dart';
 
 
-class word extends StatefulWidget {
-
-
+class Word extends StatefulWidget {
+  final cid;
   final dict;
-  const word(@required this.dict);
+  const Word(this.dict, this.cid);
 
   @override
-  _wordState createState() => _wordState();
+  _WordState createState() => _WordState();
 }
 
-class _wordState extends State<word> {
+class _WordState extends State<Word> {
   bool flag = false;
+  late String civilID;
+
+  @override
+  void initState(){
+    super.initState();
+    civilID = widget.cid;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +62,7 @@ class _wordState extends State<word> {
                 ),
                 child: CarouselSlider(
                   items: widget.dict.map<Widget>((pictureOptions) =>
-                  CarouselCard(picturesOptions: pictureOptions)).toList(),
+                      CarouselCard(picturesOptions: pictureOptions, cid: civilID,)).toList(),
                   options: CarouselOptions(
                     height: MediaQuery.of(context).size.height,
                     viewportFraction: 1.0,
@@ -89,10 +97,60 @@ class _wordState extends State<word> {
   }
 }
 
-class CarouselCard extends StatelessWidget {
-  final PicturesOptions picturesOptions;
 
-  const CarouselCard({required this.picturesOptions});
+class CarouselCard extends StatefulWidget {
+  final PicturesOptions picturesOptions;
+  final cid;
+  const CarouselCard({required this.picturesOptions, this.cid});
+
+  @override
+  State<CarouselCard> createState() => _CarouselCardState();
+}
+
+class _CarouselCardState extends State<CarouselCard> {
+  TextEditingController _commentController = TextEditingController();
+  late PicturesOptions pictureOption_content;
+  late String civilID;
+
+  @override
+  void initState(){
+    super.initState();
+    pictureOption_content = widget.picturesOptions;
+    civilID = widget.cid;
+  }
+
+  Future<void> _insertComment() async {
+    {
+      final comment = _commentController.text;
+      print(comment);
+
+      try{
+        final patient = await PatientDBHelper.getPatientsByCID(int.parse(civilID));
+
+        if (patient != null) {
+          print('patient exist');
+
+          final newComment = { //create new patient
+            'civil_id': civilID,
+            'word': pictureOption_content.word,
+            'comment': _commentController.text,
+          };
+
+          print(newComment);
+
+          await PatientDBHelper.addWords(newComment);
+
+          final testComment = await PatientDBHelper.getWordsByCID(int.parse(civilID));
+          print('test comment is:');
+          print(testComment);
+
+          print('pass add comment');
+
+        }} catch (e) {}
+
+
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -102,10 +160,10 @@ class CarouselCard extends StatelessWidget {
         child: Stack(
           children: [
             Container(
-              width: 400,
-              height: 450,
-              padding: EdgeInsets.fromLTRB(0, 100, 0, 0),
-                child: Image.asset(picturesOptions.image, fit: BoxFit.contain)),
+                width: 400,
+                height: 450,
+                padding: EdgeInsets.fromLTRB(0, 100, 0, 0),
+                child: Image.asset(pictureOption_content.image, fit: BoxFit.contain)),
             Positioned(
                 right: 0.0,
                 bottom: 150.0,
@@ -113,36 +171,34 @@ class CarouselCard extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 10.0),
                   child: Center(
-                    child: Text(picturesOptions.word,
-                    style: TextStyle(color: Colors.black,
-                    fontSize: 50.0,
-                    fontWeight: FontWeight.bold),),
+                    child: Text(pictureOption_content.word,
+                      style: TextStyle(color: Colors.black,
+                          fontSize: 50.0,
+                          fontWeight: FontWeight.bold),),
                   ),
                 )),
             Positioned(
-                right: 0.0,
-                bottom: 80.0,
-                left: 0.0,
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: "Enter Comment",
-                  ),
+              right: 0.0,
+              bottom: 80.0,
+              left: 0.0,
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "أدخل تعليق",
                 ),
+              ),
             ),
             Positioned(
               right: 0.0,
               bottom: 20.0,
               left: 0.0,
               child: ElevatedButton(
-                onPressed: (){
-                  // Button Functionality
-                },
-                child: Text('ادخال'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white
-                )
+                  onPressed: _insertComment,
+                  child: Text('ادخال',  style: TextStyle(fontSize: 20),),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      foregroundColor: Colors.white
+                  )
               ),
             ),
 
@@ -152,4 +208,3 @@ class CarouselCard extends StatelessWidget {
     );
   }
 }
-
