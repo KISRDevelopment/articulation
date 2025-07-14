@@ -89,7 +89,8 @@ class _SignupPageState extends State<SignupPage> {
     return Scaffold(
       backgroundColor: Colors.purple[200],
       appBar: AppBar(title: Text("مهارات النطق"),),
-      body: SafeArea(
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(25),
         child: Directionality(
           textDirection: TextDirection.rtl,
           child:   Center( child: 
@@ -100,6 +101,7 @@ class _SignupPageState extends State<SignupPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                SizedBox(height: 20,),
                   TextFormField(
                     controller: _civilIDController,
                     //textAlign: TextAlign.right,
@@ -116,7 +118,7 @@ class _SignupPageState extends State<SignupPage> {
                       return null;
                     },
                   ),
-
+                  SizedBox(height: 20,),
                   TextFormField(
                     controller: _fistNameController,
                     decoration: const InputDecoration(
@@ -132,7 +134,7 @@ class _SignupPageState extends State<SignupPage> {
                       return null;
                     },
                   ),
-
+                  SizedBox(height: 20,),
                   TextFormField(
                     controller: _lastNameController,
                     decoration: const InputDecoration(
@@ -148,7 +150,7 @@ class _SignupPageState extends State<SignupPage> {
                       return null;
                     },
                   ),
-
+SizedBox(height: 20,),
                   TextFormField(
                     controller: _fileNumController,
                     decoration: const InputDecoration(
@@ -164,7 +166,7 @@ class _SignupPageState extends State<SignupPage> {
                       return null;
                     },
                   ),
-
+SizedBox(height: 20,),
                   TextFormField(
                     controller: _ageController,
                     decoration: const InputDecoration(
@@ -180,7 +182,7 @@ class _SignupPageState extends State<SignupPage> {
                       return null;
                     },
                   ),
-
+SizedBox(height: 20,),
             TextButton(
               onPressed: _signup,
               child: Text('تسجيل',
@@ -189,15 +191,16 @@ class _SignupPageState extends State<SignupPage> {
                     fontSize: 20,
                   )),
             ),
-
+SizedBox(height: 20,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Text('لديك حساب؟'),
                 TextButton(onPressed: (){Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => LoginPage(title: '')),
                 );}, child: Text('دخول', style: TextStyle(color: Colors.white),)),
-                Text('لديك حساب؟'),
+                
               ],)
               ],
             ),

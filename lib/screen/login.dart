@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.purple[200],
-      appBar: AppBar(title: Text("مهارات النطق"),),
+      appBar: AppBar(title: Text("مهارات النطق"), automaticallyImplyLeading: false,),
       body: SafeArea(
         child: Directionality(
           textDirection: TextDirection.rtl,
@@ -103,11 +103,12 @@ class _LoginPageState extends State<LoginPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Text('مستخدم جديد؟'),
                   TextButton(onPressed: (){Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => SignupPage(title: '')),
                   );}, child: Text('تسجيل', style: TextStyle(color: Colors.white),)),
-                  Text('مستخدم جديد؟'),
+                  
                 ],)
               ],
             ),
