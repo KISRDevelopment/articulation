@@ -70,6 +70,7 @@ flutter:
   assets:
     - images/
     - file/International_Phonetic_Alphabet_IPA.pdf
+    - file/Articulation_test_form_reviwed.pdf
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

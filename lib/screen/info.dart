@@ -131,7 +131,7 @@ class _InfoCardState extends State<InfoCard> with AfterLayoutMixin<InfoCard> {
                               Container(
 
                                 padding: EdgeInsets.fromLTRB(0, 20, 0, 50),
-                                child: Image.asset("images/Process_of_articulation.jpg", fit: BoxFit.cover, height: 500, width: 600),
+                                child: Image.asset("images/Process_of_articulation.jpg", fit: BoxFit.cover, height: 400, width: 500),
                                 color: Colors.white,
                               ),
 
