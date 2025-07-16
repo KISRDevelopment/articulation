@@ -11,60 +11,60 @@ class Sentence {
 final Map<String, List<Sentence>> sentencesByLetter = {
 
   'أ': [
-    Sentence(order: 'الجملة الأولى', content: 'الأرنب ياكل جزر'),
+    Sentence(order: 'الجملة الأولى', content: 'أرنب ياكل جزر'),
   ],
   'ب': [
-    Sentence(order: 'الجملة الأولى', content: 'خافت البطه من الدب و تركت الخبز'),
+    Sentence(order: 'الجملة الأولى', content: 'خافت البطه من الدب و خلت الخبز'),
   ],
   'ت': [
-    Sentence(order: 'الجملة الأولى', content: 'افتح العلبة لتأكل التوت'),
+    Sentence(order: 'الجملة الأولى', content: 'افتح العلبة عشان تاكل التوت'),
   ],
   'ث': [
-    Sentence(order: 'الجملة الأولى', content: 'لدى ثلاث ألعاب على شكل مثلث'),
+    Sentence(order: 'الجملة الأولى', content: 'عندي ثلاث ألعاب على شكل مثلث'),
 
   ],
   'ج': [
-    Sentence(order: 'الجملة الأولى', content: 'صنعت رجل من الثلج'),
+    Sentence(order: 'الجملة الأولى', content: 'سويت رجل من الثلج'),
     Sentence(order: 'الجملة الثانية', content: 'لعبت جميله تحت الشجرة'),
   ],
   'ح': [
-    Sentence(order: 'الجملة الأولى', content: 'حمد يركب السيارة و يفتح النافذة'),
+    Sentence(order: 'الجملة الأولى', content: 'حمد يركب السيارة و يفتح الدريشه'),
   ],
   'خ': [
-    Sentence(order: 'الجملة الأولى', content: 'خالد يجمع البطيخ مع والده'),
+    Sentence(order: 'الجملة الأولى', content: 'خالد يجمع البطيخ مع ابوه'),
   ],
   'د': [
-    Sentence(order: 'الجملة الأولى', content: 'قدمت دلال هديه فيها شيء مفيد '),
+    Sentence(order: 'الجملة الأولى', content: 'قدمت دلال هديه فيها شي مفيد '),
   ],
   'ذ': [
-    Sentence(order: 'الجملة الأولى', content: 'أخذ خالد ذرة لذيذه '),
+    Sentence(order: 'الجملة الأولى', content: 'أخذ خالد الذرة  '),
   ],
   'ر': [
     Sentence(order: 'الجملة الأولى', content: 'ريم شربت عصير جزر'),
   ],
   'ز': [
-    Sentence(order: 'الجملة الأولى', content: 'أكلت مريم رز مع جزر ، وجلست بالقرب من الزهرة'),
+    Sentence(order: 'الجملة الأولى', content: 'زرعت مريم جزر في الحديقة ، وقعدت تاكل جوز '),
   ],
   'س': [
-    Sentence(order: 'الجملة الأولى', content: 'ساره ذهبت الى المسجد بعد الدرس '),
+    Sentence(order: 'الجملة الأولى', content: 'ساره راحت المسجد بعد الدرس '),
   ],
   'ش': [
     Sentence(order: 'الجملة الأولى', content: 'شهد رسمت شجرة فيها عش'),
   ],
   'ص': [
-    Sentence(order: 'الجملة الأولى', content: 'صالح يقص الورق بالمقص ويستخدم المصباح'),
+    Sentence(order: 'الجملة الأولى', content: 'صالح قص الورقه بالمقص بعد ما شرب العصير '),
     
   ],
   'ض': [
-    Sentence(order: 'الجملة الأولى', content: 'ضاري يأكل الخضار و البيض'),
+    Sentence(order: 'الجملة الأولى', content: 'ضاري ياكل الخضار و البيض'),
 
   ],
   'ط': [
-    Sentence(order: 'الجملة الأولى', content: 'رأي طارق طائرا يطير فوق البط'),
+    Sentence(order: 'الجملة الأولى', content: 'شاف طارق طير يطير فوق البط'),
 
   ],
   'ظ': [
-    Sentence(order: 'الجملة الأولى', content: 'جلس أحمد الظهر ليحفظ الدرس بنظارته'),
+    Sentence(order: 'الجملة الأولى', content: 'قعد أحمد الظهر وحفظ الدرس بنظارته'),
 
   ],
   'ع': [
@@ -72,10 +72,10 @@ final Map<String, List<Sentence>> sentencesByLetter = {
   ],
   'غ': [
     Sentence(order: 'الجملة الأولى', content: 'غزال صغير فاز بالسباق'),
-    Sentence(order: 'الجملة الثانية', content: 'استخدم محمد صمغ في المدرسة'),
+    Sentence(order: 'الجملة الثانية', content: 'شري محمد صمغ يديد حق المدرسة'),
   ],
   'ف': [
-    Sentence(order: 'الجملة الأولى', content: 'رأي فهد فيل و خروف في الحديقة'),
+    Sentence(order: 'الجملة الأولى', content: 'شاف فهد فيل و خروف في الحديقة'),
 
   ],
   'ق': [
@@ -83,26 +83,26 @@ final Map<String, List<Sentence>> sentencesByLetter = {
     Sentence(order: 'الجملة الثانية', content: 'شربت عصير البرتقال'),
   ],
   'ك': [
-    Sentence(order: 'الجملة الأولى', content: 'قرأت كوثر قصة عن ملك في المكتبة'),
+    Sentence(order: 'الجملة الأولى', content: 'قرت كوثر قصة عن ملك في المكتبة'),
   ],
   'ل': [
-    Sentence(order: 'الجملة الأولى', content: 'أكلت ليلى خبزا مع عسل و شربت عصير ليمون'),
+    Sentence(order: 'الجملة الأولى', content: 'كلت ليلى الخبز مع عسل و شربت عصير ليمون'),
   
   ],
   'م': [
     Sentence(order: 'الجملة الأولى', content: 'محمد يكتب بقلم الرصاص'),
   ],
   'ن': [
-    Sentence(order: 'الجملة الأولى', content: 'النحلة تصنع العسل'),
-    Sentence(order: 'الجملة الثانية', content: 'نام سلطان مبكرا'),
+    Sentence(order: 'الجملة الأولى', content: 'ناخذ العسل من النحل'),
+    Sentence(order: 'الجملة الثانية', content: 'نام سلطان مبجر'),
   ],
   'هـ': [
     Sentence(order: 'الجملة الأولى', content: 'فازت هنادي بهديه كبيره'),
   ],
   'و': [
-    Sentence(order: 'الجملة الأولى', content: 'ولد يأكل فراولة مع الكاكاو'),
+    Sentence(order: 'الجملة الأولى', content: 'الولد ياكل فراولة مع الكاكاو'),
   ],
   'ي': [
-    Sentence(order: 'الجملة الأولى', content: 'يزرع صديقي خيار'),
+    Sentence(order: 'الجملة الأولى', content: 'يزرع رفيجي خيار بالمزرعه'),
   ],
 };
