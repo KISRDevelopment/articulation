@@ -100,7 +100,7 @@ final Map<String, List<Sentence>> sentencesByLetter = {
     Sentence(order: 'الجملة الأولى', content: 'فازت هنادي بهديه كبيره'),
   ],
   'و': [
-    Sentence(order: 'الجملة الأولى', content: 'الولد يأكل فراولة مع الكاكاو'),
+    Sentence(order: 'الجملة الأولى', content: 'الولد ياكل فراولة مع الكاكاو'),
   ],
   'ي': [
     Sentence(order: 'الجملة الأولى', content: 'يزرع رفيجي خيار بالمزرعه'),
