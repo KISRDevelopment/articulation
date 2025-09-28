@@ -201,6 +201,10 @@ class _SentenceCarouselCardState extends State<SentenceCarouselCard> {
 
           await PatientDBHelper.addSentences(newComment);
 
+          final testComment = await PatientDBHelper.getWordsByCID(int.parse(civilID));
+          print('test comment is:');
+          print(testComment);
+
           print('pass add comment');
 
         }} catch (e) {}
@@ -239,7 +243,7 @@ class _SentenceCarouselCardState extends State<SentenceCarouselCard> {
                     controller: _commentController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: "Enter Comment",
+                      labelText: "أدخل تعليق",
                     ),
                   ),
                 ),

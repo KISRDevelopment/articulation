@@ -65,12 +65,12 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Colors.purple[200],
       appBar: AppBar(title: Text("مهارات النطق"),),
       body: SafeArea(
-        child: Form(
-          key: _formKey,
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(16),
+        child: Directionality(
+          textDirection: TextDirection.rtl,
+          child: Form(
+            key: _formKey,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextFormField(
                   controller: _civilIDController,
@@ -96,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                         fontSize: 20,
                       )),
                 ),
-                
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -104,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                     context,
                     MaterialPageRoute(builder: (context) => SignupPage(title: '')),
                   );}, child: Text('تسجيل', style: TextStyle(color: Colors.white),)),
-                  Text('مريض جديد؟'),
+                  Text('مستخدم جديد؟'),
                 ],)
               ],
             ),

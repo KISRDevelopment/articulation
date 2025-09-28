@@ -5,14 +5,6 @@ class PicturesOptions{
   final String image;
 
 
-
-
-
-
-
-
-
-
   PicturesOptions({
     required this.word,
     required this.image,
