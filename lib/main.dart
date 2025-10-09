@@ -752,6 +752,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   }),
             ],
           ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,

@@ -91,6 +91,7 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+
                           GestureDetector(
                             child: Container(
                               margin: EdgeInsets.all(10),
@@ -107,6 +108,7 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                                   //Icon(Icons.lightbulb_outline, size: 50)
                             
                                 ],
+
                               ),
                             ),
                             onTap: (){
@@ -117,6 +119,7 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                                 );
                             },
                           ),
+
                           GestureDetector(
                             child: Container(
                               margin: EdgeInsets.all(10),
@@ -172,6 +175,8 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                               }
 
                           ),
+
+                          
                         ],
                       ),
 
