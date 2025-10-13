@@ -145,7 +145,7 @@ class CarouselCard extends StatelessWidget {
                     )),
               ),
             ),
-            SentenceCarouselCard(sentence: story![0].content, cid: this.cid),
+            StoryCarouselCard(Story: story![0].content, cid: this.cid),
         
           ],
         ),
@@ -154,25 +154,25 @@ class CarouselCard extends StatelessWidget {
   }
 }
 
-class SentenceCarouselCard extends StatefulWidget {
-  final sentence;
+class StoryCarouselCard extends StatefulWidget {
+  final Story;
   final cid;
-  const SentenceCarouselCard({required this.sentence, this.cid});
+  const StoryCarouselCard({required this.Story, this.cid});
 
   @override
-  State<SentenceCarouselCard> createState() => _SentenceCarouselCardState();
+  State<StoryCarouselCard> createState() => _StoryCarouselCardState();
 }
 
-class _SentenceCarouselCardState extends State<SentenceCarouselCard> {
+class _StoryCarouselCardState extends State<StoryCarouselCard> {
   TextEditingController _commentController = TextEditingController();
   late final civilID;
-  late String sentence_content;
+  late String Story_content;
 
   @override
   void initState(){
     super.initState();
     civilID = widget.cid;
-    sentence_content = widget.sentence;
+    Story_content = widget.Story;
   }
 
   Future<void> _insertComment() async {
@@ -188,15 +188,15 @@ class _SentenceCarouselCardState extends State<SentenceCarouselCard> {
 
           final newComment = { //create new patient
             'civil_id': civilID,
-            'sentence': sentence_content,
+            'story': Story_content,
             'comment': _commentController.text,
           };
 
           print(newComment);
 
-          await PatientDBHelper.addSentences(newComment);
+          await PatientDBHelper.addStory(newComment);
 
-          final testComment = await PatientDBHelper.getSentencesByCID(int.parse(civilID));
+          final testComment = await PatientDBHelper.getStoriesByCID(int.parse(civilID));
           print('test comment is:');
           print(testComment);
 

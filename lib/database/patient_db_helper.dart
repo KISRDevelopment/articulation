@@ -10,7 +10,10 @@ class PatientDBHelper{
     final dbPath = await getDatabasesPath();
 
     _patientdb = await openDatabase(join(dbPath, 'patient.db'),
-        version: 2,
+        version: 1,
+        onConfigure: (db) async{
+          await db.execute('PRAGMA foreign_keys = ON');
+        },
         onCreate: (db, version) async {
           await db.execute('''
       CREATE TABLE patient(
@@ -20,12 +23,53 @@ class PatientDBHelper{
         file_number TEXT,
         age INTEGER
         )''');
+
+            // Create stories table with civil_id as foreign key
+          await db.execute('''
+          CREATE TABLE stories (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            civil_id INTEGER NOT NULL,
+            story TEXT NOT NULL,
+            comment TEXT,
+            FOREIGN KEY (civil_id) REFERENCES patient (civil_id) ON DELETE CASCADE
+          )
+        ''');
+
+        // Create sentences table with civil_id as foreign key
+        await db.execute('''
+          CREATE TABLE sentences (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            civil_id INTEGER NOT NULL,
+            sentence TEXT NOT NULL,
+            comment TEXT,
+            FOREIGN KEY (civil_id) REFERENCES patient (civil_id) ON DELETE CASCADE
+          )
+        ''');
+
+        // Create words table with civil_id as foreign key
+        await db.execute('''
+          CREATE TABLE words (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            civil_id INTEGER NOT NULL,
+            word TEXT NOT NULL,
+            comment TEXT,
+            FOREIGN KEY (civil_id) REFERENCES patient (civil_id) ON DELETE CASCADE
+          )
+        ''');
+
+          await db.execute('CREATE INDEX IF NOT EXISTS idx_sentences_cid ON sentences(civil_id)');
+          await db.execute('CREATE INDEX IF NOT EXISTS idx_words_cid ON words(civil_id)');
+          await db.execute('CREATE INDEX IF NOT EXISTS idx_stories_cid ON stories(civil_id)');
         },
-        onUpgrade: _onUpgrade,
+        //onUpgrade: _onUpgrade,
+
+        
         );
+
+        
   }
 
-  static Future _onUpgrade(Database db, int oldVersion, int newVersion) async {
+  /*static Future _onUpgrade(Database db, int oldVersion, int newVersion) async {
     if (oldVersion < 2) {
       // Add new columns to patients table
       await db.execute('''
@@ -77,7 +121,7 @@ class PatientDBHelper{
         FOREIGN KEY (civil_id) REFERENCES patients (civil_id) ON DELETE CASCADE
       )
     ''');
-  }
+  }*/
 
   //get all patients
   static Future<List<Map<String, dynamic>>> getPatients() async {
@@ -114,24 +158,25 @@ class PatientDBHelper{
     return await _patientdb.query('sentences');
   }
 
-  static Future<Map<String, dynamic>?> getSentencesByCID(int cid) async {
-    final List<Map<String,dynamic>> results = await _patientdb.query('sentences',
+  static Future<List<Map<String, dynamic>>> getSentencesByCID(int cid) async {
+    return _patientdb.query('sentences',
         where: 'civil_id = ?',
-        whereArgs: [cid]);
-    if(results.isNotEmpty){return results.first;}
-    return null;
+        whereArgs: [cid],
+        orderBy: 'id ASC',
+        );
+        
   }
 
   static Future<int> addSentences(Map<String,dynamic> sentence) async {
     return await _patientdb.insert('sentences', sentence);
   }
 
-  static Future<void> updateSentences(int cid, Map<String,dynamic> sentence) async{
-    await _patientdb.update('sentences', sentence, where: 'civil_id = ?', whereArgs: [cid]);
+  static Future<void> updateSentences(int id, Map<String,dynamic> sentence) async{
+    await _patientdb.update('sentences', sentence, where: 'id = ?', whereArgs: [id]);
   }
 
-  static Future<void> deleteSentences(int cid) async {
-    await _patientdb.delete('sentences', where: 'civil_id = ?', whereArgs: [cid]);
+  static Future<void> deleteSentences(int id) async {
+    await _patientdb.delete('sentences', where: 'id = ?', whereArgs: [id]);
   }
 
 
@@ -141,23 +186,38 @@ class PatientDBHelper{
     return await _patientdb.query('words');
   }
 
-  static Future<Map<String, dynamic>?> getWordsByCID(int cid) async {
-    final List<Map<String,dynamic>> results = await _patientdb.query('words',
+  static Future<List<Map<String, dynamic>>> getWordsByCID(int cid) async {
+    return _patientdb.query('words',
         where: 'civil_id = ?',
-        whereArgs: [cid]);
-    if(results.isNotEmpty){return results.first;}
-    return null;
+        whereArgs: [cid],
+        orderBy: 'id ASC',
+        );
+    
   }
 
   static Future<int> addWords(Map<String,dynamic> word) async {
     return await _patientdb.insert('words', word);
   }
 
-  static Future<void> updateWords(int cid, Map<String,dynamic> word) async{
-    await _patientdb.update('words', word, where: 'civil_id = ?', whereArgs: [cid]);
+  static Future<void> updateWords(int id, Map<String,dynamic> word) async{
+    await _patientdb.update('words', word, where: 'id = ?', whereArgs: [id]);
   }
 
-  static Future<void> deleteWords(int cid) async {
-    await _patientdb.delete('words', where: 'civil_id = ?', whereArgs: [cid]);
+  static Future<void> deleteWords(int id) async {
+    await _patientdb.delete('words', where: 'id = ?', whereArgs: [id]);
   }
+
+    static Future<List<Map<String, dynamic>>> getStoriesByCID(int cid) async =>
+      _patientdb.query('stories',
+          where: 'civil_id = ?', whereArgs: [cid], orderBy: 'id ASC');
+
+  static Future<int> addStory(Map<String, dynamic> story) async =>
+      _patientdb.insert('stories', story);
+
+
+  static Future<void> updateStory(int id, Map<String, dynamic> story) async =>
+      _patientdb.update('stories', story, where: 'id = ?', whereArgs: [id]);
+
+  static Future<void> deleteStory(int id) async =>
+      _patientdb.delete('stories', where: 'id = ?', whereArgs: [id]);
 }
