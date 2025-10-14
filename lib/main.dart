@@ -807,7 +807,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Navigator.of(context).push(PageRouteBuilder(
                           opaque: false,
                           pageBuilder: (_, __, ___) =>
-                              report(letter: civilID),
+                              ReportPage(civilId: civilID),
                         ));
                       },
               ),
