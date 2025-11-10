@@ -1,5 +1,6 @@
 import 'package:articulation/database/patient_db_helper.dart';
 import 'package:articulation/screen/login.dart';
+import 'package:articulation/screen/report.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //import 'package:flip_card/flip_card.dart';
@@ -783,23 +784,32 @@ class _MyHomePageState extends State<MyHomePage> {
                   Text("معلومات")
                 ],
               ),
-              Column(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(
-                        left: 10, top: 10, right: 10, bottom: 10),
-                    child:
-                        Center(child: Icon(Icons.grading_outlined, size: 50)),
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
-                      border: Border.all(color: Colors.amber.shade50),
-                      borderRadius: BorderRadius.all(Radius.circular(360)),
+              GestureDetector(
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(
+                          left: 10, top: 10, right: 10, bottom: 10),
+                      child:
+                          Center(child: Icon(Icons.grading_outlined, size: 50)),
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.amber.shade50,
+                        border: Border.all(color: Colors.amber.shade50),
+                        borderRadius: BorderRadius.all(Radius.circular(360)),
+                      ),
                     ),
-                  ),
-                  Text("درجات")
-                ],
+                    Text("درجات")
+                  ],
+                ),
+                onTap: () {
+                        Navigator.of(context).push(PageRouteBuilder(
+                          opaque: false,
+                          pageBuilder: (_, __, ___) =>
+                              ReportPage(civilId: civilID),
+                        ));
+                      },
               ),
               Column(
                 children: [

@@ -182,6 +182,7 @@ class _CarouselCardState extends State<CarouselCard> {
               bottom: 80.0,
               left: 0.0,
               child: TextField(
+                controller: _commentController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: "أدخل تعليق",
