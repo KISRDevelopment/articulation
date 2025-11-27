@@ -8,6 +8,8 @@ class LoginPage extends StatefulWidget {
   const LoginPage({Key? key, required this.title}) : super(key: key);
 
   final String title;
+  
+
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -15,6 +17,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   List<Map<String, dynamic>> _patients = [];
+  bool isLoading = false;
   final _formKey = GlobalKey<FormState>();
   TextEditingController _civilIDController = TextEditingController();
 
@@ -27,11 +30,21 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> _loadPatients() async {
-    //final patients = await PatientDatabaseHelper().getAllPatients();
-    final patients = await PatientDBHelper.getPatients();
-    setState(() {
-      _patients = patients;
+      setState(() {
+      isLoading = true;
     });
+    //final patients = await PatientDatabaseHelper().getAllPatients();
+    await PatientDBHelper.syncAllPatientsFromFirebase();
+    //await PatientDBHelper.syncAllFromFirebase();
+    final patients = await PatientDBHelper.getPatients();
+
+    setState(() {
+      
+      _patients = patients;
+      isLoading = false;
+    });
+
+     
   }
 
   Future<void> _login() async {
@@ -64,7 +77,8 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: Colors.purple[200],
       appBar: AppBar(title: Text("مهارات النطق"), automaticallyImplyLeading: false,),
-      body: SafeArea(
+      body: isLoading ? Center(child: CircularProgressIndicator())
+      : SafeArea(
         child: Directionality(
           textDirection: TextDirection.rtl,
           child: 

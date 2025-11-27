@@ -6,11 +6,18 @@ import 'package:flutter/material.dart';
 //import 'package:flip_card/flip_card.dart';
 import 'package:articulation/screen/flashCardOption.dart';
 import 'package:articulation/screen/info.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   try {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
     await PatientDBHelper.initPatientDB(); // DB setup
+    //await PatientDBHelper.syncAllFromFirebase();
+    //await PatientDBHelper.exportAllToFirebase();
     runApp(const MyApp()); // Show full app
   } catch (e, s) {
     runApp(MaterialApp(
