@@ -7,9 +7,14 @@ Future<PatientReportData> loadPatientReport(int civilId) async {
     throw Exception('Patient $civilId not found');
   }
 
-  final words = await PatientDBHelper.getWordsByCID(civilId);
-  final sentences = await PatientDBHelper.getSentencesByCID(civilId);
-  final stories = await PatientDBHelper.getStoriesByCID(civilId);
+  //final words = await PatientDBHelper.getWordsByCID(civilId);
+  //final sentences = await PatientDBHelper.getSentencesByCID(civilId);
+  //final stories = await PatientDBHelper.getStoriesByCID(civilId);
+  final sentences = await PatientDBHelper.getSentencesFromFirebase(civilId);
+  final stories = await PatientDBHelper.getStoriesFromFirebase(civilId);
+  final words   = await PatientDBHelper.getWordsFromFirebase(civilId);
+
+
 
   return PatientReportData(
     civilId: civilId,

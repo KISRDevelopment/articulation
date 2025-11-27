@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "178956682333",
+    "project_id": "articulation-149bd",
+    "storage_bucket": "articulation-149bd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178956682333:android:0012a9d8f13f004fb139b4",
+        "android_client_info": {
+          "package_name": "com.example.epiroutine"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdOUT52tDpHTyglNU-S2I2pGMFAzjtwI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
