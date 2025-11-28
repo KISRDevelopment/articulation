@@ -207,6 +207,8 @@ class _SentenceCarouselCardState extends State<SentenceCarouselCard> {
 
           print('pass add comment');
 
+          _commentController.clear();
+
         }} catch (e) {}
 
 
