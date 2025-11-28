@@ -39,6 +39,7 @@ class _storyState extends State<story> {
     final List<Story> storyList = StoryByLetter[myLetter] ?? [];
     print(storyList![0].title);
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: Colors.lightBlueAccent,
       body: Container(
         child:  Stack(
@@ -103,52 +104,70 @@ class CarouselCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(5.0)),
-        child: Stack(
-          children: [
-            Positioned(
-              right: 0.0,
-              top: 1.0,
-              left: 0.0,
-              child: Center(
-                child: Container(
-                  width: 400,
-                  height: 250,
-                    child: Center(
-                      child: Text(story![0].title,
-                          style: TextStyle(color: Colors.black,
-                          fontSize: 50.0,
-                          fontWeight: FontWeight.bold),),
-                    )),
-              ),
+    final currentStory = story[0]; // same as before
+
+    return ClipRRect(
+      borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            padding: EdgeInsets.only(
+              left: 16,
+              right: 16,
+              top: 16,
+              bottom: MediaQuery.of(context).viewInsets.bottom + 16,
             ),
-            Positioned(
-              right: 0.0,
-              top: 70.0,
-              left: 0.0,
-              child: Center(
-                child: Container(
-                  
-                  width: 600,
-                  height: 450,
-                    child: Center(
-                      child: Center(
-                        child: Text(story![0].content,
-                        textAlign: TextAlign.center,
-                        textDirection: TextDirection.rtl,
-                            style: TextStyle(color: Colors.black,
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold),),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                // keeps layout nice when keyboard is closed
+                minHeight: constraints.maxHeight,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  // title
+                  SizedBox(
+                    width: 400,
+                    child: Text(
+                      currentStory.title,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 50.0,
+                        fontWeight: FontWeight.bold,
                       ),
-                    )),
+                    ),
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  // story content
+                  SizedBox(
+                    width: 600,
+                    child: Text(
+                      currentStory.content,
+                      textAlign: TextAlign.center,
+                      textDirection: TextDirection.rtl,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 30.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 24),
+
+                  // comment + button
+                  StoryCarouselCard(
+                    Story: currentStory.content,
+                    cid: this.cid,
+                  ),
+                ],
               ),
             ),
-            StoryCarouselCard(Story: story![0].content, cid: this.cid),
-        
-          ],
-        ),
+          );
+        },
       ),
     );
   }
@@ -211,55 +230,40 @@ class _StoryCarouselCardState extends State<StoryCarouselCard> {
   }
 
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(5.0)),
-        child: Stack(
-          children: [
-
-            Positioned(
-              right: 0.0,
-              bottom: 80.0,
-              left: 0.0,
-              child: Align(
-                child: Container(
-                  width: 400,
-                  child: TextField(
-                    controller: _commentController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: "أدخل تعليق",
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              right: 0.0,
-              bottom: 20.0,
-              left: 0.0,
-              child: Align(
-                child: Container(
-                  width: 400,
-                  child: ElevatedButton(
-                      onPressed: _insertComment,
-                      child: Text('ادخال',  style: TextStyle(fontSize: 20),),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
-                          foregroundColor: Colors.white
-                      )
-                  ),
-                ),
-              ),
-            ),
-
-          ],
+@override
+Widget build(BuildContext context) {
+  return Column(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      SizedBox(
+        width: 400,
+        child: TextField(
+          controller: _commentController,
+          decoration: const InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: "أدخل تعليق",
+          ),
         ),
       ),
-    );
-  }
+      const SizedBox(height: 12),
+      SizedBox(
+        width: 400,
+        child: ElevatedButton(
+          onPressed: _insertComment,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.blue,
+            foregroundColor: Colors.white,
+          ),
+          child: const Text(
+            'ادخال',
+            style: TextStyle(fontSize: 20),
+          ),
+        ),
+      ),
+    ],
+  );
+}
+
 }
 
 

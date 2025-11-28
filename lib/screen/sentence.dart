@@ -34,6 +34,7 @@ class _sentenceState extends State<sentence> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: Colors.lightBlueAccent,
       body: Container(
         child:  Stack(
@@ -91,71 +92,69 @@ class _sentenceState extends State<sentence> {
 }
 
 class CarouselCard extends StatelessWidget {
-  final sentence;
+  final String sentence;
 
   const CarouselCard({required this.sentence});
 
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(5.0)),
-        child: Stack(
-          children: [
-            Center(
-              child: Container(
-                width: 400,
-                height: 450,
-                  child: Center(
-                    child: Text(sentence,
-                        style: TextStyle(color: Colors.black,
+    return ClipRRect(
+      borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            padding: const EdgeInsets.all(16.0),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 400,
+                    child: Text(
+                      sentence,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Colors.black,
                         fontSize: 50.0,
-                        fontWeight: FontWeight.bold),),
-                  )),
-            ),
-            Positioned(
-                right: 0.0,
-                bottom: 80.0,
-                left: 0.0,
-                child: Align(
-                  child: Container(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  SizedBox(
                     width: 400,
                     child: TextField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: "Enter Comment",
                       ),
                     ),
                   ),
-                ),
-            ),
-            Positioned(
-              right: 0.0,
-              bottom: 20.0,
-              left: 0.0,
-              child: Align(
-                child: Container(
-                  width: 400,
-                  child: ElevatedButton(
-                    onPressed: (){},
-                    child: Text('ادخال',  style: TextStyle(fontSize: 20),),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      foregroundColor: Colors.white
-                    )
+                  const SizedBox(height: 12),
+                  SizedBox(
+                    width: 400,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                      ),
+                      child: const Text(
+                        'ادخال',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
             ),
-        
-          ],
-        ),
+          );
+        },
       ),
     );
   }
 }
-
 
 
 
@@ -216,65 +215,81 @@ class _SentenceCarouselCardState extends State<SentenceCarouselCard> {
   }
 
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(5.0)),
-        child: Stack(
-          children: [
-            Center(
-              child: Container(
-                  width: 400,
-                  height: 450,
-                  child: Center(
-                    child: Text(sentence_content,
-                      style: TextStyle(color: Colors.black,
-                          fontSize: 50.0,
-                          fontWeight: FontWeight.bold),),
-                  )),
+@override
+Widget build(BuildContext context) {
+  return ClipRRect(
+    borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+    child: LayoutBuilder(
+      builder: (context, constraints) {
+        return SingleChildScrollView(
+          padding: EdgeInsets.only(
+            left: 16,
+            right: 16,
+            top: 16,
+            bottom: MediaQuery.of(context).viewInsets.bottom + 16,
+          ),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              // keep nice height when keyboard is closed
+              minHeight: constraints.maxHeight,
             ),
-            Positioned(
-              right: 0.0,
-              bottom: 80.0,
-              left: 0.0,
-              child: Align(
-                child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // sentence text
+                SizedBox(
+                  width: 400,
+                  child: Text(
+                    sentence_content,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 50.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 24),
+
+                // comment field
+                SizedBox(
                   width: 400,
                   child: TextField(
                     controller: _commentController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "أدخل تعليق",
                     ),
                   ),
                 ),
-              ),
-            ),
-            Positioned(
-              right: 0.0,
-              bottom: 20.0,
-              left: 0.0,
-              child: Align(
-                child: Container(
+
+                const SizedBox(height: 12),
+
+                // submit button
+                SizedBox(
                   width: 400,
                   child: ElevatedButton(
-                      onPressed: _insertComment,
-                      child: Text('ادخال',  style: TextStyle(fontSize: 20),),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
-                          foregroundColor: Colors.white
-                      )
+                    onPressed: _insertComment,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      foregroundColor: Colors.white,
+                    ),
+                    child: const Text(
+                      'ادخال',
+                      style: TextStyle(fontSize: 20),
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
+          ),
+        );
+      },
+    ),
+  );
+}
 
-          ],
-        ),
-      ),
-    );
-  }
 }
 
 

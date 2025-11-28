@@ -28,6 +28,7 @@ class _WordState extends State<Word> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: Colors.lightBlueAccent,
       body: Container(
         child:  Stack(
@@ -154,60 +155,90 @@ class _CarouselCardState extends State<CarouselCard> {
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(5.0)),
-        child: Stack(
-          children: [
-            Container(
-                width: 400,
-                height: 450,
-                padding: EdgeInsets.fromLTRB(0, 100, 0, 0),
-                child: Image.asset(pictureOption_content.image, fit: BoxFit.contain)),
-            Positioned(
-                right: 0.0,
-                bottom: 150.0,
-                left: 0.0,
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 10.0),
-                  child: Center(
-                    child: Text(pictureOption_content.word,
-                      style: TextStyle(color: Colors.black,
-                          fontSize: 50.0,
-                          fontWeight: FontWeight.bold),),
+@override
+Widget build(BuildContext context) {
+  return ClipRRect(
+    borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+    child: LayoutBuilder(
+      builder: (context, constraints) {
+        return SingleChildScrollView(
+          // this makes space for the keyboard
+          padding: EdgeInsets.only(
+            left: 16,
+            right: 16,
+            top: 16,
+            bottom: MediaQuery.of(context).viewInsets.bottom + 16,
+          ),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              // make the content at least as tall as the card
+              minHeight: constraints.maxHeight,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // picture
+                SizedBox(
+                  height: 300,
+                  child: Image.asset(
+                    pictureOption_content.image,
+                    fit: BoxFit.contain,
                   ),
-                )),
-            Positioned(
-              right: 0.0,
-              bottom: 80.0,
-              left: 0.0,
-              child: TextField(
-                controller: _commentController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "أدخل تعليق",
                 ),
-              ),
-            ),
-            Positioned(
-              right: 0.0,
-              bottom: 20.0,
-              left: 0.0,
-              child: ElevatedButton(
-                  onPressed: _insertComment,
-                  child: Text('ادخال',  style: TextStyle(fontSize: 20),),
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      foregroundColor: Colors.white
-                  )
-              ),
-            ),
 
-          ],
-        ),
-      ),
-    );
-  }
+                const SizedBox(height: 16),
+
+                // word
+                Center(
+                  child: Text(
+                    pictureOption_content.word,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 40.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 24),
+
+                // comment field
+                SizedBox(
+                  width: 400,
+                  child: TextField(
+                    controller: _commentController,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "أدخل تعليق",
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 12),
+
+                // button
+                SizedBox(
+                  width: 400,
+                  child: ElevatedButton(
+                    onPressed: _insertComment,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      foregroundColor: Colors.white,
+                    ),
+                    child: const Text(
+                      'ادخال',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    ),
+  );
+}
+
 }
