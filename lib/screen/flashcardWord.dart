@@ -107,6 +107,12 @@ class _flashCardWordState extends State<flashCardWord> {
 
 
                               });
+                              
+                              Navigator.of(context).push(
+                              PageRouteBuilder(
+                              pageBuilder: (_, __, ___) => Word(dict, civilID),
+                        )
+                    );
                             },
                           ),
                         ],
@@ -143,6 +149,12 @@ class _flashCardWordState extends State<flashCardWord> {
 
 
                               });
+
+                              Navigator.of(context).push(
+                        PageRouteBuilder(
+                          pageBuilder: (_, __, ___) => Word(dict, civilID),
+                        )
+                    );
                             },
                           ),
                         ],
@@ -180,6 +192,12 @@ class _flashCardWordState extends State<flashCardWord> {
 
 
                               });
+
+                              Navigator.of(context).push(
+                        PageRouteBuilder(
+                          pageBuilder: (_, __, ___) => Word(dict, civilID),
+                        )
+                    );
                             },
                           ),
                         ],
@@ -188,61 +206,6 @@ class _flashCardWordState extends State<flashCardWord> {
                   ],
                 ),
               ),
-            ),
-            AnimatedCrossFade(
-              firstChild: Container(
-                margin: EdgeInsets.only(top: 250, left: 950, right: 10, bottom: 10),
-                width: 70,
-                height: 70,
-
-
-              ),
-              secondChild: Container(
-                margin: EdgeInsets.only(top: 250, left: 950, right: 10, bottom: 10),
-                width: 70,
-                height: 70,
-                decoration: BoxDecoration(
-                  color: Colors.yellow,
-                  borderRadius: BorderRadius.all(Radius.circular(50)
-                  ),
-                ),
-                child: GestureDetector(child: Center(
-                    child: Text("ابدأ", style: TextStyle(
-                        color: Colors.black, fontSize: 35)
-                    )
-                ),
-                  onTap:(){
-                    //dict = showPosition('begin');
-                    Navigator.of(context).push(
-                        PageRouteBuilder(
-                          pageBuilder: (_, __, ___) => Word(dict, civilID),
-                        )
-                    );
-                  }
-                ),
-              ),
-              crossFadeState: (flag||medial||end) ? CrossFadeState.showSecond : CrossFadeState.showFirst,
-              duration: Duration(milliseconds: 500),
-            ),
-            AnimatedCrossFade(
-              firstChild: Container(
-                margin: EdgeInsets.only(top: 350, left: 950, right: 10, bottom: 10),
-                width: 70,
-                height: 70,
-              ),
-                secondChild: Container(
-                  margin: EdgeInsets.only(top: 350, left: 950, right: 10, bottom: 10),
-                  width: 70,
-                  height: 70,
-                  decoration: BoxDecoration(
-                    color: Colors.lightBlueAccent,
-                    borderRadius: BorderRadius.all(Radius.circular(360)
-                    ),
-                  ),
-                  child: Icon(Icons.view_list, size: 50.0),
-                ),
-              crossFadeState: (flag||medial||end) ? CrossFadeState.showSecond : CrossFadeState.showFirst,
-              duration: Duration(milliseconds: 500),
             ),
             Container(
               margin: EdgeInsets.only(top: 750, left: 1000, right: 10, bottom: 10),
