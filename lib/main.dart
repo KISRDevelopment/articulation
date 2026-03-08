@@ -832,7 +832,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       borderRadius: BorderRadius.all(Radius.circular(360)),
                     ),
                   ),
-                  Text("اعدادات")
+                  Text("التقرير")
                 ],
               ),
               Column(
