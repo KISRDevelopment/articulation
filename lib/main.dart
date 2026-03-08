@@ -1,11 +1,37 @@
+import 'package:articulation/database/patient_db_helper.dart';
+import 'package:articulation/screen/login.dart';
+import 'package:articulation/screen/report.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flip_card/flip_card.dart';
+//import 'package:flip_card/flip_card.dart';
 import 'package:articulation/screen/flashCardOption.dart';
 import 'package:articulation/screen/info.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  try {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    await PatientDBHelper.initPatientDB(); // DB setup
+    //await PatientDBHelper.syncAllFromFirebase();
+    //await PatientDBHelper.exportAllToFirebase();
+    runApp(const MyApp()); // Show full app
+  } catch (e, s) {
+    runApp(MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Text(
+            "Error in release mode:\n$e",
+            style: TextStyle(fontSize: 18),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
+    ));
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -16,14 +42,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Articulation',
-      home: const MyHomePage(title: 'Articulation Home Page'),
+      home: const LoginPage(title: 'Articulation Home Page'),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({Key? key, required this.title, required this.cid}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -35,12 +61,21 @@ class MyHomePage extends StatefulWidget {
   // always marked "final".
 
   final String title;
+  final String cid;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late final civilID;
+
+  @override
+  void initState(){
+    super.initState();
+    civilID = widget.cid;
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -83,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.of(context).push(PageRouteBuilder(
                         opaque: false,
                         pageBuilder: (_, __, ___) =>
-                            flashCardOption(letter: 'ث'),
+                            flashCardOption(letter: 'ث', cid: civilID),
                       ));
                     }),
                 GestureDetector(
@@ -106,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.of(context).push(PageRouteBuilder(
                         opaque: false,
                         pageBuilder: (_, __, ___) =>
-                            flashCardOption(letter: 'ت'),
+                            flashCardOption(letter: 'ت', cid: civilID),
                       ));
                     }),
                 GestureDetector(
@@ -129,7 +164,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.of(context).push(PageRouteBuilder(
                         opaque: false,
                         pageBuilder: (_, __, ___) =>
-                            flashCardOption(letter: 'ب'),
+                            flashCardOption(letter: 'ب', cid: civilID),
                       ));
                     }),
                 GestureDetector(
@@ -152,7 +187,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.of(context).push(PageRouteBuilder(
                         opaque: false,
                         pageBuilder: (_, __, ___) =>
-                            flashCardOption(letter: 'أ'),
+                            flashCardOption(letter: 'أ', cid: civilID),
                       ));
                     }),
                 Container(
@@ -194,7 +229,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ر'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ر', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -216,7 +251,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ذ'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ذ', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -238,7 +273,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'د'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'د', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -260,7 +295,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'خ'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'خ', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -282,7 +317,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ح'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ح', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -304,7 +339,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ج'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ج', cid: civilID),
                     ));
                   }
 
@@ -335,7 +370,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ط'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ط', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -357,7 +392,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ض'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ض', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -379,7 +414,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ص'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ص', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -401,7 +436,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ش'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ش', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -423,7 +458,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'س'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'س', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -445,7 +480,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ز'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ز', cid: civilID),
                     ));
                   }),
             ],
@@ -472,7 +507,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ك'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ك', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -494,7 +529,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ق'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ق', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -516,7 +551,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ف'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ف', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -538,7 +573,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'غ'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'غ', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -560,7 +595,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ع'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ع', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -582,7 +617,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ظ'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ظ', cid: civilID),
                     ));
                   }),
             ],
@@ -609,7 +644,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ي'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ي', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -631,7 +666,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'و'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'و', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -654,7 +689,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
                       pageBuilder: (_, __, ___) =>
-                          flashCardOption(letter: 'هـ'),
+                          flashCardOption(letter: 'هـ', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -676,7 +711,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ن'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ن', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -698,7 +733,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'م'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'م', cid: civilID),
                     ));
                   }),
               GestureDetector(
@@ -720,11 +755,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ل'),
+                      pageBuilder: (_, __, ___) => flashCardOption(letter: 'ل', cid: civilID),
                     ));
                   }),
             ],
           ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -755,23 +791,32 @@ class _MyHomePageState extends State<MyHomePage> {
                   Text("معلومات")
                 ],
               ),
-              Column(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(
-                        left: 10, top: 10, right: 10, bottom: 10),
-                    child:
-                        Center(child: Icon(Icons.grading_outlined, size: 50)),
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
-                      border: Border.all(color: Colors.amber.shade50),
-                      borderRadius: BorderRadius.all(Radius.circular(360)),
+              GestureDetector(
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(
+                          left: 10, top: 10, right: 10, bottom: 10),
+                      child:
+                          Center(child: Icon(Icons.grading_outlined, size: 50)),
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.amber.shade50,
+                        border: Border.all(color: Colors.amber.shade50),
+                        borderRadius: BorderRadius.all(Radius.circular(360)),
+                      ),
                     ),
-                  ),
-                  Text("التقرير")
-                ],
+                    Text("درجات")
+                  ],
+                ),
+                onTap: () {
+                        Navigator.of(context).push(PageRouteBuilder(
+                          opaque: false,
+                          pageBuilder: (_, __, ___) =>
+                              ReportPage(civilId: civilID),
+                        ));
+                      },
               ),
               Column(
                 children: [
@@ -787,7 +832,32 @@ class _MyHomePageState extends State<MyHomePage> {
                       borderRadius: BorderRadius.all(Radius.circular(360)),
                     ),
                   ),
-                  Text("اعدادات")
+                  Text("التقرير")
+                ],
+              ),
+              Column(
+                children: [
+                  GestureDetector(
+                      child: Container(
+                        margin: EdgeInsets.only(
+                            left: 10, top: 10, right: 10, bottom: 10),
+                        child:
+                        Center(child: Icon(Icons.logout, size: 50)),
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.amber.shade50,
+                          border: Border.all(color: Colors.amber.shade50),
+                          borderRadius: BorderRadius.all(Radius.circular(360)),
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage(title: 'مهارات النطق')),
+                        );
+                      }),
+                  Text("الخروج")
                 ],
               ),
             ],

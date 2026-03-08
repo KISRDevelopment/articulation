@@ -4,11 +4,14 @@ import 'word.dart';
 import 'options.dart';
 
 class flashCardWord extends StatefulWidget {
+  final cid;
   final letter;
-  const flashCardWord(@required this.letter);
+  const flashCardWord(this.letter, this.cid);
+
+
 
   @override
-  _flashCardWordState createState() => _flashCardWordState();
+  State<flashCardWord> createState() => _flashCardWordState();
 }
 
 class _flashCardWordState extends State<flashCardWord> {
@@ -17,6 +20,14 @@ class _flashCardWordState extends State<flashCardWord> {
   bool medial = false;
   bool end = false;
   late String letters;
+  late String civilID;
+
+  @override
+  void initState(){
+    super.initState();
+    civilID = widget.cid;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,6 +107,12 @@ class _flashCardWordState extends State<flashCardWord> {
 
 
                               });
+                              
+                              Navigator.of(context).push(
+                              PageRouteBuilder(
+                              pageBuilder: (_, __, ___) => Word(dict, civilID),
+                        )
+                    );
                             },
                           ),
                         ],
@@ -132,6 +149,12 @@ class _flashCardWordState extends State<flashCardWord> {
 
 
                               });
+
+                              Navigator.of(context).push(
+                        PageRouteBuilder(
+                          pageBuilder: (_, __, ___) => Word(dict, civilID),
+                        )
+                    );
                             },
                           ),
                         ],
@@ -169,6 +192,12 @@ class _flashCardWordState extends State<flashCardWord> {
 
 
                               });
+
+                              Navigator.of(context).push(
+                        PageRouteBuilder(
+                          pageBuilder: (_, __, ___) => Word(dict, civilID),
+                        )
+                    );
                             },
                           ),
                         ],
@@ -177,61 +206,6 @@ class _flashCardWordState extends State<flashCardWord> {
                   ],
                 ),
               ),
-            ),
-            AnimatedCrossFade(
-              firstChild: Container(
-                margin: EdgeInsets.only(top: 250, left: 950, right: 10, bottom: 10),
-                width: 70,
-                height: 70,
-
-
-              ),
-              secondChild: Container(
-                margin: EdgeInsets.only(top: 250, left: 950, right: 10, bottom: 10),
-                width: 70,
-                height: 70,
-                decoration: BoxDecoration(
-                  color: Colors.yellow,
-                  borderRadius: BorderRadius.all(Radius.circular(50)
-                  ),
-                ),
-                child: GestureDetector(child: Center(
-                    child: Text("ابدأ", style: TextStyle(
-                        color: Colors.black, fontSize: 35)
-                    )
-                ),
-                  onTap:(){
-                    //dict = showPosition('begin');
-                    Navigator.of(context).push(
-                        PageRouteBuilder(
-                          pageBuilder: (_, __, ___) => word(dict),
-                        )
-                    );
-                  }
-                ),
-              ),
-              crossFadeState: (flag||medial||end) ? CrossFadeState.showSecond : CrossFadeState.showFirst,
-              duration: Duration(milliseconds: 500),
-            ),
-            AnimatedCrossFade(
-              firstChild: Container(
-                margin: EdgeInsets.only(top: 350, left: 950, right: 10, bottom: 10),
-                width: 70,
-                height: 70,
-              ),
-                secondChild: Container(
-                  margin: EdgeInsets.only(top: 350, left: 950, right: 10, bottom: 10),
-                  width: 70,
-                  height: 70,
-                  decoration: BoxDecoration(
-                    color: Colors.lightBlueAccent,
-                    borderRadius: BorderRadius.all(Radius.circular(360)
-                    ),
-                  ),
-                  child: Icon(Icons.view_list, size: 50.0),
-                ),
-              crossFadeState: (flag||medial||end) ? CrossFadeState.showSecond : CrossFadeState.showFirst,
-              duration: Duration(milliseconds: 500),
             ),
             Container(
               margin: EdgeInsets.only(top: 750, left: 1000, right: 10, bottom: 10),
@@ -351,6 +325,9 @@ class _flashCardWordState extends State<flashCardWord> {
       case 'ي':
         dict = PicturesOptions.picListBeginYa;
         return dict;
+      case '*ج':
+        dict = PicturesOptions.picListBeginJay;
+        return dict;
 
 
 
@@ -448,6 +425,10 @@ class _flashCardWordState extends State<flashCardWord> {
       case 'ي':
         dict = PicturesOptions.picListMedYa;
         return dict;
+      case '*ج':
+        dict = PicturesOptions.picListMedJay;
+        return dict;
+
       default:
         break;
     }
@@ -537,6 +518,9 @@ class _flashCardWordState extends State<flashCardWord> {
         return dict;
       case 'ي':
         dict = PicturesOptions.picListEndYa;
+        return dict;
+      case '*ج':
+        dict = PicturesOptions.picListEndJay;
         return dict;
 
 

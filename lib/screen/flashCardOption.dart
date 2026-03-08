@@ -3,10 +3,12 @@ import 'package:after_layout/after_layout.dart';
 import 'package:flip_card/flip_card.dart';
 import 'flashCardWord.dart';
 import 'flashCardSentence.dart';
+import 'story.dart';
 
 class flashCardOption extends StatefulWidget {
   final letter;
-  flashCardOption({@required this.letter});
+  final cid;
+  flashCardOption({@required this.letter, this.cid});
 
   //const SingleFlipCard({Key? key}) : super(key: key);
 
@@ -16,7 +18,14 @@ class flashCardOption extends StatefulWidget {
 
 class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin<flashCardOption> {
   bool flag = false;
+  late String civilID;
   final GlobalKey<FlipCardState> cardKey = GlobalKey<FlipCardState>();
+
+  @override
+  void initState(){
+    super.initState();
+    civilID = widget.cid;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,23 +91,35 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Container(
-                            margin: EdgeInsets.all(10),
-                            width: 150,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: Colors.amber.shade50,
-                              borderRadius: BorderRadius.all(Radius.circular(20)
+
+                          GestureDetector(
+                            child: Container(
+                              margin: EdgeInsets.all(10),
+                              width: 150,
+                              height: 100,
+                              decoration: BoxDecoration(
+                                color: Colors.amber.shade50,
+                                borderRadius: BorderRadius.all(Radius.circular(20)
+                                ),
+                              ),
+                              child: Column(
+                                children: [
+                                  Text("قصص", style: TextStyle(fontSize: 50)),
+                                  //Icon(Icons.lightbulb_outline, size: 50)
+                            
+                                ],
+
                               ),
                             ),
-                            child: Column(
-                              children: [
-                                Text("قصص", style: TextStyle(fontSize: 50)),
-                                //Icon(Icons.lightbulb_outline, size: 50)
-
-                              ],
-                            ),
+                            onTap: (){
+                              Navigator.of(context).push(
+                                    PageRouteBuilder(
+                                      pageBuilder: (_, __, ___) => story(widget.letter, civilID),
+                                    )
+                                );
+                            },
                           ),
+
                           GestureDetector(
                             child: Container(
                               margin: EdgeInsets.all(10),
@@ -120,7 +141,7 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                             onTap: (){
                                 Navigator.of(context).push(
                                     PageRouteBuilder(
-                                      pageBuilder: (_, __, ___) => flashCardSentence(widget.letter),
+                                      pageBuilder: (_, __, ___) => flashCardSentence(widget.letter, civilID)
                                     )
                                 );
                               },
@@ -148,12 +169,14 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                               onTap: (){
                                 Navigator.of(context).push(
                                     PageRouteBuilder(
-                                      pageBuilder: (_, __, ___) => flashCardWord(widget.letter),
+                                      pageBuilder: (_, __, ___) => flashCardWord(widget.letter, civilID),
                                     )
                                 );
                               }
 
                           ),
+
+                          
                         ],
                       ),
 

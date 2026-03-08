@@ -28,7 +28,7 @@ class _InfoCardState extends State<InfoCard> with AfterLayoutMixin<InfoCard> {
   void initState() {
     super.initState();
 
-    fromAsset('file/International_Phonetic_Alphabet_IPA.pdf', 'International_Phonetic_Alphabet_IPA.pdf').then((f) {
+    fromAsset('file/Articulation_test_form_reviwed.pdf', 'Articulation_test_form_reviwed.pdf').then((f) {
       setState(() {
         pathPDF = f.path;
       });
@@ -131,7 +131,7 @@ class _InfoCardState extends State<InfoCard> with AfterLayoutMixin<InfoCard> {
                               Container(
 
                                 padding: EdgeInsets.fromLTRB(0, 20, 0, 50),
-                                child: Image.asset("images/Process_of_articulation.jpg", fit: BoxFit.cover, height: 500, width: 600),
+                                child: Image.asset("images/Process_of_articulation.jpg", fit: BoxFit.cover, height: 400, width: 500),
                                 color: Colors.white,
                               ),
 

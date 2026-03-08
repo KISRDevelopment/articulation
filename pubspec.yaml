@@ -29,6 +29,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  sqflite: ^2.4.2
+  path: ^1.9.1
+  #path_provider: ^2.1.5
+  pdf: ^3.11.0
+  printing: ^5.12.0
+  intl: ^0.19.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -43,6 +49,8 @@ dependencies:
     git:
       url: https://github.com/sampaio96/flutter_carousel_slider.git
       ref: master
+  firebase_core: ^4.2.1
+  firebase_database: ^12.0.4
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +78,8 @@ flutter:
   assets:
     - images/
     - file/International_Phonetic_Alphabet_IPA.pdf
+    - file/Articulation_test_form_reviwed.pdf
+    - assets/fonts/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

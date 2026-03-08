@@ -4,7 +4,8 @@ import 'sentence_model.dart';
 
 class flashCardSentence extends StatefulWidget {
   final letter;
-  const flashCardSentence(@required this.letter);
+  final cid;
+  const flashCardSentence(@required this.letter, this.cid);
   
 
 
@@ -15,11 +16,13 @@ class flashCardSentence extends StatefulWidget {
 class _flashCardSentenceState extends State<flashCardSentence> {
   late String myLetter;
   late List<String> sentenceList;
+  late String civilID;
 
   @override
   void initState(){
     super.initState();
     myLetter = widget.letter;
+    civilID = widget.cid;
     //sentenceList = sentenceDict[myLetter] ?? [];
   }
   Widget build(BuildContext context) {
@@ -90,7 +93,7 @@ class _flashCardSentenceState extends State<flashCardSentence> {
                                                         //dict = showPosition('begin');
                                                         Navigator.of(context).push(
                                                             PageRouteBuilder(
-                                                              pageBuilder: (_, __, ___) => sentence(sentenceList[index].content),
+                                                              pageBuilder: (_, __, ___) => sentence(sentenceList[index].content, civilID),
                                                             )
                                                         );
                                                       }
