@@ -22,8 +22,8 @@ class PatientDBHelper{
         civil_id INTEGER PRIMARY KEY, 
         first_name TEXT, 
         last_name TEXT,
-        file_number TEXT,
-        age INTEGER
+        file_number INTEGER NOT NULL,
+        age INTEGER NOT NULL
         )''');
 
             // Create stories table with civil_id as foreign key
@@ -89,20 +89,45 @@ class PatientDBHelper{
 
   //add patient
   static Future<int> addPatients(Map<String,dynamic> patient) async {
-    final id =  await _patientdb.insert('patient', patient);
+    //final id =  await _patientdb.insert('patient', patient);
+    final civilId = int.tryParse(patient['civil_id'].toString());
+    final fileNumber = int.tryParse(patient['file_number'].toString());
+    final age = int.tryParse(patient['age'].toString());
 
-        try {
-      final cid = patient['civil_id'];
-      if (cid != null) {
-        final ref = FirebaseDatabase.instance.ref('patients/$cid/info');
-        await ref.set({
-          'civil_id': cid,
-          'first_name': patient['first_name'],
-          'last_name': patient['last_name'],
-          'file_number': patient['file_number'],
-          'age': patient['age'],
-        });
-      }
+    if (civilId == null) {
+        throw Exception('Civil ID must be an integer.');
+    }
+    if (fileNumber == null) {
+        throw Exception('File number must be an integer.');
+    }
+    if (age == null) {
+        throw Exception('Age must be an integer.');
+    }
+
+    final exists = await civilIdExists(civilId);
+    if (exists) {
+        throw Exception('A patient with the same Civil ID already exists.');
+    }
+
+    final cleanPatient = {
+      'civil_id': civilId,
+      'first_name': patient['first_name'],
+      'last_name': patient['last_name'],
+      'file_number': fileNumber,
+      'age': age,
+    };
+
+    final id = await _patientdb.insert('patient', cleanPatient);
+
+    try {
+      final ref = FirebaseDatabase.instance.ref('patients/$civilId/info');
+      await ref.set({
+        'civil_id': civilId,
+        'first_name': cleanPatient['first_name'],
+        'last_name': cleanPatient['last_name'],
+        'file_number': fileNumber,
+        'age': age,
+      });
     } catch (e) {
       debugPrint('Firebase sync (addPatients) failed: $e');
     }
@@ -113,16 +138,52 @@ class PatientDBHelper{
   }
 
   //edit patient
-  static Future<void> updatePatients(int cid, Map<String,dynamic> patient) async{
-    await _patientdb.update('patient', patient, where: 'civil_id = ?', whereArgs: [cid]);
+  static Future<void> updatePatients(int cid, Map<String, dynamic> patient) async {
+    final civilId = int.tryParse(patient['civil_id'].toString());
+    final fileNumber = int.tryParse(patient['file_number'].toString());
+    final age = int.tryParse(patient['age'].toString());
+
+    if (civilId == null) {
+      throw Exception('Civil ID must be an integer.');
+    }
+    if (fileNumber == null) {
+      throw Exception('File number must be an integer.');
+    }
+    if (age == null) {
+      throw Exception('Age must be an integer.');
+    }
+
+    // If user changed civil ID, prevent duplicate
+    if (civilId != cid) {
+      final exists = await civilIdExists(civilId);
+      if (exists) {
+        throw Exception('A patient with the same Civil ID already exists.');
+      }
+    }
+
+    final cleanPatient = {
+      'civil_id': civilId,
+      'first_name': patient['first_name'],
+      'last_name': patient['last_name'],
+      'file_number': fileNumber,
+      'age': age,
+    };
+
+    await _patientdb.update(
+      'patient',
+      cleanPatient,
+      where: 'civil_id = ?',
+      whereArgs: [cid],
+    );
 
     try {
-      final ref = FirebaseDatabase.instance.ref('patients/$cid/info');
+      final ref = FirebaseDatabase.instance.ref('patients/$civilId/info');
       await ref.update({
-        'first_name': patient['first_name'],
-        'last_name': patient['last_name'],
-        'file_number': patient['file_number'],
-        'age': patient['age'],
+        'civil_id': civilId,
+        'first_name': cleanPatient['first_name'],
+        'last_name': cleanPatient['last_name'],
+        'file_number': fileNumber,
+        'age': age,
       });
     } catch (e) {
       debugPrint('Firebase sync (updatePatients) failed: $e');
@@ -364,11 +425,11 @@ static Future<void> deleteSentences(int id) async {
   // it is commented after all the data was exported
   static Future<void> exportAllToFirebase() async {
     final dbRef = FirebaseDatabase.instance.ref('patients');
-    debugPrint(dbRef as String?);
+    debugPrint(dbRef.toString());
 
     // 1) Get all patients
     final patients = await getPatients();
-    debugPrint(patients as String?);
+    debugPrint(patients.toString());
 
     for (final patient in patients) {
       final int cid = patient['civil_id'] as int;
@@ -376,7 +437,7 @@ static Future<void> deleteSentences(int id) async {
       debugPrint(cidKey);
 
       final patientRef = dbRef.child(cidKey);
-      debugPrint(patientRef as String?);
+      debugPrint(patientRef.toString());
 
       // 2) Save basic patient info
       await patientRef.child('info').set({
@@ -584,7 +645,21 @@ static Future<void> deleteSentences(int id) async {
     return result;
   }
 
+static bool _isValidInteger(dynamic value) {
+  if (value == null) return false;
+  return int.tryParse(value.toString()) != null;
+}
 
+static Future<bool> civilIdExists(int cid) async {
+  final result = await _patientdb.query(
+    'patient',
+    columns: ['civil_id'],
+    where: 'civil_id = ?',
+    whereArgs: [cid],
+    limit: 1,
+  );
+  return result.isNotEmpty;
+}
 
 
 }
