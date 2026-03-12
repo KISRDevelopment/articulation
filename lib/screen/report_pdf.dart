@@ -78,16 +78,28 @@ Future<Uint8List> buildPatientReportPdf(PatientReportData data,
     );
   }
 
-  final wordRows = data.words
+  /*final wordRows = data.words
       .map((w) => [(w['word'] ?? '').toString(), (w['comment'] ?? '').toString()])
+      .toList();*/
+
+  final wordRows = data.words
+      .map((w) => [ (w['comment'] ?? '').toString(), (w['word'] ?? '').toString()])
       .toList();
 
-  final sentenceRows = data.sentences
+  /*final sentenceRows = data.sentences
       .map((s) => [(s['sentence'] ?? '').toString(), (s['comment'] ?? '').toString()])
+      .toList();*/
+
+    final sentenceRows = data.sentences
+      .map((s) => [ (s['comment'] ?? '').toString(), (s['sentence'] ?? '').toString()])
       .toList();
+
+  /*final storyRows = data.stories
+      .map((s) => [(s['story'] ?? '').toString(), (s['comment'] ?? '').toString()])
+      .toList();*/
 
   final storyRows = data.stories
-      .map((s) => [(s['story'] ?? '').toString(), (s['comment'] ?? '').toString()])
+      .map((s) => [ (s['comment'] ?? '').toString(), (s['story'] ?? '').toString()])
       .toList();
 
   doc.addPage(
@@ -109,9 +121,9 @@ Future<Uint8List> buildPatientReportPdf(PatientReportData data,
         kv( data.fileNumber, 'رقم الملف:'),
         pw.Divider(),
 
-        tableBlock(title: 'الكلمات',   headers: ['الكلمة', 'التعليق'], rows: wordRows),
-        tableBlock(title: 'الجمل',     headers: ['الجملة', 'التعليق'], rows: sentenceRows),
-        tableBlock(title: 'القصص',     headers: ['القصة', 'التعليق'], rows: storyRows),
+        tableBlock(title: 'الكلمات',   headers: ['التعليق', 'الكلمة'], rows: wordRows),
+        tableBlock(title: 'الجمل',     headers: ['التعليق', 'الجملة'], rows: sentenceRows),
+        tableBlock(title: 'القصص',     headers: ['التعليق', 'القصة'], rows: storyRows),
 
         pw.SizedBox(height: 12),
       ],
