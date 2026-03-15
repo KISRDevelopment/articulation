@@ -838,7 +838,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => SettingPage()),
+                          MaterialPageRoute(builder: (context) => SettingsPage(patientId: civilID)),
                         );
                       }
                   ),
