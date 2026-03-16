@@ -68,9 +68,11 @@ class _SignupPageState extends State<SignupPage> {
         //await PatientDatabaseHelper().insertPatient(newPatient);
         await PatientDBHelper.addPatients(newPatient);
 
-        //final testPatient = await PatientDBHelper.getPatientsByCID(_civilIDController.text as int);
-        //print('new patient is:');
-        //print(testPatient);
+        ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Patient registered successfully'),
+        ),
+        );
 
         print('pass add patient');
 
