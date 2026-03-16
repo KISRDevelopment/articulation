@@ -54,23 +54,19 @@ if (patient != null) {
       final cid = _civilIDController.text;
       print(cid);
 
-      /*try{
+      try{
 
         //final patients = await PatientDatabaseHelper().getPatient(cid);
         final patients = await PatientDBHelper.getPatientsByCID(int.parse(cid));
 
-      /*if (patients == null) {
-        print('if-statement is true');
+        if (patients != null) {
+          print('if-statement is true');
 
-        final newPatient = { //create new patient
-          'civil_id': int.parse(_civilIDController.text),
-          'first_name': _firstNameController.text,
-          'last_name': _lastNameController.text,
-          'file_number':int.parse( _fileNumController.text),
-          'age': int.parse(_ageController.text)
-          //'score': '',
-          //'login_date': _loginDate.toIso8601String(),
-        };*/
+        await PatientDBHelper.updatePatients(int.parse(cid), {
+            'first_name': _firstNameController.text.trim(),
+            'last_name': _lastNameController.text.trim(),
+            'age': _ageController.text.trim(),
+          });
 
         //print(newPatient);
 
@@ -87,7 +83,9 @@ if (patient != null) {
           context,
           MaterialPageRoute(builder: (context) => MyHomePage(title: 'welcome $cid', cid: cid,)),
         );
-      }} catch (e) {}*/
+      }} catch (e) {
+        print('Update failed: $e');
+      }
 
 
     }
@@ -114,6 +112,7 @@ if (patient != null) {
                 SizedBox(height: 20,),
                   TextFormField(
                     controller: _civilIDController,
+                    readOnly: true,
                     //textAlign: TextAlign.right,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
@@ -163,6 +162,7 @@ if (patient != null) {
 SizedBox(height: 20,),
                   TextFormField(
                     controller: _fileNumController,
+                    readOnly: true,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       filled: true,
