@@ -138,58 +138,39 @@ class PatientDBHelper{
   }
 
   //edit patient
-  static Future<void> updatePatients(int cid, Map<String, dynamic> patient) async {
-    final civilId = int.tryParse(patient['civil_id'].toString());
-    final fileNumber = int.tryParse(patient['file_number'].toString());
-    final age = int.tryParse(patient['age'].toString());
+static Future<void> updatePatients(int cid, Map<String, dynamic> patient) async {
+  final age = int.tryParse(patient['age'].toString());
 
-    if (civilId == null) {
-      throw Exception('Civil ID must be an integer.');
-    }
-    if (fileNumber == null) {
-      throw Exception('File number must be an integer.');
-    }
-    if (age == null) {
-      throw Exception('Age must be an integer.');
-    }
-
-    // If user changed civil ID, prevent duplicate
-    if (civilId != cid) {
-      final exists = await civilIdExists(civilId);
-      if (exists) {
-        throw Exception('A patient with the same Civil ID already exists.');
-      }
-    }
-
-    final cleanPatient = {
-      'civil_id': civilId,
-      'first_name': patient['first_name'],
-      'last_name': patient['last_name'],
-      'file_number': fileNumber,
-      'age': age,
-    };
-
-    await _patientdb.update(
-      'patient',
-      cleanPatient,
-      where: 'civil_id = ?',
-      whereArgs: [cid],
-    );
-
-    try {
-      final ref = FirebaseDatabase.instance.ref('patients/$civilId/info');
-      await ref.update({
-        'civil_id': civilId,
-        'first_name': cleanPatient['first_name'],
-        'last_name': cleanPatient['last_name'],
-        'file_number': fileNumber,
-        'age': age,
-      });
-    } catch (e) {
-      debugPrint('Firebase sync (updatePatients) failed: $e');
-    }
+  if (age == null) {
+    throw Exception('Age must be an integer.');
   }
 
+  final cleanPatient = {
+    'first_name': patient['first_name'],
+    'last_name': patient['last_name'],
+    'age': age,
+  };
+
+  // Update local SQLite
+  await _patientdb.update(
+    'patient',
+    cleanPatient,
+    where: 'civil_id = ?',
+    whereArgs: [cid],
+  );
+
+  // Update Firebase
+  try {
+    final ref = FirebaseDatabase.instance.ref('patients/$cid/info');
+    await ref.update({
+      'first_name': cleanPatient['first_name'],
+      'last_name': cleanPatient['last_name'],
+      'age': age,
+    });
+  } catch (e) {
+    debugPrint('Firebase sync (updatePatients) failed: $e');
+  }
+}
   //delete patient
   static Future<void> deletePatient(int cid) async {
     await _patientdb.delete('patient', where: 'civil_id = ?', whereArgs: [cid]);
