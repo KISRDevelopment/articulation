@@ -1,22 +1,23 @@
 import 'package:articulation/database/patient_db_helper.dart';
-import 'package:articulation/screen/login.dart';
 import 'package:flutter/material.dart';
 import '../main.dart';
 
-class SignupPage extends StatefulWidget {
-  const SignupPage({Key? key, required this.title}) : super(key: key);
+
+class EditPatientPage extends StatefulWidget {
+  const EditPatientPage({Key? key, required this.title, required this.cid}) : super(key: key);
 
   final String title;
+  final String cid;
 
   @override
-  State<SignupPage> createState() => _SignupPageState();
+  State<EditPatientPage> createState() => _EditPatientPageState();
 }
 
-class _SignupPageState extends State<SignupPage> {
-  List<Map<String, dynamic>> _patients = [];
+class _EditPatientPageState extends State<EditPatientPage> {
+  //List<Map<String, dynamic>> _patients = [];
   final _formKey = GlobalKey<FormState>();
   TextEditingController _civilIDController = TextEditingController();
-  TextEditingController _fistNameController = TextEditingController();
+  TextEditingController _firstNameController = TextEditingController();
   TextEditingController _lastNameController = TextEditingController();
   TextEditingController _fileNumController = TextEditingController();
   TextEditingController _ageController = TextEditingController();
@@ -26,19 +27,27 @@ class _SignupPageState extends State<SignupPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _loadPatients();
+    _loadPatients(widget.cid);
+    _civilIDController.text = widget.cid;
+    
   }
 
-  Future<void> _loadPatients() async {
-    //final patients = await PatientDatabaseHelper().getAllPatients();
-    final patients = await PatientDBHelper.getPatients();
-    setState(() {
-      _patients = patients;
-    });
-  }
+Future<void> _loadPatients(String civilID) async {
+  final patient = await PatientDBHelper.getPatientsByCID(int.parse(civilID));
+
+  setState(() {
+if (patient != null) {
+  _civilIDController.text = patient['civil_id']?.toString() ?? '';
+  _firstNameController.text = patient['first_name'] ?? '';
+  _lastNameController.text = patient['last_name'] ?? '';
+  _fileNumController.text = patient['file_number']?.toString() ?? '';
+  _ageController.text = patient['age']?.toString() ?? '';
+}
+  });
+}
 
 
-  Future<void> _signup() async {
+  Future<void> _updateInformation() async {
     if (_formKey.currentState!.validate()) {
 
       DateTime _loginDate = DateTime.now();
@@ -50,29 +59,23 @@ class _SignupPageState extends State<SignupPage> {
         //final patients = await PatientDatabaseHelper().getPatient(cid);
         final patients = await PatientDBHelper.getPatientsByCID(int.parse(cid));
 
-      if (patients == null) {
-        print('if-statement is true');
+        if (patients != null) {
+          print('if-statement is true');
 
-        final newPatient = { //create new patient
-          'civil_id': int.parse(_civilIDController.text),
-          'first_name': _fistNameController.text,
-          'last_name': _lastNameController.text,
-          'file_number':int.parse( _fileNumController.text),
-          'age': int.parse(_ageController.text)
-          //'score': '',
-          //'login_date': _loginDate.toIso8601String(),
-        };
+        await PatientDBHelper.updatePatients(int.parse(cid), {
+            'first_name': _firstNameController.text.trim(),
+            'last_name': _lastNameController.text.trim(),
+            'age': _ageController.text.trim(),
+          });
 
-        print(newPatient);
+        //print(newPatient);
 
         //await PatientDatabaseHelper().insertPatient(newPatient);
-        await PatientDBHelper.addPatients(newPatient);
+        //await PatientDBHelper.addPatients(newPatient);
 
-        ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Patient registered successfully'),
-        ),
-        );
+        //final testPatient = await PatientDBHelper.getPatientsByCID(_civilIDController.text as int);
+        //print('new patient is:');
+        //print(testPatient);
 
         print('pass add patient');
 
@@ -80,7 +83,9 @@ class _SignupPageState extends State<SignupPage> {
           context,
           MaterialPageRoute(builder: (context) => MyHomePage(title: 'welcome $cid', cid: cid,)),
         );
-      }} catch (e) {}
+      }} catch (e) {
+        print('Update failed: $e');
+      }
 
 
     }
@@ -107,6 +112,7 @@ class _SignupPageState extends State<SignupPage> {
                 SizedBox(height: 20,),
                   TextFormField(
                     controller: _civilIDController,
+                    readOnly: true,
                     //textAlign: TextAlign.right,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
@@ -123,7 +129,7 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                   SizedBox(height: 20,),
                   TextFormField(
-                    controller: _fistNameController,
+                    controller: _firstNameController,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       filled: true,
@@ -156,6 +162,7 @@ class _SignupPageState extends State<SignupPage> {
 SizedBox(height: 20,),
                   TextFormField(
                     controller: _fileNumController,
+                    readOnly: true,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       filled: true,
@@ -187,24 +194,14 @@ SizedBox(height: 20,),
                   ),
 SizedBox(height: 20,),
             TextButton(
-              onPressed: _signup,
-              child: Text('تسجيل',
+              onPressed: _updateInformation,
+              child: Text('تعديل',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
                   )),
             ),
-SizedBox(height: 20,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('لديك حساب؟'),
-                TextButton(onPressed: (){Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginPage(title: '')),
-                );}, child: Text('دخول', style: TextStyle(color: Colors.white),)),
-                
-              ],)
+
               ],
             ),
           ),
