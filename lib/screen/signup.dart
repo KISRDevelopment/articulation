@@ -54,11 +54,10 @@ class _SignupPageState extends State<SignupPage> {
         print('if-statement is true');
 
         final newPatient = { //create new patient
-          'civil_id': int.parse(_civilIDController.text),
+          'civil_id': _civilIDController.text,
           'first_name': _fistNameController.text,
           'last_name': _lastNameController.text,
-          'file_number':int.parse( _fileNumController.text),
-          'age': int.parse(_ageController.text)
+          'file_number': _fileNumController.text,
           //'score': '',
           //'login_date': _loginDate.toIso8601String(),
         };
@@ -68,11 +67,9 @@ class _SignupPageState extends State<SignupPage> {
         //await PatientDatabaseHelper().insertPatient(newPatient);
         await PatientDBHelper.addPatients(newPatient);
 
-        ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Patient registered successfully'),
-        ),
-        );
+        //final testPatient = await PatientDBHelper.getPatientsByCID(_civilIDController.text as int);
+        //print('new patient is:');
+        //print(testPatient);
 
         print('pass add patient');
 

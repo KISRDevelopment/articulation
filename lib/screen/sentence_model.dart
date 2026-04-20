@@ -72,7 +72,7 @@ final Map<String, List<Sentence>> sentencesByLetter = {
   ],
   'غ': [
     Sentence(order: 'الجملة الأولى', content: 'غزال صغير فاز بالسباق'),
-    Sentence(order: 'الجملة الثانية', content: 'شرى محمد صمغ يديد حق المدرسة'),
+    Sentence(order: 'الجملة الثانية', content: 'شري محمد صمغ يديد حق المدرسة'),
   ],
   'ف': [
     Sentence(order: 'الجملة الأولى', content: 'شاف فهد فيل و خروف في الحديقة'),
