@@ -1,7 +1,6 @@
 import 'package:articulation/database/patient_db_helper.dart';
 import 'package:articulation/screen/login.dart';
 import 'package:articulation/screen/report.dart';
-import 'package:articulation/screen/setting.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //import 'package:flip_card/flip_card.dart';
@@ -9,7 +8,6 @@ import 'package:articulation/screen/flashCardOption.dart';
 import 'package:articulation/screen/info.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -822,25 +820,17 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Column(
                 children: [
-                  GestureDetector(
-                    child: Container(
-                      margin: EdgeInsets.only(
-                          left: 10, top: 10, right: 10, bottom: 10),
-                      child: Center(child: Icon(Icons.settings, size: 50)),
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.amber.shade50,
-                        border: Border.all(color: Colors.amber.shade50),
-                        borderRadius: BorderRadius.all(Radius.circular(360)),
-                      ),
+                  Container(
+                    margin: EdgeInsets.only(
+                        left: 10, top: 10, right: 10, bottom: 10),
+                    child: Center(child: Icon(Icons.settings, size: 50)),
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.amber.shade50,
+                      border: Border.all(color: Colors.amber.shade50),
+                      borderRadius: BorderRadius.all(Radius.circular(360)),
                     ),
-                    onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => SettingsPage(patientId: civilID)),
-                        );
-                      }
                   ),
                   Text("التقرير")
                 ],
