@@ -40,7 +40,7 @@ class _storyState extends State<story> {
     print(storyList![0].title);
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: Colors.red[50],
       body: Container(
         child:  Stack(
           children: [

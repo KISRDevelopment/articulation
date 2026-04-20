@@ -31,7 +31,7 @@ class _flashCardWordState extends State<flashCardWord> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: Colors.red[50],
       body: Container(
         child:  Stack(
           children: [

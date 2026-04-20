@@ -87,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      backgroundColor: Colors.purple[200],
+      backgroundColor: Colors.white,
       //appBar: AppBar(title: Text("مهارات النطق"),),
       body: Column(
         children: [
@@ -105,11 +105,12 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Text("ث",
                               style: TextStyle(
                                 fontSize: 70,
+                                color: Colors.white,
                               ))),
                       width: 100,
                       height: 100,
                       decoration: BoxDecoration(
-                        color: Colors.amber.shade50,
+                        color: Colors.red[400],
                         border: Border.all(
                           color: Colors.amber.shade50,
                         ),
@@ -127,7 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Container(
                       margin: EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        color: Colors.amber.shade50,
+                        color: Colors.red[400],
                         border: Border.all(color: Colors.amber.shade50),
                         borderRadius: BorderRadius.all(Radius.circular(20)),
                       ),
@@ -135,6 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Text("ت",
                               style: TextStyle(
                                 fontSize: 70,
+                                color: Colors.white,
                               ))),
                       width: 100,
                       height: 100,
@@ -150,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Container(
                       margin: EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        color: Colors.amber.shade50,
+                        color: Colors.red[400],
                         border: Border.all(color: Colors.amber.shade50),
                         borderRadius: BorderRadius.all(Radius.circular(20)),
                       ),
@@ -158,6 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Text("ب",
                               style: TextStyle(
                                 fontSize: 70,
+                                color: Colors.white,
                               ))),
                       width: 100,
                       height: 100,
@@ -173,7 +176,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Container(
                       margin: EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        color: Colors.amber.shade50,
+                        color: Colors.red[400],
                         border: Border.all(color: Colors.amber.shade50),
                         borderRadius: BorderRadius.all(Radius.circular(20)),
                       ),
@@ -181,6 +184,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Text("أ",
                               style: TextStyle(
                                 fontSize: 70,
+                                color: Colors.white,
                               ))),
                       width: 100,
                       height: 100,
@@ -195,14 +199,23 @@ class _MyHomePageState extends State<MyHomePage> {
                 Container(
                   margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors.purple[200],
+                    color: Colors.white,
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
-                  child: Center(
-                      child: Text("مهارات النطق",
-                          style: TextStyle(
-                            fontSize: 30,
-                          ))),
+                  child: Column(
+                    children: [
+                          Image.asset(
+                          'images/sd027c.jpg',
+                            width: 50,
+                            ),
+                     
+                      Center(
+                          child: Text("مهارات النطق",
+                              style: TextStyle(
+                                fontSize: 20,
+                              ))),
+                    ],
+                  ),
                   width: 220,
                   height: 100,
                 ),
@@ -219,11 +232,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("ر",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -238,7 +252,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -246,6 +260,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("ذ",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -260,7 +275,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -268,6 +283,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("د",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -282,7 +298,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -290,6 +306,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("خ",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -304,7 +321,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -312,6 +329,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("ح",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -326,7 +344,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -334,6 +352,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("ج",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -360,11 +379,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("ط",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -379,7 +399,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -387,6 +407,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("ض",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -401,7 +422,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -409,6 +430,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("ص",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -423,7 +445,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -431,6 +453,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("ش",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -445,7 +468,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -453,6 +476,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("س",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -467,7 +491,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -475,6 +499,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("ز",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -497,11 +522,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("ك",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -516,7 +542,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -524,6 +550,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("ق",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -538,7 +565,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -546,6 +573,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("ف",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -560,7 +588,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -568,6 +596,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("غ",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -582,7 +611,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -590,6 +619,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("ع",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -604,7 +634,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -612,6 +642,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("ظ",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -634,11 +665,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("ي",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -653,7 +685,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -661,6 +693,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("و",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -675,7 +708,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -683,6 +716,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("هـ",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -698,7 +732,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -706,6 +740,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("ن",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -720,7 +755,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -728,6 +763,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("م",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -742,7 +778,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade50,
+                      color: Colors.red[400],
                       border: Border.all(color: Colors.amber.shade50),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
@@ -750,6 +786,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("ل",
                             style: TextStyle(
                               fontSize: 70,
+                              color: Colors.white,
                             ))),
                     width: 100,
                     height: 100,
@@ -809,7 +846,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         borderRadius: BorderRadius.all(Radius.circular(360)),
                       ),
                     ),
-                    Text("درجات")
+                    Text("التقرير")
                   ],
                 ),
                 onTap: () {
@@ -842,7 +879,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         );
                       }
                   ),
-                  Text("التقرير")
+                  Text("اعدادات")
                 ],
               ),
               Column(

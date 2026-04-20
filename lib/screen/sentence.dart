@@ -35,7 +35,7 @@ class _sentenceState extends State<sentence> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: Colors.red[50],
       body: Container(
         child:  Stack(
           children: [

@@ -28,7 +28,7 @@ class _flashCardSentenceState extends State<flashCardSentence> {
   Widget build(BuildContext context) {
     final List<Sentence> sentenceList = sentencesByLetter[myLetter] ?? [];
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: Colors.red[50],
       body: Container(
         child: Stack(
           children: [
