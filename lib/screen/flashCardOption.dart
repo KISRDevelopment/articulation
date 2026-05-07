@@ -31,10 +31,10 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        //backgroundColor: Colors.transparent,
         body: Center(
           child: Container(
-            color: Colors.transparent,
+            //color: Colors.transparent,
             height: 700,
             child: Container(
               //color: Colors.white,
@@ -44,6 +44,9 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                   color: Colors.white,
               borderRadius: BorderRadius.all(Radius.circular(20)
               ),
+              border: BoxBorder.all(
+                color: Colors.red,
+              )
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
