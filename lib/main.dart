@@ -196,7 +196,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             flashCardOption(letter: 'أ', cid: civilID),
                       ));
                     }),
-                Container(
+                /*Container(
                   margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -218,7 +218,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   width: 220,
                   height: 100,
-                ),
+                ),*/
               ],
             ),
           ),
