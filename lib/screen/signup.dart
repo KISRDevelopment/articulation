@@ -86,10 +86,6 @@ class _SignupPageState extends State<SignupPage> {
                 'تم تسجيل المستخدم',
               textAlign: TextAlign.center,
               ),
-              content: const Text(
-                'تم تسجيل المريض بنجاح',
-                textAlign: TextAlign.center,
-                ),
             actions: [
               TextButton(
                 onPressed: () {
