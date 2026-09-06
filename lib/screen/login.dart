@@ -95,6 +95,19 @@ class _LoginPageState extends State<LoginPage> {
                     border: OutlineInputBorder(),
                     filled: true,
                     labelText: 'الرقم المدني',
+                    helperText:
+                                  'يجب إدخال الرقم المدني ١٢ رقماً',
+
+                    labelStyle: TextStyle(
+                                fontSize: 18,
+                              ),
+
+                              // Label while typing
+                    floatingLabelStyle: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+
                   ),
                   maxLines: 2,
                   validator: (value) {
