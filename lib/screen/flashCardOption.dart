@@ -44,7 +44,7 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
                   color: Colors.white,
               borderRadius: BorderRadius.all(Radius.circular(20)
               ),
-              border: BoxBorder.all(
+              border: Border.all(
                 color: Colors.red,
               )
               ),
