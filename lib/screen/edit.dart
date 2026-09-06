@@ -68,6 +68,32 @@ if (patient != null) {
             'age': _ageController.text.trim(),
           });
 
+          if (!mounted) return;
+
+          await showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (context){
+              return AlertDialog(
+                title: Text(
+                  'تم التعديل الملف',
+                  textAlign: TextAlign.center,
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: (){
+                        Navigator.of(context).pop();
+                      }, 
+                      child: Text('موافق'),
+                      ),
+                  ],
+              );
+
+            },
+            );
+
+            if (!mounted) return;
+
         //print(newPatient);
 
         //await PatientDatabaseHelper().insertPatient(newPatient);
@@ -96,7 +122,24 @@ if (patient != null) {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.purple[200],
-      appBar: AppBar(title: Text("مهارات النطق"),),
+      appBar: AppBar(title: Text("مهارات النطق"),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.home),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MyHomePage(
+                    title: 'welcome ${widget.cid}',
+                    cid: widget.cid,
+                  ),
+                ),
+                (route) => false,
+              );
+            },
+          ),
+        ],),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(25),
         child: Directionality(
