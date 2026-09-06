@@ -1,6 +1,7 @@
 import 'package:articulation/database/patient_db_helper.dart';
 import 'package:articulation/screen/login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../main.dart';
 
 class SignupPage extends StatefulWidget {
@@ -68,11 +69,40 @@ class _SignupPageState extends State<SignupPage> {
         //await PatientDatabaseHelper().insertPatient(newPatient);
         await PatientDBHelper.addPatients(newPatient);
 
-        ScaffoldMessenger.of(context).showSnackBar(
+        if (!mounted) return;
+
+        /*ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Patient registered successfully'),
         ),
+        );*/
+
+        await showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text(
+                'تم تسجيل المستخدم',
+              textAlign: TextAlign.center,
+              ),
+              content: const Text(
+                'تم تسجيل المريض بنجاح',
+                textAlign: TextAlign.center,
+                ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text('موافق'),
+            ),
+          ],
         );
+      },
+    );
+
+    if (!mounted) return;
 
         print('pass add patient');
 
@@ -107,16 +137,36 @@ class _SignupPageState extends State<SignupPage> {
                 SizedBox(height: 20,),
                   TextFormField(
                     controller: _civilIDController,
+                    keyboardType: TextInputType.number,
+                    //limiting the number of digits to reach only 12
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      LengthLimitingTextInputFormatter(12),
+                    ],
                     //textAlign: TextAlign.right,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       filled: true,
+                      helperText: 'يجب إدخال الرقم المدني ١٢ رقما',
                       labelText: 'الرقم المدني',
+                      
+                      labelStyle:TextStyle(
+                        fontSize: 18,
+                      ),
+
+                      floatingLabelStyle: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      )
                     ),
                     //maxLines: 2,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'يرجى إدخال الرقم المدني';
+                      }
+
+                      if (value.length != 12){
+                        return 'يجب أن يكون الرقم المدني من ١٢ رقما';
                       }
                       return null;
                     },
