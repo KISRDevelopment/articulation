@@ -16,11 +16,13 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   List<Map<String, dynamic>> _patients = [];
   final _formKey = GlobalKey<FormState>();
+  String? _civilIDError;
   TextEditingController _civilIDController = TextEditingController();
   TextEditingController _fistNameController = TextEditingController();
   TextEditingController _lastNameController = TextEditingController();
   TextEditingController _fileNumController = TextEditingController();
   TextEditingController _ageController = TextEditingController();
+  
 
 
   @override
@@ -83,7 +85,7 @@ class _SignupPageState extends State<SignupPage> {
           builder: (context) {
             return AlertDialog(
               title: const Text(
-                'تم تسجيل المستخدم',
+                'تم تسجيل المستخدم بنجاح ',
               textAlign: TextAlign.center,
               ),
             actions: [
@@ -106,7 +108,12 @@ class _SignupPageState extends State<SignupPage> {
           context,
           MaterialPageRoute(builder: (context) => MyHomePage(title: 'welcome $cid', cid: cid,)),
         );
-      }} catch (e) {}
+      } else {
+        setState(() {
+          _civilIDError = 'هذا الرقم المدني مسجل مسبقا ';
+        });
+      }
+      } catch (e) {}
 
 
     }
@@ -140,11 +147,13 @@ class _SignupPageState extends State<SignupPage> {
                       LengthLimitingTextInputFormatter(12),
                     ],
                     //textAlign: TextAlign.right,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       filled: true,
                       helperText: 'يجب إدخال الرقم المدني ١٢ رقما',
                       labelText: 'الرقم المدني',
+
+                      errorText: _civilIDError,
                       
                       labelStyle:TextStyle(
                         fontSize: 18,
@@ -155,6 +164,14 @@ class _SignupPageState extends State<SignupPage> {
                         fontWeight: FontWeight.bold,
                       )
                     ),
+
+                    onChanged: (value){
+                      if (_civilIDError != null) {
+                        setState(() {
+                          _civilIDError = null;
+                        });
+                      }
+                    },
                     //maxLines: 2,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
