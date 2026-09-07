@@ -76,7 +76,7 @@ if (patient != null) {
             builder: (context){
               return AlertDialog(
                 title: Text(
-                  'تم التعديل الملف',
+                  'تم تعديل الملف',
                   textAlign: TextAlign.center,
                   ),
                   actions: [
@@ -105,10 +105,10 @@ if (patient != null) {
 
         print('pass add patient');
 
-        Navigator.push(
+        /*Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => MyHomePage(title: 'welcome $cid', cid: cid,)),
-        );
+        );*/
       }} catch (e) {
         print('Update failed: $e');
       }
