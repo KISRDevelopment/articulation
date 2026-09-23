@@ -196,7 +196,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             flashCardOption(letter: 'أ', cid: civilID),
                       ));
                     }),
-                /*Container(
+               /* Container(
                   margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -204,21 +204,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   child: Column(
                     children: [
-                          Image.asset(
-                          'images/sd027c.jpg',
-                            width: 50,
-                            ),
-                     
+                      SizedBox(height: 25,),
                       Center(
-                          child: Text("مهارات النطق",
+                          child: Text("Articulate It ! ",
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 35,
                               ))),
                     ],
                   ),
-                  width: 220,
-                  height: 100,
-                ),*/
+                  
+                ), */
               ],
             ),
           ),

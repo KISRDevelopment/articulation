@@ -156,11 +156,11 @@ class _SignupPageState extends State<SignupPage> {
                       errorText: _civilIDError,
                       
                       labelStyle:TextStyle(
-                        fontSize: 18,
+                        fontSize: 25,
                       ),
 
                       floatingLabelStyle: TextStyle(
-                        fontSize: 20,
+                        fontSize: 25,
                         fontWeight: FontWeight.bold,
                       )
                     ),
@@ -191,6 +191,14 @@ class _SignupPageState extends State<SignupPage> {
                       border: OutlineInputBorder(),
                       filled: true,
                       labelText: 'الاسم الأول',
+                      labelStyle:TextStyle(
+                        fontSize: 25,
+                      ),
+
+                      floatingLabelStyle: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      )
                     ),
                     //maxLines: 2,
                     validator: (value) {
@@ -207,6 +215,14 @@ class _SignupPageState extends State<SignupPage> {
                       border: OutlineInputBorder(),
                       filled: true,
                       labelText: 'الاسم الأخير',
+                      labelStyle:TextStyle(
+                        fontSize: 25,
+                      ),
+
+                      floatingLabelStyle: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      )
                     ),
                     //maxLines: 2,
                     validator: (value) {
@@ -223,6 +239,14 @@ SizedBox(height: 20,),
                       border: OutlineInputBorder(),
                       filled: true,
                       labelText: 'رقم الملف',
+                      labelStyle:TextStyle(
+                        fontSize: 25,
+                      ),
+
+                      floatingLabelStyle: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      )
                     ),
                     //maxLines: 2,
                     validator: (value) {
@@ -239,6 +263,14 @@ SizedBox(height: 20,),
                       border: OutlineInputBorder(),
                       filled: true,
                       labelText: 'العمر',
+                      labelStyle:TextStyle(
+                        fontSize: 25,
+                      ),
+
+                      floatingLabelStyle: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      )
                     ),
                     //maxLines: 2,
                     validator: (value) {
@@ -254,18 +286,18 @@ SizedBox(height: 20,),
               child: Text('تسجيل',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 20,
+                    fontSize: 25,
                   )),
             ),
 SizedBox(height: 20,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('لديك حساب؟'),
+                Text('لديك حساب؟', style: TextStyle(fontSize: 20),),
                 TextButton(onPressed: (){Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => LoginPage(title: '')),
-                );}, child: Text('دخول', style: TextStyle(color: Colors.white),)),
+                );}, child: Text('دخول', style: TextStyle(color: Colors.white, fontSize: 20),)),
                 
               ],)
               ],
