@@ -99,12 +99,12 @@ class _LoginPageState extends State<LoginPage> {
                                   'يجب إدخال الرقم المدني ١٢ رقماً',
 
                     labelStyle: TextStyle(
-                                fontSize: 18,
+                                fontSize: 25,
                               ),
 
                               // Label while typing
                     floatingLabelStyle: TextStyle(
-                                fontSize: 20,
+                                fontSize: 25,
                                 fontWeight: FontWeight.bold,
                               ),
 
@@ -123,18 +123,18 @@ class _LoginPageState extends State<LoginPage> {
                   child: Text('دخول',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 20,
+                        fontSize: 30,
                       )),
                 ),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('مستخدم جديد؟'),
+                    Text('مستخدم جديد؟', style: TextStyle(fontSize: 20),),
                   TextButton(onPressed: (){Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => SignupPage(title: '')),
-                  );}, child: Text('تسجيل', style: TextStyle(color: Colors.white),)),
+                  );}, child: Text('تسجيل', style: TextStyle(color: Colors.white, fontSize: 20),)),
                   
                 ],)
               ],
