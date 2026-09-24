@@ -1,4 +1,5 @@
 import 'package:articulation/database/patient_db_helper.dart';
+import 'package:articulation/main.dart';
 import 'package:articulation/screen/options.dart';
 import 'package:articulation/screen/story_model.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -39,12 +40,32 @@ class _storyState extends State<story> {
     final List<Story> storyList = StoryByLetter[myLetter] ?? [];
     print(storyList![0].title);
     return Scaffold(
+      appBar: AppBar(leading: 
+      IconButton(onPressed: ()=> Navigator.of(context).pop(), icon: Icon(Icons.arrow_back_ios, size: 50),),
+      actions: [
+          IconButton(
+            icon: const Icon(Icons.home, size: 50,),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MyHomePage(
+                    title: 'welcome ${widget.cid}',
+                    cid: widget.cid,
+                  ),
+                ),
+                (route) => false,
+              );
+            },
+          ),
+        ],
+      ),
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.red[50],
       body: Container(
         child:  Stack(
           children: [
-            GestureDetector(
+            /*GestureDetector(
               child: Container(
                 margin: EdgeInsets.all(10),
                 width: 50,
@@ -61,7 +82,7 @@ class _storyState extends State<story> {
                 Navigator.of(context).pop(
                 );
               },
-            ),
+            ),*/
             Center(
               child: Container(
                 //color: Colors.white,
@@ -237,11 +258,14 @@ Widget build(BuildContext context) {
     children: [
       SizedBox(
         width: 400,
-        child: TextField(
-          controller: _commentController,
-          decoration: const InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: "أدخل تعليق",
+        child: Directionality(
+          textDirection: TextDirection.rtl,
+          child: TextField(
+            controller: _commentController,
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: "أدخل تعليق",
+            ),
           ),
         ),
       ),
@@ -251,7 +275,7 @@ Widget build(BuildContext context) {
         child: ElevatedButton(
           onPressed: _insertComment,
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue,
+            backgroundColor: Colors.red[300],
             foregroundColor: Colors.white,
           ),
           child: const Text(

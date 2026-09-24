@@ -1,3 +1,4 @@
+import 'package:articulation/main.dart';
 import 'package:flutter/material.dart';
 //import 'flashCardOption.dart';
 import 'word.dart';
@@ -31,11 +32,31 @@ class _flashCardWordState extends State<flashCardWord> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(leading: 
+      IconButton(onPressed: ()=> Navigator.of(context).pop(), icon: Icon(Icons.arrow_back_ios, size: 50),),
+      actions: [
+          IconButton(
+            icon: const Icon(Icons.home, size: 50,),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MyHomePage(
+                    title: 'welcome ${widget.cid}',
+                    cid: widget.cid,
+                  ),
+                ),
+                (route) => false,
+              );
+            },
+          ),
+        ],
+      ),
       backgroundColor: Colors.red[50],
       body: Container(
         child:  Stack(
           children: [
-            GestureDetector(
+            /*GestureDetector(
               child: Container(
                 margin: EdgeInsets.all(10),
                 width: 50,
@@ -52,7 +73,7 @@ class _flashCardWordState extends State<flashCardWord> {
                 Navigator.of(context).pop(
                 );
               },
-            ),
+            ),*/
             Center(
               child: Container(
                 //color: Colors.white,
@@ -83,9 +104,9 @@ class _flashCardWordState extends State<flashCardWord> {
                             child: Container(
                               height: 100,
                               width: 250,
-                              child: Center(child: Text("بداية الكلمة", style: TextStyle(fontSize: 50, color: flag ? Colors.white : Colors.grey), )),
+                              child: Center(child: Text("بداية الكلمة", style: TextStyle(fontSize: 50, ), )),
                               decoration: BoxDecoration(
-                                color: flag ? Colors.grey : Colors.grey[100],
+                                color: Colors.grey[300],
                                 borderRadius: BorderRadius.all(Radius.circular(20)
                                 ),
                               ),
@@ -128,9 +149,9 @@ class _flashCardWordState extends State<flashCardWord> {
                             child: Container(
                               height: 100,
                               width: 250,
-                              child: Center(child: Text("وسط الكلمة", style: TextStyle(fontSize: 50, color: medial ? Colors.white : Colors.grey))),
+                              child: Center(child: Text("وسط الكلمة", style: TextStyle(fontSize: 50, ))),
                               decoration: BoxDecoration(
-                                color: medial ? Colors.grey : Colors.grey[100],
+                                color: Colors.grey[300],
                                 borderRadius: BorderRadius.all(Radius.circular(20)
                                 ),
                               ),),
@@ -170,9 +191,9 @@ class _flashCardWordState extends State<flashCardWord> {
                             child: Container(
                               height: 100,
                               width: 250,
-                              child: Center(child: Text("آخر الكلمة", style: TextStyle(fontSize: 50, color: end ? Colors.white : Colors.grey))),
+                              child: Center(child: Text("آخر الكلمة", style: TextStyle(fontSize: 50, ))),
                               decoration: BoxDecoration(
-                                color: end ? Colors.grey : Colors.grey[100],
+                                color: Colors.grey[300],
                                 borderRadius: BorderRadius.all(Radius.circular(20)
                                 ),
                               ),),

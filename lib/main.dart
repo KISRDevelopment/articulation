@@ -1,4 +1,5 @@
 import 'package:articulation/database/patient_db_helper.dart';
+import 'package:articulation/screen/edit.dart';
 import 'package:articulation/screen/login.dart';
 import 'package:articulation/screen/report.dart';
 import 'package:articulation/screen/setting.dart';
@@ -196,6 +197,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             flashCardOption(letter: 'أ', cid: civilID),
                       ));
                     }),
+                    Container(
+                      height: 110,
+                      //decoration: BoxDecoration(color: Colors.red),
+                      child: Center(child: Text('Articulate It !', style: TextStyle(fontSize: 35),)),
+                    )
+      
                /* Container(
                   margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
@@ -867,12 +874,23 @@ class _MyHomePageState extends State<MyHomePage> {
                         borderRadius: BorderRadius.all(Radius.circular(360)),
                       ),
                     ),
-                    onTap: () {
+                    //activate the next comment in case we have more options for settings.
+                    //for now, the only settings available is Edit the Profile
+                    /* onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => SettingsPage(patientId: civilID)),
                         );
-                      }
+                      } */
+                     onTap: () {
+                       Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    EditPatientPage(title: 'تعديل الملف الشخصي', cid: civilID),
+              ),
+            );
+                     },
                   ),
                   Text("اعدادات")
                 ],
