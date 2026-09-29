@@ -84,7 +84,7 @@ if (patient != null) {
                       onPressed: (){
                         Navigator.of(context).pop();
                       }, 
-                      child: Text('موافق'),
+                      child: Text('موافق',),
                       ),
                   ],
               );
@@ -121,8 +121,8 @@ if (patient != null) {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple[200],
-      appBar: AppBar(title: Text("مهارات النطق"),
+      backgroundColor: Colors.red.shade50,
+      appBar: AppBar(title: Text("مهارات النطق",style: TextStyle(fontSize: 30),), backgroundColor: Colors.red.shade50,
         actions: [
           IconButton(
             icon: const Icon(Icons.home),
@@ -157,9 +157,12 @@ if (patient != null) {
                     controller: _civilIDController,
                     readOnly: true,
                     //textAlign: TextAlign.right,
+                   cursorColor: Colors.black,
                     decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
                       filled: true,
+                      fillColor: Colors.white,
                       labelText: 'الرقم المدني',
                     ),
                     //maxLines: 2,
@@ -173,11 +176,20 @@ if (patient != null) {
                   SizedBox(height: 20,),
                   TextFormField(
                     controller: _firstNameController,
+                    cursorColor: Colors.black,
                     decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
                       filled: true,
+                      fillColor: Colors.white,
                       labelText: 'الاسم الأول',
+                      floatingLabelStyle: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black
+                      )                      
                     ),
+                    
                     //maxLines: 2,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -189,10 +201,18 @@ if (patient != null) {
                   SizedBox(height: 20,),
                   TextFormField(
                     controller: _lastNameController,
+                    cursorColor: Colors.black,
                     decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
                       filled: true,
+                      fillColor: Colors.white,
                       labelText: 'الاسم الأخير',
+                      floatingLabelStyle: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black
+                      )
                     ),
                     //maxLines: 2,
                     validator: (value) {
@@ -206,10 +226,18 @@ SizedBox(height: 20,),
                   TextFormField(
                     controller: _fileNumController,
                     readOnly: true,
+                    cursorColor: Colors.black,
                     decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
                       filled: true,
+                      fillColor: Colors.white,
                       labelText: 'رقم الملف',
+                      floatingLabelStyle: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black
+                      )
                     ),
                     //maxLines: 2,
                     validator: (value) {
@@ -222,10 +250,18 @@ SizedBox(height: 20,),
 SizedBox(height: 20,),
                   TextFormField(
                     controller: _ageController,
+                    cursorColor: Colors.black,
                     decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
                       filled: true,
+                      fillColor: Colors.white,
                       labelText: 'العمر',
+                      floatingLabelStyle: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black
+                      )
                     ),
                     //maxLines: 2,
                     validator: (value) {
@@ -236,11 +272,12 @@ SizedBox(height: 20,),
                     },
                   ),
 SizedBox(height: 20,),
-            TextButton(
+            ElevatedButton(
               onPressed: _updateInformation,
+               style: ElevatedButton.styleFrom(backgroundColor: Colors.white, side: BorderSide(color: Colors.red.shade400,width: 1.5)),
               child: Text('تعديل',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 20,
                   )),
             ),

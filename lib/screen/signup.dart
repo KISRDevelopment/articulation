@@ -123,13 +123,13 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple[200],
-      appBar: AppBar(title: Text("مهارات النطق"),),
+      backgroundColor: Colors.red.shade50,
+      appBar: AppBar(title: Text("مهارات النطق",style: TextStyle(fontSize: 30),), backgroundColor: Colors.red.shade50,),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(25),
         child: Directionality(
           textDirection: TextDirection.rtl,
-          child:   Center( child: 
+          child: Center( child: 
           Container( width: 500, child:
           Form(
             key: _formKey,
@@ -147,9 +147,12 @@ class _SignupPageState extends State<SignupPage> {
                       LengthLimitingTextInputFormatter(12),
                     ],
                     //textAlign: TextAlign.right,
+                    cursorColor: Colors.black,
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
                       filled: true,
+                      fillColor: Colors.white,
                       helperText: 'يجب إدخال الرقم المدني ١٢ رقما',
                       labelText: 'الرقم المدني',
 
@@ -162,6 +165,7 @@ class _SignupPageState extends State<SignupPage> {
                       floatingLabelStyle: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
+                        color: Colors.black
                       )
                     ),
 
@@ -187,9 +191,12 @@ class _SignupPageState extends State<SignupPage> {
                   SizedBox(height: 20,),
                   TextFormField(
                     controller: _fistNameController,
+                    cursorColor: Colors.black,
                     decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
                       filled: true,
+                      fillColor: Colors.white,
                       labelText: 'الاسم الأول',
                       labelStyle:TextStyle(
                         fontSize: 25,
@@ -198,6 +205,7 @@ class _SignupPageState extends State<SignupPage> {
                       floatingLabelStyle: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
+                        color: Colors.black
                       )
                     ),
                     //maxLines: 2,
@@ -211,9 +219,12 @@ class _SignupPageState extends State<SignupPage> {
                   SizedBox(height: 20,),
                   TextFormField(
                     controller: _lastNameController,
+                    cursorColor: Colors.black,
                     decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
                       filled: true,
+                      fillColor: Colors.white,
                       labelText: 'الاسم الأخير',
                       labelStyle:TextStyle(
                         fontSize: 25,
@@ -222,6 +233,7 @@ class _SignupPageState extends State<SignupPage> {
                       floatingLabelStyle: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
+                        color: Colors.black
                       )
                     ),
                     //maxLines: 2,
@@ -235,9 +247,12 @@ class _SignupPageState extends State<SignupPage> {
 SizedBox(height: 20,),
                   TextFormField(
                     controller: _fileNumController,
+                    cursorColor: Colors.black,
                     decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
                       filled: true,
+                      fillColor: Colors.white,
                       labelText: 'رقم الملف',
                       labelStyle:TextStyle(
                         fontSize: 25,
@@ -246,6 +261,7 @@ SizedBox(height: 20,),
                       floatingLabelStyle: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
+                        color: Colors.black
                       )
                     ),
                     //maxLines: 2,
@@ -259,9 +275,12 @@ SizedBox(height: 20,),
 SizedBox(height: 20,),
                   TextFormField(
                     controller: _ageController,
+                    cursorColor: Colors.black,
                     decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
                       filled: true,
+                      fillColor: Colors.white,
                       labelText: 'العمر',
                       labelStyle:TextStyle(
                         fontSize: 25,
@@ -270,6 +289,7 @@ SizedBox(height: 20,),
                       floatingLabelStyle: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
+                        color: Colors.black
                       )
                     ),
                     //maxLines: 2,
@@ -281,11 +301,12 @@ SizedBox(height: 20,),
                     },
                   ),
 SizedBox(height: 20,),
-            TextButton(
+            ElevatedButton(
               onPressed: _signup,
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.white, side: BorderSide(color: Colors.red.shade400,)),
               child: Text('تسجيل',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 25,
                   )),
             ),
@@ -294,10 +315,13 @@ SizedBox(height: 20,),
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('لديك حساب؟', style: TextStyle(fontSize: 20),),
-                TextButton(onPressed: (){Navigator.push(
+                SizedBox(width: 10,),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.white,side: BorderSide(color: Colors.red.shade400,)),
+                  onPressed: (){Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => LoginPage(title: '')),
-                );}, child: Text('دخول', style: TextStyle(color: Colors.white, fontSize: 20),)),
+                );}, child: Text('دخول', style: TextStyle(color: Colors.black, fontSize: 20),)),
                 
               ],)
               ],

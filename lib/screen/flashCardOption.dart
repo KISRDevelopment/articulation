@@ -31,7 +31,10 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(leading: 
+      backgroundColor: Colors.red.shade50,
+      appBar: AppBar(
+        backgroundColor: Colors.red.shade50,
+        leading: 
       IconButton(onPressed: ()=> Navigator.of(context).pop(), icon: Icon(Icons.arrow_back_ios, size: 50),),
       actions: [
           IconButton(

@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:articulation/database/patient_db_helper.dart';
 import 'package:articulation/screen/edit.dart';
 import 'package:articulation/screen/login.dart';
@@ -197,10 +199,21 @@ class _MyHomePageState extends State<MyHomePage> {
                             flashCardOption(letter: 'أ', cid: civilID),
                       ));
                     }),
+                    SizedBox(width: 10,),
                     Container(
-                      height: 110,
+                      height: 100,
+                      margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                        color: Colors.amber.shade50,
+                        width: 2,
+                      ),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        color: Colors.amber.shade50,
+                      ),
                       //decoration: BoxDecoration(color: Colors.red),
-                      child: Center(child: Text('Articulate It !', style: TextStyle(fontSize: 35),)),
+                      child: Center(child: Text('Articulate It !', style: TextStyle(fontSize: 35),
+                      )),
                     )
       
                /* Container(
@@ -874,23 +887,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         borderRadius: BorderRadius.all(Radius.circular(360)),
                       ),
                     ),
-                    //activate the next comment in case we have more options for settings.
-                    //for now, the only settings available is Edit the Profile
-                    /* onTap: () {
+                    onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => SettingsPage(patientId: civilID)),
                         );
-                      } */
-                     onTap: () {
-                       Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) =>
-                    EditPatientPage(title: 'تعديل الملف الشخصي', cid: civilID),
-              ),
-            );
-                     },
+                      } 
                   ),
                   Text("اعدادات")
                 ],

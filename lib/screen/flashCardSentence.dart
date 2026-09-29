@@ -29,7 +29,9 @@ class _flashCardSentenceState extends State<flashCardSentence> {
   Widget build(BuildContext context) {
     final List<Sentence> sentenceList = sentencesByLetter[myLetter] ?? [];
     return Scaffold(
-      appBar: AppBar(leading: 
+      appBar: AppBar(
+        backgroundColor: Colors.red.shade50,
+        leading: 
       IconButton(onPressed: ()=> Navigator.of(context).pop(), icon: Icon(Icons.arrow_back_ios, size: 50),),
       actions: [
           IconButton(
@@ -102,7 +104,7 @@ class _flashCardSentenceState extends State<flashCardSentence> {
                                           width: 250,
                                           child: Center(child: Text(sentenceList[index].order, style: TextStyle(fontSize: 50),)),
                                                                             decoration: BoxDecoration(
-                                                                      color: Colors.grey[300],
+                                                                      color: Colors.amber.shade50,
                                                                       borderRadius: BorderRadius.all(Radius.circular(20)
                                                                       ),
                                                                     ),

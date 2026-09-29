@@ -1,4 +1,5 @@
 import 'package:articulation/main.dart';
+import 'package:articulation/screen/setting.dart';
 import 'package:flutter/material.dart';
 //import 'flashCardOption.dart';
 import 'word.dart';
@@ -32,7 +33,9 @@ class _flashCardWordState extends State<flashCardWord> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(leading: 
+      appBar: AppBar(
+        backgroundColor: Colors.red.shade50,
+        leading: 
       IconButton(onPressed: ()=> Navigator.of(context).pop(), icon: Icon(Icons.arrow_back_ios, size: 50),),
       actions: [
           IconButton(
@@ -50,6 +53,12 @@ class _flashCardWordState extends State<flashCardWord> {
               );
             },
           ),
+         /* IconButton(icon: Icon(Icons.settings), onPressed: () {
+                Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SettingsPage(patientId: civilID)),
+                        );
+              },),*/
         ],
       ),
       backgroundColor: Colors.red[50],
@@ -85,160 +94,176 @@ class _flashCardWordState extends State<flashCardWord> {
                   ),
                 ),
                 child: Column(
-                  // mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Center(
-                        child: Container(
+                    
+                    Column(
+                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        
+                        Center(
+                            child: Container(
+                              margin: EdgeInsets.all(10),
+                              child: Text(widget.letter, style: TextStyle(fontSize: 70),),
+                    
+                            )),
+
+                        Column(
+                          children: [
+                            Container(
+                          height: 100,
+                          // color: Colors.grey[300],
                           margin: EdgeInsets.all(10),
-                          child: Text(widget.letter, style: TextStyle(fontSize: 70),),
-
-                        )),
-                    Container(
-                      height: 100,
-                      // color: Colors.grey[300],
-                      margin: EdgeInsets.all(10),
-                      child: Column(
-                        children: [
-
-                          GestureDetector(
-                            child: Container(
-                              height: 100,
-                              width: 250,
-                              child: Center(child: Text("بداية الكلمة", style: TextStyle(fontSize: 50, ), )),
-                              decoration: BoxDecoration(
-                                color: Colors.grey[300],
-                                borderRadius: BorderRadius.all(Radius.circular(20)
+                          child: Column(
+                            children: [
+                    
+                              GestureDetector(
+                                child: Container(
+                                  height: 100,
+                                  width: 250,
+                                  child: Center(child: Text("بداية الكلمة", style: TextStyle(fontSize: 50, ), )),
+                                  decoration: BoxDecoration(
+                                    color: Colors.amber.shade50,
+                                    borderRadius: BorderRadius.all(Radius.circular(20)
+                                    ),
+                                  ),
+                    
                                 ),
+                                onTap: (){
+                                  setState(() {
+                    
+                                    flag = !flag;
+                    
+                                    if(medial == true){
+                                      medial = !medial;
+                                    }else if(end == true){
+                                      end = !end;
+                                    }
+                                    letters = widget.letter;
+                                    dict = showPosition('begin');
+                    
+                    
+                    
+                                  });
+                                  
+                                  Navigator.of(context).push(
+                                  PageRouteBuilder(
+                                  pageBuilder: (_, __, ___) => Word(dict, civilID),
+                            )
+                        );
+                                },
                               ),
-
-                            ),
-                            onTap: (){
-                              setState(() {
-
-                                flag = !flag;
-
-                                if(medial == true){
-                                  medial = !medial;
-                                }else if(end == true){
-                                  end = !end;
-                                }
-                                letters = widget.letter;
-                                dict = showPosition('begin');
-
-
-
-                              });
-                              
-                              Navigator.of(context).push(
-                              PageRouteBuilder(
+                            ],
+                          ),
+                        ),
+                        Container(
+                          height: 100,
+                          //color: Colors.grey[300],
+                          margin: EdgeInsets.all(10),
+                          child: Column(
+                            children: [
+                              GestureDetector(
+                                child: Container(
+                                  height: 100,
+                                  width: 250,
+                                  child: Center(child: Text("وسط الكلمة", style: TextStyle(fontSize: 50, ))),
+                                  decoration: BoxDecoration(
+                                    color: Colors.amber.shade50,
+                                    borderRadius: BorderRadius.all(Radius.circular(20)
+                                    ),
+                                  ),),
+                                onTap: (){
+                                  setState(() {
+                                    medial = !medial;
+                    
+                                    if(flag == true){
+                                      flag = !flag;
+                                    }else if(end == true){
+                                      end = !end;
+                                    }
+                                    letters = widget.letter;
+                                    dict = showPosition('medial');
+                    
+                    
+                    
+                                  });
+                    
+                                  Navigator.of(context).push(
+                            PageRouteBuilder(
                               pageBuilder: (_, __, ___) => Word(dict, civilID),
-                        )
-                    );
-                            },
+                            )
+                        );
+                                },
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                        Container(
+                          height: 100,
+                          // color: Colors.grey[300],
+                          margin: EdgeInsets.all(10),
+                          child: Column(
+                            children: [
+                              GestureDetector(
+                                child: Container(
+                                  height: 100,
+                                  width: 250,
+                                  child: Center(child: Text("آخر الكلمة", style: TextStyle(fontSize: 50, ))),
+                                  decoration: BoxDecoration(
+                                    color: Colors.amber.shade50,
+                                    borderRadius: BorderRadius.all(Radius.circular(20)
+                                    ),
+                                  ),),
+                                onTap: (){
+                                  setState(() {
+                                    end = !end;
+                    
+                                    if(medial == true){
+                                      medial = !medial;
+                                    }else if(flag == true){
+                                      flag = !flag;
+                                    }
+                                    letters = widget.letter;
+                    
+                                    dict = showPosition('end');
+                    
+                    
+                    
+                                  });
+                    
+                                  Navigator.of(context).push(
+                            PageRouteBuilder(
+                              pageBuilder: (_, __, ___) => Word(dict, civilID),
+                            )
+                        );
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                          ],
+                        ),
+                        
+                        //SizedBox(height: 30,),
+                        Row(
+                      children: [
+                        IconButton(icon: Icon(Icons.settings, size: 50,), onPressed: () {
+                          Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => SettingsPage(patientId: civilID)),
+                                  );
+                        },),
+                      ],
                     ),
-                    Container(
-                      height: 100,
-                      //color: Colors.grey[300],
-                      margin: EdgeInsets.all(10),
-                      child: Column(
-                        children: [
-                          GestureDetector(
-                            child: Container(
-                              height: 100,
-                              width: 250,
-                              child: Center(child: Text("وسط الكلمة", style: TextStyle(fontSize: 50, ))),
-                              decoration: BoxDecoration(
-                                color: Colors.grey[300],
-                                borderRadius: BorderRadius.all(Radius.circular(20)
-                                ),
-                              ),),
-                            onTap: (){
-                              setState(() {
-                                medial = !medial;
-
-                                if(flag == true){
-                                  flag = !flag;
-                                }else if(end == true){
-                                  end = !end;
-                                }
-                                letters = widget.letter;
-                                dict = showPosition('medial');
-
-
-
-                              });
-
-                              Navigator.of(context).push(
-                        PageRouteBuilder(
-                          pageBuilder: (_, __, ___) => Word(dict, civilID),
-                        )
-                    );
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 100,
-                      // color: Colors.grey[300],
-                      margin: EdgeInsets.all(10),
-                      child: Column(
-                        children: [
-                          GestureDetector(
-                            child: Container(
-                              height: 100,
-                              width: 250,
-                              child: Center(child: Text("آخر الكلمة", style: TextStyle(fontSize: 50, ))),
-                              decoration: BoxDecoration(
-                                color: Colors.grey[300],
-                                borderRadius: BorderRadius.all(Radius.circular(20)
-                                ),
-                              ),),
-                            onTap: (){
-                              setState(() {
-                                end = !end;
-
-                                if(medial == true){
-                                  medial = !medial;
-                                }else if(flag == true){
-                                  flag = !flag;
-                                }
-                                letters = widget.letter;
-
-                                dict = showPosition('end');
-
-
-
-                              });
-
-                              Navigator.of(context).push(
-                        PageRouteBuilder(
-                          pageBuilder: (_, __, ___) => Word(dict, civilID),
-                        )
-                    );
-                            },
-                          ),
-                        ],
-                      ),
+                      ],
                     ),
                   ],
                 ),
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(top: 750, left: 1000, right: 10, bottom: 10),
-              width: 50,
-              height: 50,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(360)
-                ),
-              ),
-              child: Icon(Icons.settings),
-            ),
+            
           ],
         ),
       ),

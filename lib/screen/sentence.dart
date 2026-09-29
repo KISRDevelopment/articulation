@@ -35,7 +35,9 @@ class _sentenceState extends State<sentence> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(leading: 
+      appBar: AppBar(
+        backgroundColor: Colors.red.shade50,
+        leading: 
       IconButton(onPressed: ()=> Navigator.of(context).pop(), icon: Icon(Icons.arrow_back_ios, size: 50),),
       actions: [
           IconButton(
@@ -280,9 +282,16 @@ Widget build(BuildContext context) {
                     textDirection: TextDirection.rtl,
                     child: TextField(
                       controller: _commentController,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
+                      cursorColor: Colors.black,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      filled: true,
+                      fillColor: Colors.white,
                         labelText: "أدخل تعليق",
+                        floatingLabelStyle: TextStyle(
+                                color: Colors.black
+                              ),
                       ),
                     ),
                   ),
@@ -296,7 +305,7 @@ Widget build(BuildContext context) {
                   child: ElevatedButton(
                     onPressed: _insertComment,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red[300],
+                      backgroundColor: Colors.red[400],
                       foregroundColor: Colors.white,
                     ),
                     child: const Text(

@@ -19,7 +19,8 @@ class ReportPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Patient Report')),
+      backgroundColor: Colors.red.shade50,
+      appBar: AppBar(title: const Text('Patient Report'), backgroundColor: Colors.red.shade50,),
       body: PdfPreview(
         build: _buildPdf,
         canChangePageFormat: false,
@@ -28,6 +29,7 @@ class ReportPage extends StatelessWidget {
         allowSharing: true,
         allowPrinting: true,
         pdfFileName: 'patient_$civilId.pdf',
+        
       ),
     );
   }
