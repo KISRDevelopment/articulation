@@ -2,6 +2,7 @@ import 'package:articulation/main.dart';
 import 'package:articulation/screen/signup.dart';
 import 'package:flutter/material.dart';
 import '../database/patient_db_helper.dart';
+import 'package:flutter/services.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -92,6 +93,11 @@ class _LoginPageState extends State<LoginPage> {
                 TextFormField(
                   controller: _civilIDController,
                   cursorColor: Colors.black,
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                    LengthLimitingTextInputFormatter(12),
+                  ],
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
                       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
@@ -113,10 +119,13 @@ class _LoginPageState extends State<LoginPage> {
                               ),
 
                   ),
-                  maxLines: 2,
+                  
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'يرجى إدخال الرقم المدني';
+                    }
+                    if (value.length != 12){
+                      return 'يجب أن يكون الرقم المدني من ١٢ رقما';
                     }
                     return null;
                   },

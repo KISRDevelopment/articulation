@@ -13,6 +13,8 @@ import 'package:articulation/screen/info.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
+//this is the main homepage, when you click the letter it will go to flashcardOprion.dart
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

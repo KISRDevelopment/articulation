@@ -1,4 +1,5 @@
 import 'package:articulation/main.dart';
+import 'package:articulation/screen/setting.dart';
 import 'package:flutter/material.dart';
 import 'package:after_layout/after_layout.dart';
 import 'package:flip_card/flip_card.dart';
@@ -55,167 +56,197 @@ class _flashCardOptionState extends State<flashCardOption> with AfterLayoutMixin
         ],
       ),
       //backgroundColor: Colors.transparent,
-      body: Center(
-        child: Container(
-          //color: Colors.transparent,
-          height: 700,
-          child: Container(
-            //color: Colors.white,
-            width: 700,
-            height: 700,
-            decoration: BoxDecoration(
-                color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(20)
-            ),
-            border: Border.all(
-              color: Colors.red,
-            )
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                /*Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                     GestureDetector(
-                       child: Container(
-                          margin: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(360)
+      body: Stack(
+        children: [Center(
+          child: Column(
+            children: [
+              Container(
+                //color: Colors.transparent,
+                height: 700,
+                child: Container(
+                  //color: Colors.white,
+                  width: 700,
+                  height: 700,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(20)
+                  ),
+                  border: Border.all(
+                    color: Colors.red,
+                  )
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      /*Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                           GestureDetector(
+                             child: Container(
+                                margin: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
+                                width: 50,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.all(Radius.circular(360)
+                                  ),
+                                ),
+                                child: Icon(Icons.arrow_back_ios, size: 50),
+                             
+                              ),
+                              onTap: (){
+                                      Navigator.of(context).pop(
+                                      );
+                                    },
+                           ),
+                      
+                          Container(
+                            margin: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(Radius.circular(360)
+                              ),
                             ),
-                          ),
-                          child: Icon(Icons.arrow_back_ios, size: 50),
-                       
-                        ),
-                        onTap: (){
-                                Navigator.of(context).pop(
-                                );
-                              },
-                     ),
-                
-                    Container(
-                      margin: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(360)
-                        ),
+                            child: Icon(Icons.lightbulb_outline, size: 50),
+                      
+                          ), 
+                        ],
+                      ), */
+                      Container(
+                        child: Center(child: Text(widget.letter, style: TextStyle(fontSize: 150, ),)),
                       ),
-                      child: Icon(Icons.lightbulb_outline, size: 50),
-                
-                    ), 
-                  ],
-                ), */
-                Container(
-                  child: Center(child: Text(widget.letter, style: TextStyle(fontSize: 150, ),)),
-                ),
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-    
-                        GestureDetector(
-                          child: Container(
-                            margin: EdgeInsets.all(10),
-                            width: 150,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: Colors.amber.shade50,
-                              borderRadius: BorderRadius.all(Radius.circular(20)
+                      Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                  
+                              GestureDetector(
+                                child: Container(
+                                  margin: EdgeInsets.all(10),
+                                  width: 150,
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                    color: Colors.amber.shade50,
+                                    borderRadius: BorderRadius.all(Radius.circular(20)
+                                    ),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Text("قصص", style: TextStyle(fontSize: 50)),
+                                      //Icon(Icons.lightbulb_outline, size: 50)
+                                
+                                    ],
+                  
+                                  ),
+                                ),
+                                onTap: (){
+                                  Navigator.of(context).push(
+                                        PageRouteBuilder(
+                                          pageBuilder: (_, __, ___) => story(widget.letter, civilID),
+                                        )
+                                    );
+                                },
                               ),
-                            ),
-                            child: Column(
-                              children: [
-                                Text("قصص", style: TextStyle(fontSize: 50)),
-                                //Icon(Icons.lightbulb_outline, size: 50)
+                  
+                              GestureDetector(
+                                child: Container(
+                                  margin: EdgeInsets.all(10),
+                                  width: 150,
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                    color: Colors.amber.shade50,
+                                    borderRadius: BorderRadius.all(Radius.circular(20)
+                                    ),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Text("جمل", style: TextStyle(fontSize: 50)),
+                                      //Icon(Icons.lightbulb_outline, size: 50)
+                                
+                                    ],
+                                  ),
+                                ),
+                                onTap: (){
+                                    Navigator.of(context).push(
+                                        PageRouteBuilder(
+                                          pageBuilder: (_, __, ___) => flashCardSentence(widget.letter, civilID)
+                                        )
+                                    );
+                                  },
+                              ),
+                  
+                              GestureDetector(
+                                child: Container(
+                                  margin: EdgeInsets.all(10),
+                                  width: 150,
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                    color: Colors.amber.shade50,
+                                    borderRadius: BorderRadius.all(Radius.circular(20)
+                                    ),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Text("كلمات" , style: TextStyle(fontSize: 50),),
+                                     // Icon(Icons.lightbulb_outline, size: 50)
+                  
+                                    ],
+                                  ),
+                                ),
+                  
+                                  onTap: (){
+                                    Navigator.of(context).push(
+                                        PageRouteBuilder(
+                                          pageBuilder: (_, __, ___) => flashCardWord(widget.letter, civilID),
+                                        )
+                                    );
+                                  }
+                  
+                              ),
+                  
+                              
+                            ],
+                          ),
+              
                           
-                              ],
-    
-                            ),
-                          ),
-                          onTap: (){
-                            Navigator.of(context).push(
-                                  PageRouteBuilder(
-                                    pageBuilder: (_, __, ___) => story(widget.letter, civilID),
-                                  )
-                              );
-                          },
-                        ),
-    
-                        GestureDetector(
-                          child: Container(
-                            margin: EdgeInsets.all(10),
-                            width: 150,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: Colors.amber.shade50,
-                              borderRadius: BorderRadius.all(Radius.circular(20)
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Text("جمل", style: TextStyle(fontSize: 50)),
-                                //Icon(Icons.lightbulb_outline, size: 50)
-                          
-                              ],
-                            ),
-                          ),
-                          onTap: (){
-                              Navigator.of(context).push(
-                                  PageRouteBuilder(
-                                    pageBuilder: (_, __, ___) => flashCardSentence(widget.letter, civilID)
-                                  )
-                              );
-                            },
-                        ),
-    
-                        GestureDetector(
-                          child: Container(
-                            margin: EdgeInsets.all(10),
-                            width: 150,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: Colors.amber.shade50,
-                              borderRadius: BorderRadius.all(Radius.circular(20)
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Text("كلمات" , style: TextStyle(fontSize: 50),),
-                               // Icon(Icons.lightbulb_outline, size: 50)
-    
-                              ],
-                            ),
-                          ),
-    
-                            onTap: (){
-                              Navigator.of(context).push(
-                                  PageRouteBuilder(
-                                    pageBuilder: (_, __, ___) => flashCardWord(widget.letter, civilID),
-                                  )
-                              );
-                            }
-    
-                        ),
-    
-                        
-                      ],
-                    ),
-    
-    
+                  
+                  
+                      ),
+                    ],
+              
+                    
+                  
+                  ),
                 ),
-              ],
-    
-            ),
+                  
+                  
+              ),
+        
+
+              
+            ],
           ),
-    
-    
         ),
-      ),
+            Container(
+              margin: EdgeInsets.only(top: 650, left: 1000, right: 10, bottom: 10),
+              width: 70,
+              height: 70,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(360)
+                ),
+              ),
+              child: IconButton(icon: Icon(Icons.settings, size: 50), 
+              onPressed: () {
+                 Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SettingsPage(patientId: civilID)),
+                          ); }, 
+              ),
+            ),
+     ] ),
     );
   }
 

@@ -247,7 +247,7 @@ class _flashCardWordState extends State<flashCardWord> {
                         ),
                         
                         //SizedBox(height: 30,),
-                        Row(
+                       /* Row(
                       children: [
                         IconButton(icon: Icon(Icons.settings, size: 50,), onPressed: () {
                           Navigator.push(
@@ -256,7 +256,7 @@ class _flashCardWordState extends State<flashCardWord> {
                                   );
                         },),
                       ],
-                    ),
+                    ),*/
                       ],
                     ),
                   ],
