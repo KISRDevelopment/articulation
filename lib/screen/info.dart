@@ -62,7 +62,7 @@ class _InfoCardState extends State<InfoCard> with AfterLayoutMixin<InfoCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.red.shade50,
       body: Center(
         child: Container(
           color: Colors.transparent,

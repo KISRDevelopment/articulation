@@ -75,8 +75,8 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple[200],
-      appBar: AppBar(title: Text("مهارات النطق"), automaticallyImplyLeading: false,),
+      backgroundColor: Colors.red.shade50,
+      appBar: AppBar(title: Text("مهارات النطق",style: TextStyle(fontSize: 30),), backgroundColor: Colors.red.shade50, automaticallyImplyLeading: false,),
       body: isLoading ? Center(child: CircularProgressIndicator())
       : SafeArea(
         child: Directionality(
@@ -91,10 +91,27 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 TextFormField(
                   controller: _civilIDController,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    filled: true,
+                  cursorColor: Colors.black,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      filled: true,
+                      fillColor: Colors.white,
                     labelText: 'الرقم المدني',
+                    helperText:
+                                  'يجب إدخال الرقم المدني ١٢ رقماً',
+
+                    labelStyle: TextStyle(
+                                fontSize: 25,
+                              ),
+
+                              // Label while typing
+                    floatingLabelStyle: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black
+                              ),
+
                   ),
                   maxLines: 2,
                   validator: (value) {
@@ -105,23 +122,27 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
                 SizedBox(height: 20,),
-                TextButton(
+                ElevatedButton(
                   onPressed: _login,
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.white, side: BorderSide(color: Colors.red.shade400,width: 1.5)),
                   child: Text('دخول',
                       style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
+                        color: Colors.black,
+                        fontSize: 30,
                       )),
                 ),
-
+                SizedBox(height: 10,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('مستخدم جديد؟'),
-                  TextButton(onPressed: (){Navigator.push(
+                    Text('مستخدم جديد؟', style: TextStyle(fontSize: 20),),
+                  SizedBox(width: 10,),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.white, side: BorderSide(color: Colors.red.shade400,width: 1.5)),
+                    onPressed: (){Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => SignupPage(title: '')),
-                  );}, child: Text('تسجيل', style: TextStyle(color: Colors.white),)),
+                  );}, child: Text('تسجيل', style: TextStyle(color: Colors.black, fontSize: 20),)),
                   
                 ],)
               ],

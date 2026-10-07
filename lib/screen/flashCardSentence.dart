@@ -1,3 +1,4 @@
+import 'package:articulation/main.dart';
 import 'package:articulation/screen/sentence.dart';
 import 'package:flutter/material.dart';
 import 'sentence_model.dart';
@@ -28,11 +29,33 @@ class _flashCardSentenceState extends State<flashCardSentence> {
   Widget build(BuildContext context) {
     final List<Sentence> sentenceList = sentencesByLetter[myLetter] ?? [];
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+      appBar: AppBar(
+        backgroundColor: Colors.red.shade50,
+        leading: 
+      IconButton(onPressed: ()=> Navigator.of(context).pop(), icon: Icon(Icons.arrow_back_ios, size: 50),),
+      actions: [
+          IconButton(
+            icon: const Icon(Icons.home, size: 50,),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MyHomePage(
+                    title: 'welcome ${widget.cid}',
+                    cid: widget.cid,
+                  ),
+                ),
+                (route) => false,
+              );
+            },
+          ),
+        ],
+      ),
+      backgroundColor: Colors.red[50],
       body: Container(
         child: Stack(
           children: [
-              GestureDetector(
+              /*GestureDetector(
               child: Container(
                 margin: EdgeInsets.all(10),
                 width: 50,
@@ -49,7 +72,7 @@ class _flashCardSentenceState extends State<flashCardSentence> {
                 Navigator.of(context).pop(
                 );
               },
-            ),
+            ), */
 
             Center(
               child: Container(
@@ -81,7 +104,7 @@ class _flashCardSentenceState extends State<flashCardSentence> {
                                           width: 250,
                                           child: Center(child: Text(sentenceList[index].order, style: TextStyle(fontSize: 50),)),
                                                                             decoration: BoxDecoration(
-                                                                      color: Colors.grey[300],
+                                                                      color: Colors.amber.shade50,
                                                                       borderRadius: BorderRadius.all(Radius.circular(20)
                                                                       ),
                                                                     ),

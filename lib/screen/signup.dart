@@ -1,6 +1,7 @@
 import 'package:articulation/database/patient_db_helper.dart';
 import 'package:articulation/screen/login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../main.dart';
 
 class SignupPage extends StatefulWidget {
@@ -15,11 +16,13 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   List<Map<String, dynamic>> _patients = [];
   final _formKey = GlobalKey<FormState>();
+  String? _civilIDError;
   TextEditingController _civilIDController = TextEditingController();
   TextEditingController _fistNameController = TextEditingController();
   TextEditingController _lastNameController = TextEditingController();
   TextEditingController _fileNumController = TextEditingController();
   TextEditingController _ageController = TextEditingController();
+  
 
 
   @override
@@ -68,11 +71,36 @@ class _SignupPageState extends State<SignupPage> {
         //await PatientDatabaseHelper().insertPatient(newPatient);
         await PatientDBHelper.addPatients(newPatient);
 
-        ScaffoldMessenger.of(context).showSnackBar(
+        if (!mounted) return;
+
+        /*ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Patient registered successfully'),
         ),
+        );*/
+
+        await showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text(
+                'تم تسجيل المستخدم بنجاح ',
+              textAlign: TextAlign.center,
+              ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text('موافق'),
+            ),
+          ],
         );
+      },
+    );
+
+    if (!mounted) return;
 
         print('pass add patient');
 
@@ -80,7 +108,12 @@ class _SignupPageState extends State<SignupPage> {
           context,
           MaterialPageRoute(builder: (context) => MyHomePage(title: 'welcome $cid', cid: cid,)),
         );
-      }} catch (e) {}
+      } else {
+        setState(() {
+          _civilIDError = 'هذا الرقم المدني مسجل مسبقا ';
+        });
+      }
+      } catch (e) {}
 
 
     }
@@ -90,13 +123,13 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple[200],
-      appBar: AppBar(title: Text("مهارات النطق"),),
+      backgroundColor: Colors.red.shade50,
+      appBar: AppBar(title: Text("مهارات النطق",style: TextStyle(fontSize: 30),), backgroundColor: Colors.red.shade50,),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(25),
         child: Directionality(
           textDirection: TextDirection.rtl,
-          child:   Center( child: 
+          child: Center( child: 
           Container( width: 500, child:
           Form(
             key: _formKey,
@@ -107,16 +140,50 @@ class _SignupPageState extends State<SignupPage> {
                 SizedBox(height: 20,),
                   TextFormField(
                     controller: _civilIDController,
+                    keyboardType: TextInputType.number,
+                    //limiting the number of digits to reach only 12
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      LengthLimitingTextInputFormatter(12),
+                    ],
                     //textAlign: TextAlign.right,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
+                    cursorColor: Colors.black,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
                       filled: true,
+                      fillColor: Colors.white,
+                      helperText: 'يجب إدخال الرقم المدني ١٢ رقما',
                       labelText: 'الرقم المدني',
+
+                      errorText: _civilIDError,
+                      
+                      labelStyle:TextStyle(
+                        fontSize: 25,
+                      ),
+
+                      floatingLabelStyle: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black
+                      )
                     ),
+
+                    onChanged: (value){
+                      if (_civilIDError != null) {
+                        setState(() {
+                          _civilIDError = null;
+                        });
+                      }
+                    },
                     //maxLines: 2,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'يرجى إدخال الرقم المدني';
+                      }
+
+                      if (value.length != 12){
+                        return 'يجب أن يكون الرقم المدني من ١٢ رقما';
                       }
                       return null;
                     },
@@ -124,10 +191,22 @@ class _SignupPageState extends State<SignupPage> {
                   SizedBox(height: 20,),
                   TextFormField(
                     controller: _fistNameController,
+                    cursorColor: Colors.black,
                     decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
                       filled: true,
+                      fillColor: Colors.white,
                       labelText: 'الاسم الأول',
+                      labelStyle:TextStyle(
+                        fontSize: 25,
+                      ),
+
+                      floatingLabelStyle: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black
+                      )
                     ),
                     //maxLines: 2,
                     validator: (value) {
@@ -140,10 +219,22 @@ class _SignupPageState extends State<SignupPage> {
                   SizedBox(height: 20,),
                   TextFormField(
                     controller: _lastNameController,
+                    cursorColor: Colors.black,
                     decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
                       filled: true,
+                      fillColor: Colors.white,
                       labelText: 'الاسم الأخير',
+                      labelStyle:TextStyle(
+                        fontSize: 25,
+                      ),
+
+                      floatingLabelStyle: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black
+                      )
                     ),
                     //maxLines: 2,
                     validator: (value) {
@@ -156,10 +247,22 @@ class _SignupPageState extends State<SignupPage> {
 SizedBox(height: 20,),
                   TextFormField(
                     controller: _fileNumController,
+                    cursorColor: Colors.black,
                     decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
                       filled: true,
+                      fillColor: Colors.white,
                       labelText: 'رقم الملف',
+                      labelStyle:TextStyle(
+                        fontSize: 25,
+                      ),
+
+                      floatingLabelStyle: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black
+                      )
                     ),
                     //maxLines: 2,
                     validator: (value) {
@@ -172,10 +275,22 @@ SizedBox(height: 20,),
 SizedBox(height: 20,),
                   TextFormField(
                     controller: _ageController,
+                    cursorColor: Colors.black,
                     decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
                       filled: true,
+                      fillColor: Colors.white,
                       labelText: 'العمر',
+                      labelStyle:TextStyle(
+                        fontSize: 25,
+                      ),
+
+                      floatingLabelStyle: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black
+                      )
                     ),
                     //maxLines: 2,
                     validator: (value) {
@@ -186,23 +301,27 @@ SizedBox(height: 20,),
                     },
                   ),
 SizedBox(height: 20,),
-            TextButton(
+            ElevatedButton(
               onPressed: _signup,
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.white, side: BorderSide(color: Colors.red.shade400,)),
               child: Text('تسجيل',
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
+                    color: Colors.black,
+                    fontSize: 25,
                   )),
             ),
 SizedBox(height: 20,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('لديك حساب؟'),
-                TextButton(onPressed: (){Navigator.push(
+                Text('لديك حساب؟', style: TextStyle(fontSize: 20),),
+                SizedBox(width: 10,),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.white,side: BorderSide(color: Colors.red.shade400,)),
+                  onPressed: (){Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => LoginPage(title: '')),
-                );}, child: Text('دخول', style: TextStyle(color: Colors.white),)),
+                );}, child: Text('دخول', style: TextStyle(color: Colors.black, fontSize: 20),)),
                 
               ],)
               ],
